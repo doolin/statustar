@@ -1,0 +1,24 @@
+<h1>Listing logins</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>User</th>
+    <th>Passwd</th>
+  </tr>
+
+<% @logins.each do |login| %>
+  <tr>
+    <td><%=h login.id %></td>
+    <td><%=h login.user %></td>
+    <td><%=h login.passwd %></td>
+    <td><%= link_to 'Show', login %></td>
+    <td><%= link_to 'Edit', edit_login_path(login) %></td>
+    <td><%= link_to 'Destroy', login, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New login', new_login_path %>
