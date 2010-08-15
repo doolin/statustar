@@ -9,14 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100812045232) do
+ActiveRecord::Schema.define(:version => 20100815055852) do
 
-  create_table "statuses", :force => true do |t|
-    t.string   "name"
-    t.integer  "amount"
+  create_table "logins", :force => true do |t|
+    t.string   "user"
+    t.string   "passwd"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "available",  :default => true
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.integer  "sid"
+    t.integer  "uid"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

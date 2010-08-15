@@ -1,9 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  amount: 1
+  sid: 1
+  uid: 1
+  status: 1
 
 two:
-  name: MyString
-  amount: 1
+  sid: 1
+  uid: 1
+  status: 1
