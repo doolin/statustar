@@ -1,0 +1,18 @@
+<p>
+  <b>Id:</b>
+  <%=h @login.id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @login.user %>
+</p>
+
+<p>
+  <b>Passwd:</b>
+  <%=h @login.passwd %>
+</p>
+
+
+<%= link_to 'Edit', edit_login_path(@login) %> |
+<%= link_to 'Back', logins_path %>

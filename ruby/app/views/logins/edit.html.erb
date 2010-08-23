@@ -1,0 +1,24 @@
+<h1>Editing login</h1>
+
+<% form_for(@login) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </p>
+  <p>
+    <%= f.label :passwd %><br />
+    <%= f.text_field :passwd %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @login %> |
+<%= link_to 'Back', logins_path %>

@@ -1,0 +1,97 @@
+
+html {
+    height: 95%;
+    width: 99%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font: 10pt verdana;
+    font-family: verdana;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#contents {
+    width: 100%;
+    height: 95%;
+}
+
+#editOrSave {
+    width: 100%;
+}
+
+.readonly {
+    font: 8pt verdana;
+    background-color: #f0f0ff;
+    border: none;
+    padding: 8px;
+}
+
+td {
+    font: 10pt verdana;
+    font-family: verdana;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+}
+
+.note {
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+}
+
+h2 {
+    width: 100%;
+    background-color: #b43530;
+    color: #FFFFFF;
+    padding: 20px;
+}
+
+pre {
+    font-size: 80%;
+    padding: 10px;
+    border: 1px solid #EEEEEE;
+}
+
+#search {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 11px;
+}
+
+#search input {
+    font-size: 11px;
+    margin: 2px;
+}
+
+#search-text {
+    width: 170px
+}
+
+#sidebar {
+    border-left: 1px solid #DDDDDD;
+}
+
+#sidebar ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#sidebar ul h3 {
+    margin-top: 25px;
+    font-size: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#sidebar li {
+    list-style-type: none;
+}
+
+#sidebar ul.links li {
+    margin-bottom: 5px;
+}

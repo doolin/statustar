@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd”>
+<html>                                                                  
+<head>                                                                  
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Statustar: Status Updates Anywhere, Any Time.</title>                                                            
+</head>                                                                 
+<body style="padding: 50px">
+<table style="border:0; width:800; margin:auto">
+<tr>
+  <td colspan="2" style="font-family:Arial,Helvetica; text-align:center;">
+    <h2>Statustar: Status Updates Anywhere, Any Time.</h2>
+  </td>
+</tr>
+<tr>
+  <td style="width:520px; font-family:Arial,Helvetica">
+    FEATURES
+    <ul>
+      <li>Your one-stop application for status updates.</li>
+      <li>Simple to use red-yellow-green status bar.</li>
+      <li>Login using your Google Account.</li>
+    </ul>
+    
+  </td>
+  <td>
+    <!--  
+                *********** IMPORATANT *****************************************
+                you must have a div somewhere on your page with same id and width. You can configure the rest
+				Dave: source files downloaded from: http://openid.myofiz.com/login.example.html
+            -->
+    <div id="openidloginbox" style="width:270px; border:1px solid lightblue; padding:2px;"></div>
+  </td>
+</tr>
+</table>
+    <!--  
+                Loads jQuery from Google Ajax API. You can change this to your own copy of jQuery if you want
+             -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <!--  
+                Load the rest of the scripts like below
+             -->
+<script type="text/javascript" src="jquery.cookie.js"></script>          
+<script type="text/javascript" src="jx-base-0.61.min.js"></script>
+<script type="text/javascript" src="openidloginbox.config.js"></script>
+<script type="text/javascript" src="openidloginbox-0.2.js"></script>
+
+    <!--  
+                Add the script below to your page. If you are already using jQuery on you page,
+                you know what to do.
+             -->
+<script type="text/javascript"> 
+
+$(document).ready(function() {
+
+$("#openidloginbox").append(OpenID.LoginBox);
+OpenID.LoginBox.doLayout();
+
+}); 
+
+                              
+</script>   
+</body>                                                                 
+</html>
