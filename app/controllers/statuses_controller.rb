@@ -1,6 +1,16 @@
 class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.xml
+  def hello
+    @statuses = Status.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @statuses }
+    end
+  end
+
+  
   def index
     @statuses = Status.all
 
