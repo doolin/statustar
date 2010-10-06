@@ -15,7 +15,8 @@ body {
 }
 
 #contents {
-    width: 100%;
+    margin: .1em auto;
+    width: 560px;
     height: 95%;
 }
 

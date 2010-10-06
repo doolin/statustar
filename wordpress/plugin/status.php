@@ -3,7 +3,7 @@
  * Plugin name: Status Star
  * Plugin URI: http://website-in-a-weekend.net/plugins/demo-plugins/
  * Description: Statustar - global status, anytime anywhere (sorta like gravatar, only different).
- * Version: 0.1
+ * Version: 0.11
  * Author: Dave Doolin
  * Author URI: http://website-in-a-weekend.net/
  */
@@ -19,12 +19,24 @@ if (!class_exists("statustar")) {
         function statustar() {
 
             add_action('admin_menu', array(&$this, 'add_status_menu'));
-            register_activation_hook(__FILE__, array (&$this,'create_table'));
-            register_deactivation_hook(__FILE__, array (&$this,'drop_table'));
+            //register_setting('statustarfoo','statustar-options');
+            add_action('admin_init', 'register_options');
+            //$this->statustar_init();
+            register_activation_hook(__FILE__, array (&$this,'activate'));
+            register_deactivation_hook(__FILE__, array (&$this,'deactivate'));
             
         }
 
 
+        function statustar_init() {
+            $options = array('foo' => 'bar', 'baz' => true);
+            add_option('statustar-options', $options);
+        }
+        
+        function register_options() {
+            register_setting('statustarfoo','statustar-options');
+        }
+        
         function add_status_menu() {
 
             if (function_exists('add_menu_page')) {
@@ -62,6 +74,14 @@ Does nothing but demonstrate submenu.</div>
             <?php
         }
 
+        function activate() {
+            $this->create_table();
+        }
+        
+        function deactivate() {
+            delete_option('statustar-options');
+            $this->drop_table();
+        }
         
         function create_table() {
         
@@ -103,5 +123,7 @@ Does nothing but demonstrate submenu.</div>
 }
 
 $wpdpd = new statustar();
+$wpdpd->statustar_init();
+
 
 ?>
