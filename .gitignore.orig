@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+.DS_Store
+=======
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+>>>>>>> fd45f72a1b5f69224dd3c9bdf4bbd7481958d18d
