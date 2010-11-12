@@ -1,8 +1,0 @@
-<p>
-  <b>Number:</b>
-  <%=h @status.number %>
-</p>
-
-
-<%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
