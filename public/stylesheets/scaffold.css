@@ -16,31 +16,60 @@ a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
+<<<<<<< HEAD
 .fieldWithErrors {
+=======
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+>>>>>>> fc3eae16e3af21b4f12c1f19219bc2ca2dcebba7
   padding: 2px;
   background-color: red;
   display: table;
 }
 
+<<<<<<< HEAD
 #errorExplanation {
   width: 400px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;
+=======
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+>>>>>>> fc3eae16e3af21b4f12c1f19219bc2ca2dcebba7
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
 
+<<<<<<< HEAD
 #errorExplanation h2 {
+=======
+#error_explanation h2 {
+>>>>>>> fc3eae16e3af21b4f12c1f19219bc2ca2dcebba7
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
   font-size: 12px;
   margin: -7px;
+<<<<<<< HEAD
+=======
+  margin-bottom: 0px;
+>>>>>>> fc3eae16e3af21b4f12c1f19219bc2ca2dcebba7
   background-color: #c00;
   color: #fff;
 }
 
+<<<<<<< HEAD
 #errorExplanation p {
   color: #333;
   margin-bottom: 0;
@@ -52,3 +81,9 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
+=======
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+>>>>>>> fc3eae16e3af21b4f12c1f19219bc2ca2dcebba7

@@ -1,20 +1,8 @@
-# MySQL.  Versions 4.1 and 5.0 are recommended.
-#
-# Install the MySQL driver:
-#   gem install mysql2
-#
-# And be sure to use new-style password hashing:
-#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: statustar_development
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  username: root
-  password: root
-  host: localhost
-  socket: /Applications/MAMP/tmp/mysql/mysql.sock
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,12 +17,13 @@ test:
   password:
   host: localhost
 
+# Use postgres-pr gem on mac os until pg gem build issues resolved.
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: statustar_production
-  pool: 5
-  username: root
-  password:
+  encoding: unicode
+  adapter: postgresql
+  username: postgres
+  port: 5432
   host: localhost
+  database: statustar_development
+  password: clearcase
+  
