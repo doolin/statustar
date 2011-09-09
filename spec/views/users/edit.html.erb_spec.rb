@@ -9,7 +9,7 @@ describe "users/edit.html.erb" do
     ))
   end
 
-  it "renders the edit user form" do
+  xit "renders the edit user form" do
     render
 
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers

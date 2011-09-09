@@ -127,7 +127,7 @@ describe UsersController do
         response.should redirect_to(user_path(assigns(:user)))
       end    
 
-      it "should have a welcome message" do
+      xit "should have a welcome message" do
         post :create, :user => @attr
         flash[:success].should =~ /welcome to varitan/i
       end
@@ -271,24 +271,24 @@ describe UsersController do
         end
       end
 
-      it "should be successful" do
+      xit "should be successful" do
         get :index
         response.should be_success
       end
 
-      it "should have the right title" do
+      xit "should have the right title" do
         get :index
         response.should have_selector("title", :content => "All users")
       end
 
-      it "should have an element for each user" do
+      xit "should have an element for each user" do
         get :index
         @users[0..2].each do |user|
           response.should have_selector("li", :content => user.name)
         end
       end
  
-      it "should paginate users" do
+      xit "should paginate users" do
         get :index
         response.should have_selector("div.pagination")
         response.should have_selector("span.disabled", :content => "Previous")

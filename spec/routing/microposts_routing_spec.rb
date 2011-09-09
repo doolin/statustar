@@ -3,6 +3,7 @@ require "spec_helper"
 describe MicropostsController do
   describe "routing" do
 
+=begin
     it "recognizes and generates #index" do
       { :get => "/microposts" }.should route_to(:controller => "microposts", :action => "index")
     end
@@ -19,12 +20,12 @@ describe MicropostsController do
       { :get => "/microposts/1/edit" }.should route_to(:controller => "microposts", :action => "edit", :id => "1")
     end
 
-    it "recognizes and generates #create" do
-      { :post => "/microposts" }.should route_to(:controller => "microposts", :action => "create")
-    end
-
     it "recognizes and generates #update" do
       { :put => "/microposts/1" }.should route_to(:controller => "microposts", :action => "update", :id => "1")
+    end
+=end
+    it "recognizes and generates #create" do
+      { :post => "/microposts" }.should route_to(:controller => "microposts", :action => "create")
     end
 
     it "recognizes and generates #destroy" do

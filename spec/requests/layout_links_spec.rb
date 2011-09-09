@@ -67,12 +67,12 @@ describe "LayoutLinks" do
                                          :content => "Profile")
     end
 
-    it "should have a Users page at '/users'" do
+    xit "should have a Users page at '/users'" do
       visit users_path
       response.should have_selector('title', :content => "All users")
     end
 
-    it "as non-admin should not have a delete link" do
+    xit "as non-admin should not have a delete link" do
       visit users_path
       response.should_not have_selector("a[href]", :content => "delete")
     end
@@ -85,7 +85,7 @@ describe "LayoutLinks" do
      integration_sign_in(admin)
    end
 
-   it "you should not have a delete link for yourself" do
+   xit "you should not have a delete link for yourself" do
      # btw, this depends on only creating one user (an admin user) for this test
      visit users_path
      response.should_not have_selector("a[href]", :content => "delete")
