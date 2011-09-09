@@ -72,6 +72,7 @@ class MicropostsController < ApplicationController
   # DELETE /microposts/1
   # DELETE /microposts/1.xml
   def destroy
+    @micropost = Micropost.find(params[:id])
     @micropost.destroy
     redirect_back_or root_path
   end
