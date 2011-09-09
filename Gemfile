@@ -33,11 +33,15 @@ gem 'will_paginate', '2.3.15'
 gem 'gravatar_image_tag', '1.0.0'
 		
 group :development do
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 #	gem 'annotate-models', '1.0.4'
-#	gem 'faker', '0.3.1'
+	gem 'faker', '0.3.1'
 end
 
 group :test do
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 #	gem 'autotest', '4.4.6'
 #	gem 'autotest-rails-pure', '4.1.2' 
     # gem 'autotest-fsevent', '0.2.4'
