@@ -11,3 +11,9 @@ Feature: Users log in to sessions.
     And I sign in as "user@test.com/please"
     And I should be signed in
     Then I should see "/users/1"
+
+  Scenario: Users signs out successfully
+    Given user is logged in with "user@test.com/please"
+    When user click "sign out" link
+    Then user is signed out
+    And taken to upsells page
