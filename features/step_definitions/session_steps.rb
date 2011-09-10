@@ -1,17 +1,22 @@
 
 
-Given /^member is not logged in$/ do
-  pending # express the regexp above with the code you wish you had
+Given /^user is not logged in$/ do
+  visit('/signout') # ensure that at least
 end
 
-Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |arg1, arg2, arg3|
-  pending # express the regexp above with the code you wish you had
+Given /^user name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
+  User.new(:name => name,
+           :email => email,
+           :password => password,
+           :password_confirmation => password).save!
 end
 
-When /^I sign in as "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
+  And %{I fill in "Email" with "#{email}"}
+  And %{I fill in "Password" with "#{password}"}
+  And %{I press "Sign in"}
 end
 
 When /^I should be signed in$/ do
-  pending # express the regexp above with the code you wish you had
+  And  %{I should see "/users/1"}
 end

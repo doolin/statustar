@@ -27,11 +27,16 @@ source 'http://rubygems.org'
 #   gem 'webrat'
 # end
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.10'
 gem 'sqlite3-ruby', '1.3.3' 		 
 gem 'will_paginate', '2.3.15' 	  
 gem 'gravatar_image_tag', '1.0.0'
-		
+
+# Fix Rack/Capybara/whatever UTF encoding crapola:
+#gem 'rack', '1.3'
+gem 'escape_utils'
+
+
 group :development do
   gem 'cucumber-rails'
   gem 'database_cleaner'
@@ -46,7 +51,7 @@ group :test do
 #	gem 'autotest-rails-pure', '4.1.2' 
     # gem 'autotest-fsevent', '0.2.4'
 #	gem 'autotest-growl', '0.2.9'
-	gem 'rspec-rails', '2.4.0'
+	gem 'rspec-rails', '2.6.0'
 #	gem 'spork', '0.8.4'
 	gem 'webrat', '0.7.1'
 	gem 'factory_girl_rails', '1.0'
