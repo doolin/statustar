@@ -14,6 +14,6 @@ Feature: Users log in to sessions.
 
   Scenario: Users signs out successfully
     Given user is logged in with "user@test.com/please"
-    When user click "sign out" link
+    When user clicks "sign out" link
     Then user is signed out
     And taken to upsells page

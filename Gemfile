@@ -42,6 +42,7 @@ group :development do
   gem 'database_cleaner'
 #	gem 'annotate-models', '1.0.4'
 	gem 'faker', '0.3.1'
+	gem 'launchy'
 end
 
 group :test do

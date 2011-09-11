@@ -22,18 +22,29 @@ When /^I should be signed in$/ do
 end
 
 # Signing out steps
-Given /^user is logged in with "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given /^user is logged in with "([^"]*)"$/ do |userpass|
+  visit('/signin')
+  Given %{user name is "foo" with email "user@test.com" and password "please"}
+  When %{I sign in as "#{userpass}"}
 end
 
-When /^user click "([^"]*)" link$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+When /^user clicks "([^"]*)" link$/ do |arg1|
+  When %{I follow "Sign out"}
 end
 
+# Any sign out step should result in a way to
+# sign back in, regardless of what else is on
+# the target page.
 Then /^user is signed out$/ do
-  pending # express the regexp above with the code you wish you had
+  And  %{I should see "Sign in"}
 end
 
+# After signing out, direct the user to a landing page.
+# Perhaps we want to upsell, yes? Any other kind of
+# landing page could work just as well, depending on
+# the business case being implemented.
+
+# Various paths might lead to an upsells page.
 Then /^taken to upsells page$/ do
-  pending # express the regexp above with the code you wish you had
+  And  %{I should see "Sign up now!"}
 end
