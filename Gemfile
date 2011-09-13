@@ -29,7 +29,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
 gem 'sqlite3-ruby', '1.3.3' 		 
-gem 'will_paginate', '2.3.15' 	  
+gem 'will_paginate'
 gem 'gravatar_image_tag', '1.0.0'
 
 # Fix Rack/Capybara/whatever UTF encoding crapola:
