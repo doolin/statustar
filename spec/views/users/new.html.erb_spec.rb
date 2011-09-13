@@ -8,7 +8,7 @@ describe "users/new.html.erb" do
     ).as_new_record)
   end
 
-  xit "renders new user form" do
+  it "renders new user form" do
     render
 
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
