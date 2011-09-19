@@ -6,9 +6,57 @@
 	<%= render 'layouts/stylesheets' %>
 	<!-- Pulling in js here already solves the top nav layout issue in Chrome ... no idea why -->
 	<!-- It's also needed for :delete requests -->
-	<%= javascript_include_tag :defaults %> 
+	<%= javascript_include_tag :defaults %>
+  <style>
+nav {
+  font-size: 300%;
+}
+
+.star {
+  font-size: 300%;
+}
+#busy {
+  color: red;
+}
+#maybe {
+  color: yellow;
+}
+#open {
+  color: green;
+}
+#maybe.inactive, #open.inactive, #busy.inactive {
+  color: #ccc;
+}
+
+#busy:hover {
+  color: red;
+}
+#maybe:hover {
+  color: yellow;
+}
+#open:hover {
+  color: green;
+}
+
+</style>
+	
+	
   </head>
   <body>
+    
+    <nav>
+  &#10025; |
+  &#10026; |
+  &#10027; |
+  &#10028; |
+  &#10029; |
+  &#10030; |
+  &#10031; |
+  &#10032; |
+  &#9733;  |
+  &#9734;
+</nav>
+
     <div class="container">
 		<%= render 'layouts/header' %>
       	<section class="round">
