@@ -1,7 +1,5 @@
 Statustar::Application.routes.draw do
 
-  get 'statuses/new'
-
   get "sessions/new"
 
   resources :users do
@@ -9,7 +7,8 @@ Statustar::Application.routes.draw do
       get :following, :followers
     end
   end
-  
+
+  resources :statuses
   resources :sessions,      :only => [:new, :create, :destroy]
   resources :microposts,    :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
