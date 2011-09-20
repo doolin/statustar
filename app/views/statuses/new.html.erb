@@ -1,17 +1,5 @@
 <h1>New status</h1>
 
-<% form_for(@status) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-  <p>
-  	<%= f.check_box :available %><b>Available?</b>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', statuses_path %>

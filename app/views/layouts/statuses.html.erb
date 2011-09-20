@@ -6,6 +6,39 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Statuses: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
+  <style>
+nav {
+  font-size: 300%;
+}
+
+.star {
+  font-size: 300%;
+}
+#busy {
+  color: red;
+}
+#maybe {
+  color: yellow;
+}
+#open {
+  color: green;
+}
+#maybe.inactive, #open.inactive, #busy.inactive {
+  color: #ccc;
+}
+
+#busy:hover {
+  color: red;
+}
+#maybe:hover {
+  color: yellow;
+}
+#open:hover {
+  color: green;
+}
+
+</style>
+  
 </head>
 <body>
 
