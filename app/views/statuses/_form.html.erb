@@ -17,11 +17,11 @@
        # from by the model.
     %>
     <%= f.label "Busy" %>
-    <%= f.radio_button :state, 1 %><br />
+    <%= f.radio_button :state, 1, :id => 'Busy' %><br />
     <%= f.label "Maybe" %>
-    <%= f.radio_button :state, 2 %><br />
+    <%= f.radio_button :state, 2, :id => 'Maybe' %><br />
     <%= f.label "Open" %>
-    <%= f.radio_button :state, 3 %>
+    <%= f.radio_button :state, 3, :id => 'Open' %>
   </div>
 
   <div class="actions">

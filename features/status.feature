@@ -11,9 +11,9 @@ Feature: Users manipulate their status updates
 
   Scenarios: Changing status
     | oldstatus | newstatus |
-    | busy      | maybe     |
-    | busy      | open      |
-    | maybe     | busy      |
-    | maybe     | open      |
-    | open      | busy      |
-    | open      | maybe     |
+    | Busy      | Maybe     |
+    | Busy      | Open      |
+    | Maybe     | Busy      |
+    | Maybe     | Open      |
+    | Open      | Busy      |
+    | Open      | Maybe     |
