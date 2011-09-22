@@ -11,10 +11,24 @@ When /^the user clicks "([^"]*)"$/ do |newstate|
   choose(newstate)
 end
 
-Then /^the user's status changes to "([^"]*)"$/ do |newstate|
-  find_field(newstate).should be_checked
+When /^presses "([^"]*)"$/ do |arg1|
+  click_button "Create Status"
+end
 
-  #pending # express the regexp above with the code you wish you had
+Then /^the user's status changes to "([^"]*)"$/ do |newstate|
+  #puts "Status path" + status_path(1) #, status_path
+  # get :show, :id => @status
+  visit status_path(1)
+  #find_field(newstate).should be_checked
+  newstate = newstate.downcase
+  ###  TODO: explain why this passes.
+  page.should have_selector("span", :class => 'foobabractive', :id => newstate)
+  page.should have_css("span.active##{newstate}")
+  #page.should have_no_selector("span", :class => 'inactive', :id => newstate)
+  page.should have_no_css("span.inactive##{newstate}")
+  #page.should have_xpath('//span[@class="inactive"]', :count => 2)
+  #page.should have_xpath('//span[@class="active"]', :count => 2)
+  #response.should have_xpath('//span[@class="active"]', :count => 2)
 end
 
 
