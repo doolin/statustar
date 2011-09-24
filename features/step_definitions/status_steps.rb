@@ -32,6 +32,23 @@ Then /^the user's status changes to "([^"]*)"$/ do |newstate|
 end
 
 
+Given /^the user is on the home page$/ do
+  visit root_path
+end
+
+When /^the user updates status$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^the updated status should be displayed$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^the user must not be able to delete existing statuses$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+
 When /^I (press|follow|check|uncheck|choose) "([^\"]*)" for (.*) whose (.*) is "([^\"]*)"$/ do |action, whatyouclick, class_name, var_name, value|
   unless var_name == "id" then
     id = eval("\"#{class_name}\".classify.constantize.find_by_#{var_name}(\"#{value}\").id.to_s")

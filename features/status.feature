@@ -20,3 +20,14 @@ Feature: Users manipulate their status updates
     | Maybe     | Open      |
     | Open      | Busy      |
     | Open      | Maybe     |
+
+  Scenario: Updating statuses
+    Given user is logged in with "user@test.com/please"
+    And the user is on the home page
+    When the user updates status
+    Then the updated status should be displayed
+
+  # Delete but not modify
+  Scenario: Displaying status
+    Given user is logged in with "user@test.com/please"
+    Then the user must not be able to delete existing statuses
