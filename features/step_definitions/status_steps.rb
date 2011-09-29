@@ -1,6 +1,8 @@
 
 Given /^the user's status is "([^"]*)"$/ do |oldstate|
   #response_body.should have_selector 'input[type=radio][checked=checked][value=information]'
+  @user = User.create!(:name => 'dave', :email => 'dave@test.com', :password => 'foobar', :password_confirmation => 'foobar')
+  #puts @user.instance_variables
   visit('/statuses/new')
   #input("#busy").should be_checked
   choose(oldstate)
@@ -18,7 +20,12 @@ end
 Then /^the user's status changes to "([^"]*)"$/ do |newstate|
   #puts "Status path" + status_path(1) #, status_path
   # get :show, :id => @status
-  visit status_path(1)
+  #puts @user.instance_variables
+  #puts @user.inspect
+  #puts @user.to_s
+  #puts @user.to_yaml
+  puts YAML::dump(@user.statuses)
+  visit status_path(@user)
   #find_field(newstate).should be_checked
   newstate = newstate.downcase
   ###  TODO: explain why this passes.

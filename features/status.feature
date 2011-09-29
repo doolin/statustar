@@ -12,6 +12,7 @@ Feature: Users manipulate their status updates
     Then the user's status changes to "<newstatus>"
     #Then show me the page
 
+  @wip
   Scenarios: Changing status
     | oldstatus | newstatus |
     | Busy      | Maybe     |
