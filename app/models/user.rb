@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
   
   def feed
     Micropost.from_users_followed_by(self)
-    #Status.from_users_followed_by(self)
+    Status.from_users_followed_by(self)
   end
       
   private
