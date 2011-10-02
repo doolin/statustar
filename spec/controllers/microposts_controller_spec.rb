@@ -8,6 +8,8 @@ describe MicropostsController do
     end
   end
 
+
+# http://ruby.railstutorial.org/chapters/user-microposts#sec:showing_microposts
 =begin
   describe "GET index" do
     it "assigns all microposts as @microposts" do

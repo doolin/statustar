@@ -55,8 +55,8 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.save
-        flash[:notice] = 'Status was successfully created.'
-        format.html { redirect_to(@status) }
+        #flash[:notice] = 'Status was successfully created.'
+        format.html { redirect_to(root_path, :flash => { :success => 'Status was successfully updated.'}) }
         format.xml  { render :xml => @status, :status => :created, :location => @status }
       else
         format.html { render :action => "new" }

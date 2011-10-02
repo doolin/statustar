@@ -36,5 +36,4 @@ class Status < ActiveRecord::Base
               { :user_id => user })
       end
 
-
 end

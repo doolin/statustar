@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "statuses/show.html.erb" do
+
   before(:each) do
     @status = assign(:status, stub_model(Status,
       :state => 1,
@@ -15,4 +16,5 @@ describe "statuses/show.html.erb" do
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     rendered.should match(/1/)
   end
+
 end

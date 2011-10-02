@@ -49,6 +49,8 @@ class MicropostsController < ApplicationController
         flash[:success] = "Micropost created!"
         redirect_to root_path
       else
+        # Smells bad, but I don't know why.
+        @status = Status.new
         @feed_items = []
         render 'pages/home'
       end
