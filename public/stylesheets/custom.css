@@ -224,7 +224,7 @@ table.microposts tr td.micropost {
 }
 
 table.microposts tr td.micropost span.timestamp {
-  display: #505050;
+  color: #505050;
   font-size: 85%;
   color: #666;
 }
@@ -252,5 +252,40 @@ form.new_micropost {
 form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
+}
+
+/*** Both status and micropost ***/
+span.timestamp {
+  color: #505050;
+  font-size: 85%;
+  color: #666;  
+}
+
+
+
+.star {
+  font-size: 300%;
+}
+#busy {
+  color: red;
+}
+#maybe {
+  color: yellow;
+}
+#open {
+  color: green;
+}
+#maybe.inactive, #open.inactive, #busy.inactive {
+  color: #ccc;
+}
+
+#busy:hover {
+  color: red;
+}
+#maybe:hover {
+  color: yellow;
+}
+#open:hover {
+  color: green;
 }
 

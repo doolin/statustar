@@ -1,6 +1,9 @@
 <tr>
   <td class="status">
-    <span class="content"><%= status.state %></span>
+    <span id="busy" class="<%= status.find_active(1) %> star">&#10025;</span> &nbsp;
+    <span id="maybe" class="<%= status.find_active(2) %> star">&#10025;</span> &nbsp;
+    <span id="open" class="<%= status.find_active(3) %> star">&#10025;</span> &nbsp;
+   </span>
     <span class="timestamp">
       Posted <%= time_ago_in_words(status.created_at) %> ago.
     </span>
