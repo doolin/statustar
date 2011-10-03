@@ -2,11 +2,19 @@
   <td class="gravatar">
     <%= link_to gravatar_for(feed_item.user), feed_item.user %>
   </td>
-  <td class="micropost">
+  <td class="micropost status">
     <span class="user">
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
-    <span class="content"><%= feed_item.content %></span>
+    <span class="content">
+      <% if feed_item.class == Micropost %>
+        <%=  feed_item.content %>
+      <% elsif feed_item.class == Status %>
+        <span id="busy" class="<%= feed_item.find_active(1) %> star">&#10025;</span> &nbsp;
+        <span id="maybe" class="<%= feed_item.find_active(2) %> star">&#10025;</span> &nbsp;
+        <span id="open" class="<%= feed_item.find_active(3) %> star">&#10025;</span> &nbsp;
+      <% end %>
+    </span>
     <span class="timestamp">
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
     </span>
