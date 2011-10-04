@@ -120,6 +120,11 @@ describe MicropostsController do
 
   describe "DELETE destroy" do
 
+    before(:each) do
+      @user = test_sign_in(Factory(:user))
+      #@micropost = Factory(:micropost, :user => @user)
+    end
+
     # From Port proj Profile controller spec
     xit "should destroy the micropost" do
       lambda do

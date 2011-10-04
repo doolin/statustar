@@ -54,4 +54,35 @@ describe Status do
     status.find_active(1).should eq("inactive")
   end
 
+  describe "from_users_followed_by" do
+
+    before(:each) do
+      @other_user = Factory(:user, :email => Factory.next(:email))
+      @third_user = Factory(:user, :email => Factory.next(:email))
+
+      @user_post = @user.statuses.create!(:state => 1)
+      @other_post = @other_user.statuses.create!(:state => 3)
+      @third_post = @third_user.statuses.create!(:state => 2)
+
+      @user.follow!(@other_user)
+    end
+
+    it "should have a from_users_followed_by class method" do
+      Status.should respond_to(:from_users_followed_by)
+    end
+
+    it "should include the followed user's microposts" do
+      Status.from_users_followed_by(@user).should include(@other_post)
+    end
+
+    it "should include the user's own microposts" do
+      Status.from_users_followed_by(@user).should include(@user_post)
+    end
+
+    it "should not include an unfollowed user's microposts" do
+      Status.from_users_followed_by(@user).should_not include(@third_post)
+    end
+
+  end
+
 end
