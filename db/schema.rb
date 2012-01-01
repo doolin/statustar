@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20111005152621) do
 
-  create_table "microposts", :force => true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
-
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
