@@ -50,6 +50,7 @@ group :development do
 end
 
 group :test do
+  gem 'simplecov'
   gem 'cucumber-rails'
   gem 'database_cleaner'
 #	gem 'autotest', '4.4.6'
