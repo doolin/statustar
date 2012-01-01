@@ -286,7 +286,6 @@ describe UsersController do
         @users[0..2].each do |user|
           response.should have_selector 'li', 
             :content => user.name
-          # response.should have_tag("a[href='/user/:id']", :text => user.name)
         end
       end
 
