@@ -32,6 +32,7 @@ gem 'sqlite3-ruby', '1.3.3'
 gem 'will_paginate'
 gem 'gravatar_image_tag', '1.0.0'
 
+gem 'haml'
 gem 'sass'
 gem 'rb-fsevent'
 
