@@ -27,7 +27,6 @@ section h1 {
 }
 
 /* Links */
-
 a {
   color: #505050;
   text-decoration: none;
@@ -43,7 +42,6 @@ a:visited {
 }
 
 /* Navigation */
-
 nav {
   float: right;
 }
@@ -80,12 +78,9 @@ nav ul li a:hover {
 }
 
 /* Sign up button */
-
 a.signup_button {
   margin-left: auto;
   margin-right: auto;
-
-
   display: block;
   text-align: center;
   width: 190px;
@@ -97,15 +92,13 @@ a.signup_button {
 }
 
 /* Round corners */
-
 .round {
-  -moz-border-radius:    10px;
+  -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  border-radius:         10px;
+  border-radius: 10px;
 }
 
 /* Footer */
-
 footer {
   text-align: center;
   margin-top: 10px;
@@ -119,7 +112,6 @@ footer nav {
 }
 
 /* User show page */
-
 table.profile {
   width: 100%;
   margin-bottom: 0;
@@ -143,7 +135,6 @@ td.sidebar {
 }
 
 /* Forms */
-
 div.field, div.actions {
   margin-bottom: 10px;
 }
@@ -198,6 +189,9 @@ ul.users {
   list-style: none;
 }
 
+/**
+ * status.scss
+ */
 /* statuses */
 h1.status {
   color: #f55;
@@ -208,9 +202,9 @@ table.statuses {
   margin-top: 1em;
 }
 
-
-
-
+/**
+ * micropost.scss
+ */
 /* Microposts */
 h1.micropost {
   margin-bottom: 0.3em;
@@ -271,23 +265,25 @@ form.new_micropost textarea {
 span.timestamp {
   color: #505050;
   font-size: 85%;
-  color: #666;  
+  color: #666;
 }
-
-
 
 .star {
   font-size: 300%;
 }
+
 #busy {
   color: red;
 }
+
 #maybe {
   color: yellow;
 }
+
 #open {
   color: green;
 }
+
 #maybe.inactive, #open.inactive, #busy.inactive {
   color: #ccc;
 }
@@ -295,10 +291,11 @@ span.timestamp {
 #busy:hover {
   color: red;
 }
+
 #maybe:hover {
   color: yellow;
 }
+
 #open:hover {
   color: green;
 }
-
