@@ -21,7 +21,6 @@ describe "Statuses" do
         lambda do
           visit root_path
           choose('Busy')
-          #fill_in :micropost_content, :with => ""
           click_button "Create Status"
           #response.should render_template('pages/home')
           #response.should have_selector("div#error_explanation")
@@ -36,22 +35,9 @@ describe "Statuses" do
         lambda do
           visit root_path
           choose('Busy')
-          #fill_in :micropost_content, :with => content
           click_button "Create Status"
         end.should change(Status, :count).by(1)
       end
     end
   end
 end
-
-=begin
-describe "Statuses" do
-  describe "GET /statuses" do
-    
-    # This should not work, only :create, :destroy for microposts
-    xit "works! (now write some real specs)" do
-      get statuses_path
-    end
-  end
-end
-=end

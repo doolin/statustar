@@ -71,15 +71,15 @@ describe Status do
       Status.should respond_to(:from_users_followed_by)
     end
 
-    it "should include the followed user's microposts" do
+    it "should include the followed user's statuses" do
       Status.from_users_followed_by(@user).should include(@other_post)
     end
 
-    it "should include the user's own microposts" do
+    it "should include the user's own statuses" do
       Status.from_users_followed_by(@user).should include(@user_post)
     end
 
-    it "should not include an unfollowed user's microposts" do
+    it "should not include an unfollowed user's statuses" do
       Status.from_users_followed_by(@user).should_not include(@third_post)
     end
 

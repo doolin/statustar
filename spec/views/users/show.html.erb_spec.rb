@@ -17,17 +17,15 @@ describe "users/show.html.erb" do
     #rendered.should match(/Email/)
   end
   
-  xit "renders list of microposts" do
+  
+  xit "renders list of status updates"do
     u1 = Factory(:user)
     u1.statuses.create({:state => 1})
     u1.statuses.create!({:state => 2})
-    u1.microposts.create!({:content => 'micropost content'})
     u1.save
     render
     rendered.should have_selector("active")
     rendered.should have_css("active")
   end
-  
-  xit "renders list of status updates"
   
 end
