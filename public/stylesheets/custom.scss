@@ -200,7 +200,6 @@ ul.users {
 
 @import 'status';
 
-@import 'micropost';
 
 
 div.user_info img {
@@ -215,20 +214,7 @@ div.user_info span.user_name {
   position: absolute;
 }
 
-div.user_info span.microposts {
-  font-size: 80%;
-}
 
-form.new_micropost {
-  margin-bottom: 2em;
-}
-
-form.new_micropost textarea {
-  height: 4em;
-  margin-bottom: 0;
-}
-
-/*** Both status and micropost ***/
 span.timestamp {
   color: #505050;
   font-size: 85%;

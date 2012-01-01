@@ -22,7 +22,7 @@ class Status < ActiveRecord::Base
 
   default_scope :order => 'statuses.created_at DESC'
 
-    # Return microposts from the users being followed by the given user.
+    # Return statuses from the users being followed by the given user.
     scope :from_users_followed_by, lambda { |user| followed_by(user) }
 
     private
