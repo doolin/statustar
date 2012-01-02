@@ -11,6 +11,10 @@ describe 'layouts/_application.html.haml' do
 			:class => 'container'
 	end
 	
+	xit "should render title" do 
+		rendered.should have_tag "title", 
+			:id => title
+	end
 
 	it "should render header and footer partials" do
 		view.should render_template :partial => "_header"
