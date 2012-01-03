@@ -11,16 +11,16 @@ describe 'layouts/statuses.html.haml' do
 	end
 	
 	it "displays all the statuses" do
-    assign(:statuses, [
-      	stub_model(Status, :name => "busy"),
-      	stub_model(Status, :name => "maybe"),
-      	stub_model(Status, :name => "open"),
-    	])
-    render
-    rendered.should =~ /busy/
-    rendered.should =~ /maybe/
-    rendered.should =~ /open/
-  end
+	    assign(:statuses, [
+	      	stub_model(Status, :name => "busy"),
+	      	stub_model(Status, :name => "maybe"),
+	      	stub_model(Status, :name => "open"),
+	    	])
+	    render
+	    rendered.should =~ /busy/
+	    rendered.should =~ /maybe/
+	    rendered.should =~ /open/
+  	end
 
   it "should render nav and style tags" do
 		render
