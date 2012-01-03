@@ -14,7 +14,7 @@ describe 'layouts/application.html.haml' do
 			:class => 'container'
 	end
 	
-	it "should render header and footer partials" do
+	it "should render header, footer and stylesheets partials" do
 		view.should render_template :partial => "_header"
 		view.should render_template :partial => "_footer"
 	end
