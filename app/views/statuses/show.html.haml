@@ -1,0 +1,18 @@
+%p#notice= notice
+%p
+  %b State:
+  %p
+    = @status.state
+    %span#busy{:class => "#{@status.find_active(1)} star"} ✩
+    |
+    %span#maybe{:class => "#{@status.find_active(2)} star"} ✩
+    |
+    %span#open{:class => "#{@status.find_active(3)} star"} ✩
+    |
+    %span#busy1{:class => "#{@status.find_active(4)} star"} ★
+    |
+    %span#busy2{:class => "#{@status.find_active(5)} star"} ☆
+  = link_to 'Edit', edit_status_path(@status)
+  |
+  \#{link_to 'Back', statuses_path}
+  \#{link_to 'Destroy', @status, :method => :delete,  :confirm => 'Are you sure?', :title => @status.state}

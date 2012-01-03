@@ -1,0 +1,52 @@
+!!!
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %title
+      Statuses: #{controller.action_name}
+    = stylesheet_link_tag 'scaffold'
+    :css
+      nav {
+        font-size: 300%;
+      }
+      
+      .star {
+        font-size: 300%;
+      }
+      #busy {
+        color: red;
+      }
+      #maybe {
+        color: yellow;
+      }
+      #open {
+        color: green;
+      }
+      #maybe.inactive, #open.inactive, #busy.inactive {
+        color: #ccc;
+      }
+      
+      #busy:hover {
+        color: red;
+      }
+      #maybe:hover {
+        color: yellow;
+      }
+      #open:hover {
+        color: green;
+      }
+      
+  %body
+    %p{:style => "color: green"}= flash[:notice]
+    %nav
+      ✩ |
+      ✪ |
+      ✫ |
+      ✬ |
+      ✭ |
+      ✮ |
+      ✯ |
+      ✰ |
+      ★ |
+      ☆
+    = yield

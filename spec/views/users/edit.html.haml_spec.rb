@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "users/edit.html.erb" do
+describe "users/edit.html.haml" do
   before(:each) do
     @user = assign(:user, stub_model(User,
       :new_record? => false,
@@ -9,7 +9,7 @@ describe "users/edit.html.erb" do
     ))
   end
 
-  xit "renders the edit user form" do
+  it "renders the edit user form" do
     render
 
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers

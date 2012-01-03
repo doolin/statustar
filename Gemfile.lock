@@ -157,6 +157,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara
   cucumber-rails
   database_cleaner
   escape_utils
