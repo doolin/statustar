@@ -28,10 +28,9 @@ source 'http://rubygems.org'
 # end
 
 gem 'rails', '3.0.10'
-gem 'sqlite3-ruby', '1.3.3' 		 
 gem 'will_paginate'
 gem 'gravatar_image_tag', '1.0.0'
-
+gem 'thin'
 gem 'haml'
 gem 'sass'
 gem 'rb-fsevent'
@@ -40,11 +39,18 @@ gem 'rb-fsevent'
 #gem 'rack', '1.3'
 gem 'escape_utils'
 
+# Need to move to pg for everything:
+# http://devcenter.heroku.com/articles/rails3
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
 
 group :development do
   gem 'cucumber-rails'
   gem 'database_cleaner'
-#	gem 'annotate-models', '1.0.4'
 	gem 'faker', '0.3.1'
 	gem 'launchy'
 end
@@ -62,8 +68,4 @@ group :test do
 	gem 'webrat', '0.7.1'
 	gem 'factory_girl_rails', '1.0'
 #	gem 'metric_fu', '2.0.1'
-end
-
-group :production do
-  gem 'postgres-pr'
 end
