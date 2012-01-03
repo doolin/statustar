@@ -1,8 +1,5 @@
 require 'spec_helper'
 
-
-
-
 describe "Statuses" do
 
   before(:each) do
