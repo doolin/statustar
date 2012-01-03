@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "users/new.html.erb" do
+describe "users/new.html.haml" do
   before(:each) do
     assign(:user, stub_model(User,
       :name => "MyString",

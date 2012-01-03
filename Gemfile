@@ -24,11 +24,12 @@ end
 group :development do
   gem 'cucumber-rails'
   gem 'database_cleaner'
-	gem 'faker', '0.3.1'
+	gem 'faker'
 	gem 'launchy'
 end
 
 group :test do
+  gem 'faker'
   gem 'simplecov'
   gem 'cucumber-rails'
   gem 'database_cleaner'
