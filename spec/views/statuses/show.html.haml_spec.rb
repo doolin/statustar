@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "statuses/show.html.erb" do
+describe "statuses/show.html.haml" do
 
   before(:each) do
     @status = assign(:status, stub_model(Status,

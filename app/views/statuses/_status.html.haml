@@ -1,0 +1,15 @@
+%tr
+  %td.status
+    %span#busy{:class => "#{status.find_active(1)} star"} ✩
+    \ 
+    %span#maybe{:class => "#{status.find_active(2)} star"} ✩
+    \ 
+    %span#open{:class => "#{status.find_active(3)} star"} ✩
+    \ 
+    %span.timestamp
+      Posted #{time_ago_in_words(status.created_at)} ago.
+  - if current_user?(status.user)
+    %td
+      = link_to "delete", status, :method => :delete, |
+        :confirm => "You sure?",                      |
+        :title => status.state                        |
