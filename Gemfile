@@ -38,6 +38,7 @@ gem 'rb-fsevent'
 # Fix Rack/Capybara/whatever UTF encoding crapola:
 #gem 'rack', '1.3'
 gem 'escape_utils'
+gem 'faker'
 
 # Need to move to pg for everything:
 # http://devcenter.heroku.com/articles/rails3
