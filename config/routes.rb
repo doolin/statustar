@@ -1,5 +1,7 @@
 Statustar::Application.routes.draw do
 
+  get "static/index"
+
   get "sessions/new"
 
   resources :users do
@@ -19,7 +21,8 @@ Statustar::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
 
-  root :to => 'pages#home'
+  #root :to => 'pages#home'
+  root :to => 'static#index'
 
   get "pages/home"
   get "pages/contact"

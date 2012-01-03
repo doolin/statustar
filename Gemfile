@@ -31,7 +31,7 @@ gem 'rails', '3.0.10'
 gem 'will_paginate'
 gem 'gravatar_image_tag', '1.0.0'
 gem 'thin'
-gem 'haml'
+gem 'haml-rails'
 gem 'sass'
 gem 'rb-fsevent'
 
