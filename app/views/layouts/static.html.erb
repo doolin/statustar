@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
     <link href='http://statustar.com/images/statustar_icon.png' rel='SHORTCUT ICON' />
-    <link href='http://statustar.com/stylesheets/style.css' media='screen' rel='stylesheet' type='text/css' />
     <title>Status Star | Update Anywhere. Status Everywhere</title>
 <script type="text/javascript">
-
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-701371-36']);
   _gaq.push(['_trackPageview']);
@@ -16,17 +13,9 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-  <%= stylesheet_link_tag 'style', :media => 'screen' %>
-	<!-- Pulling in js here already solves the top nav layout issue in Chrome ... no idea why -->
-	<!-- It's also needed for :delete requests -->
-	<%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag 'style', :media => 'screen' %>
+    <%= csrf_meta_tag %>
   </head>
   <body>
     <%= yield %>
