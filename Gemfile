@@ -51,8 +51,7 @@ end
 group :development do
   gem 'cucumber-rails'
   gem 'database_cleaner'
-	gem 'faker', '0.3.1'
-	gem 'launchy'
+  gem 'launchy'
 end
 
 group :test do
