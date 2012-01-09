@@ -5,7 +5,7 @@ describe "shared/_error_messages.html.haml" do
     stub_template "shared/_error_message.html.haml" => "error message template"
   end
   
-  # Rendering layout does not include sidebar.
+  # Rendering layout does not include partial.
   xit "renders the sidebar" do
     render :template => "layouts/application.html.haml"
     rendered.should contain "error message template"
