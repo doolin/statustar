@@ -1,0 +1,16 @@
+- if signed_in?
+  %table.front{:summary => "For signed-in users"}
+    %tr
+      %td.main
+        %h1.status Status here!
+        = render 'shared/status_form'
+        = render 'shared/feed'
+      %td.sidebar.round
+        = render 'shared/user_info'
+        = render 'shared/stats'
+- else
+  %h1 Statustar
+  %p
+    %a{:href => "http://statustar.heroku.com/"} Statustar
+    \: Update Anywhere, Status Everywhere.
+  = link_to "Sign up now!", signup_path, :class => "signup_button round"

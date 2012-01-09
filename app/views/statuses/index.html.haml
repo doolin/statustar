@@ -1,0 +1,24 @@
+%h1 Listing statuses
+%body
+  %table
+    %tr
+      %th State
+      %th
+      %th
+      %th
+    - @statuses.each do |status|
+      %tr
+        %td
+          %span#busy{:class => "#{status.find_active(1)} star"} ✩
+          |
+          %span#maybe{:class => "#{status.find_active(2)} star"} ✩
+          |
+          %span#open{:class => "#{status.find_active(3)} star"} ✩
+          |
+        %td= link_to 'Show', status
+        %td= link_to 'Edit', edit_status_path(status)
+        %td= link_to 'Destroy', status, :method => :delete, |
+            :confirm => 'Are you sure?',                   |
+            :title => status.state                         |
+  %br/
+  = link_to 'New Status', new_status_path
