@@ -1,12 +1,20 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.1'
 gem 'will_paginate'
 gem 'gravatar_image_tag', '1.0.0'
 gem 'thin'
 gem 'haml-rails'
 gem 'sass'
 gem 'rb-fsevent'
+
+group :assets do
+  gem 'sass-rails', " ~> 3.1.0"
+  gem 'coffee-rails', " ~> 3.1.0"
+  gem 'uglifier'
+end
+
+gem 'jquery-rails'
 
 # Fix Rack/Capybara/whatever UTF encoding crapola:
 # gem 'rack', '1.3'
