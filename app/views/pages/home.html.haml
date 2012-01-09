@@ -3,7 +3,7 @@
     %tr
       %td.main
         %h1.status Status here!
-        = render 'shared/status_form'
+        = render 'shared/status_form', :locals => { @status => :status }
         = render 'shared/feed'
       %td.sidebar.round
         = render 'shared/user_info'
