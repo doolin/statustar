@@ -1,0 +1,23 @@
+= form_for(@status) do |f|
+  - if @status.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@status.errors.count, "error")
+        prohibited this status from being saved:
+      %ul
+        - @status.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+- # Need to determine how to display the correct text of
+- # Open, Busy or Maybe, given the integer value returned
+- # from by the model.
+  = f.label "Busy"
+  = f.radio_button :state, 1, :id => 'Busy'
+  %br/
+  = f.label "Maybe"
+  = f.radio_button :state, 2, :id => 'Maybe'
+  %br/
+  = f.label "Open"
+  = f.radio_button :state, 3, :id => 'Open'
+  .actions
+    = f.submit
