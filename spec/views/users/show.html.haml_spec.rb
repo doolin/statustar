@@ -11,14 +11,10 @@ describe "users/show.html.haml" do
 
   it "renders attributes in <p>" do
     render
-    # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     rendered.should match(/Name/)
-    # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    #rendered.should match(/Email/)
   end
   
-  
-  xit "renders list of status updates"do
+  xit "renders list of status updates" do
     u1 = Factory(:user)
     u1.statuses.create({:state => 1})
     u1.statuses.create!({:state => 2})
@@ -26,6 +22,33 @@ describe "users/show.html.haml" do
     render
     rendered.should have_selector("active")
     rendered.should have_css("active")
+  end  
+
+  # Fails with syntax error in users/show_follow partial.
+  xit "should render Show and Back text" do
+    render :template => "layouts/application.html.haml"
+    render :partial => "users/show_follow.html.haml"
+    rendered.should =~ /Following/
+    rendered.should =~ /Followers/
   end
-  
+ 
+  it "should infer the controller path" do
+    controller.request.path_parameters["controller"].should eq('users')
+  end
+ 
+  it "should infer the controller action" do
+    controller.request.path_parameters["action"].should eq('show')
+  end
+ 
+  # View does not render user partials.
+  xit "should display show users" do
+    render :template => "layouts/application.html.haml"
+    rendered.should =~ /Users/
+  end
+ 
+  it "should have correct <title> element " do
+    render :template => "layouts/application.html.haml"
+    rendered.should have_selector "title", 
+      :content => "Statustar"
+  end
 end
