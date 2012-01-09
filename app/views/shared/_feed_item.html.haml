@@ -1,0 +1,20 @@
+%tr
+  %td.gravatar
+    = link_to gravatar_for(feed_item.user), feed_item.user
+  %td.status
+    %span.user
+      = link_to feed_item.user.name, feed_item.user
+    %span.content
+      %span#busy{:class => "#{feed_item.find_active(1)} star"} ✩
+      \ 
+      %span#maybe{:class => "#{feed_item.find_active(2)} star"} ✩
+      \ 
+      %span#open{:class => "#{feed_item.find_active(3)} star"} ✩
+      \ 
+    %span.timestamp
+      Posted #{time_ago_in_words(feed_item.created_at)} ago.
+  - if current_user?(feed_item.user)
+    %td
+      = link_to "delete", feed_item, :method => :delete, |
+        :confirm => "You sure?",                         |
+        :title => feed_item.content                      |
