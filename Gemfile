@@ -7,6 +7,8 @@ gem 'thin'
 gem 'haml-rails'
 gem 'sass'
 gem 'rb-fsevent'
+gem 'zurb-foundation', :group => :assets
+
 
 group :assets do
   gem 'sass-rails', " ~> 3.1.0"
