@@ -7,7 +7,7 @@ describe "pages/help.html.haml" do
   end
  
   it "should infer the controller action" do
-    controller.request.path_parameters["action"].should eq('get')
+    controller.request.path_parameters["action"].should eq('help')
   end
  
   it "should render head, title and body tags" do
