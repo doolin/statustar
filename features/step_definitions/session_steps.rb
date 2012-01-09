@@ -24,7 +24,7 @@ end
 # Signing out steps
 Given /^user is logged in with "([^"]*)"$/ do |userpass|
   visit('/signin')
-  Given %{user name is "foo" with email "user@test.com" and password "please"}
+  step %{user name is "foo" with email "user@test.com" and password "please"}
   When %{I sign in as "#{userpass}"}
 end
 
