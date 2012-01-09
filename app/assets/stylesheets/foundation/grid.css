@@ -10,10 +10,15 @@
 
 	.container { padding: 0 20px; }
 	
-	.row { width: 100%; max-width: 980px; min-width: 727px; margin: 0 auto; }
+  /*.row { width: 100%; max-width: 980px; min-width: 727px; margin: 0 auto; }*/
+	.row { width: 100%; max-width: 500px; min-width: 300px; margin: 0 auto; }
 	/* To fix the grid into a certain size, set max-width to width */
-	.row .row { min-width: 0; }
-	
+/*
+.row { 
+  max-width: 500px;
+  min-width: 0; 
+}
+*/
 	.column, .columns { margin-left: 4.4%; float: left; min-height: 1px; position: relative; }
 	.column:first-child, .columns:first-child { margin-left: 0; }
 	
