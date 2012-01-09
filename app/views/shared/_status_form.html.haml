@@ -6,7 +6,7 @@
         prohibited this status from being saved:
       %ul
         - @status.errors.full_messages.each do |msg|
-          %li= msg
+        %li= msg
   .field
 - # Need to determine how to display the correct text of
 - # Open, Busy or Maybe, given the integer value returned
@@ -20,4 +20,4 @@
   = f.label "Open"
   = f.radio_button :state, 3, :id => 'Open'
   .actions
-    = f.submit
+- # = f.submit
