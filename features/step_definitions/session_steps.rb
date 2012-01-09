@@ -12,31 +12,31 @@ Given /^user name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do 
 end
 
 When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
-  And %{I fill in "Email" with "#{email}"}
-  And %{I fill in "Password" with "#{password}"}
-  And %{I press "Sign in"}
+  step %{I fill in "Email" with "#{email}"}
+  step %{I fill in "Password" with "#{password}"}
+  step %{I press "Sign in"}
 end
 
 When /^I should be signed in$/ do
-  And  %{I should see "/users/1"}
+  step  %{I should see "/users/1"}
 end
 
 # Signing out steps
 Given /^user is logged in with "([^"]*)"$/ do |userpass|
   visit('/signin')
   step %{user name is "foo" with email "user@test.com" and password "please"}
-  When %{I sign in as "#{userpass}"}
+  step %{I sign in as "#{userpass}"}
 end
 
 When /^user clicks "([^"]*)" link$/ do |arg1|
-  When %{I follow "Sign out"}
+  step %{I follow "Sign out"}
 end
 
 # Any sign out step should result in a way to
 # sign back in, regardless of what else is on
 # the target page.
 Then /^user is signed out$/ do
-  And  %{I should see "Sign in"}
+  step  %{I should see "Sign in"}
 end
 
 # After signing out, direct the user to a landing page.
@@ -46,5 +46,5 @@ end
 
 # Various paths might lead to an upsells page.
 Then /^taken to upsells page$/ do
-  And  %{I should see "Sign up now!"}
+  step  %{I should see "Sign up now!"}
 end
