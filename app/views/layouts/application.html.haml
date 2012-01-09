@@ -5,10 +5,8 @@
     /[if lt IE 9]
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     = stylesheet_link_tag 'blueprint/screen', :media => 'screen'
-    /= stylesheet_link_tag 'blueprint/print',  :media => 'print'
     /[if lt IE 8] <haml:loud> stylesheet_link_tag 'blueprint/ie' </haml:loud>
     = stylesheet_link_tag 'application', :media => 'screen'
-    = stylesheet_link_tag 'custom', :media => 'screen'
     / Pulling in js here already solves the top nav layout issue in Chrome ... no idea why
     / It's also needed for :delete requests
     = javascript_include_tag :defaults
