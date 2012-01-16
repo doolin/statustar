@@ -18,4 +18,8 @@ describe 'layouts/application.html.haml' do
 		view.should render_template :partial => "_header"
 		view.should render_template :partial => "_footer"
 	end
+
+	it "should render javascript" do
+		rendered.should have_selector "title", javascript_include_tag => :defaults
+	end
 end
