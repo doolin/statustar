@@ -20,6 +20,6 @@ describe 'layouts/application.html.haml' do
 	end
 
 	it "should render javascript" do
-		rendered.should have_selector "title", javascript_include_tag => :defaults
+		rendered.should have_selector "script"
 	end
 end
