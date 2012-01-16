@@ -22,9 +22,3 @@
             :title => status.state                         |
   %br/
   = link_to 'New Status', new_status_path
-
-%h1 Testem
-#status_form
-  = render 'form'
-%ul#statuses
-  = render :partial => @statuses.reverse
