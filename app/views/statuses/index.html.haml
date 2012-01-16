@@ -18,7 +18,8 @@
         %td= link_to 'Show', status
         %td= link_to 'Edit', edit_status_path(status)
         %td= link_to 'Destroy', status, :method => :delete, |
-            :confirm => 'Are you sure?',                   |
-            :title => status.state                         |
+            :remote => true,                                |
+            :confirm => 'Are you sure?',                    |
+            :title => status.state                          |
   %br/
   = link_to 'New Status', new_status_path
