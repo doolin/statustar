@@ -58,6 +58,7 @@ class StatusesController < ApplicationController
         #flash[:notice] = 'Status was successfully created.'
         format.html { redirect_to(root_path, :flash => { :success => 'Status was successfully updated.'}) }
         format.xml  { render :xml => @status, :status => :created, :location => @status }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @status.errors, :status => :unprocessable_entity }
@@ -92,6 +93,7 @@ class StatusesController < ApplicationController
       #format.html { redirect_to(statuses_url) }
       format.html { redirect_to(root_path) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end
