@@ -231,7 +231,7 @@ span.timestamp {
 }
 
 #maybe {
-  color: yellow;
+  color: #ffd42a;
 }
 
 #open {
@@ -247,10 +247,9 @@ span.timestamp {
 }
 
 #maybe:hover {
-  color: yellow;
+  color: #ffd42a;
 }
 
 #open:hover {
   color: green;
 }
-
