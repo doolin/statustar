@@ -93,7 +93,6 @@ class StatusesController < ApplicationController
       #format.html { redirect_to(statuses_url) }
       format.html { redirect_to(root_path) }
       format.xml  { head :ok }
-      format.js
     end
   end
 end
