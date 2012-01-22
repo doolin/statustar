@@ -93,7 +93,7 @@ class StatusesController < ApplicationController
       #format.html { redirect_to(statuses_url) }
       format.html { redirect_to(root_path) }
       format.xml  { head :ok }
-      format.js
+      #format.js   { render :text => 'OK', :status => 200 }
     end
   end
 end

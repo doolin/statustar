@@ -3,3 +3,4 @@
 //= require foundation
 //= require_self
 //= require_tree .
+//= require updater
