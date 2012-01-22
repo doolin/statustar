@@ -10,3 +10,16 @@ h1.status {
 table.statuses {
   margin-top: 1em;
 }
+
+ul.field.status {
+  display: table;
+  margin: 0 auto;
+}
+
+ul.field.status > li {
+  display: inline;
+}
+
+ul.field.status label {
+  display: inline;
+}
