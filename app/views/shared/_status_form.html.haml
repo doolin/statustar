@@ -1,7 +1,7 @@
 = form_for(@status, :remote => true) do |f|
   %ul.field.status
     %li= f.label "Busy"
-    %li= f.radio_button :state, 1, :id => 'Busy'
+    %li= f.radio_button :state, 1, :id => 'Busy', :onclick => "this.form.submit();"
     \ &nbsp;&nbsp;
     %li= f.label "Maybe"
     %li= f.radio_button :state, 2, :id => 'Maybe'
@@ -9,11 +9,12 @@
     %li= f.label "Open"
     %li= f.radio_button :state, 3, :id => 'Open'
   = f.submit
+/
   %br
   %span.content
     %span#busy{:class => "star"} ✮
-    \ 
+    \
     %span#maybe{:class => "star"} ✮
-    \ 
+    \
     %span#open{:class => "star"} ✮
-    \ 
+    \
