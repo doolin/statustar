@@ -6,6 +6,12 @@ class PagesController < ApplicationController
       @status = Status.new
       @feed_items = current_user.feed.paginate(:page => params[:page])
     end
+
+    respond_to do |format|
+      format.html
+      format.xml  { head :ok }
+      format.js
+    end
   end
 
   def contact
