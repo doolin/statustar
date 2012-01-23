@@ -1,0 +1,1 @@
+$('table.statuses tbody').prepend("<%= escape_javascript(render :partial => 'shared/feed_item', :locals => { :feed_item => current_user.feed.first } ) %>").fadeOut();

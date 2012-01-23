@@ -1,4 +1,4 @@
-= form_for(@status) do |f|
+= form_for(@status, :remote => true) do |f|
   - if @status.errors.any?
     #error_explanation
       %h2
@@ -8,9 +8,6 @@
         - @status.errors.full_messages.each do |msg|
           %li= msg
   .field
-- # Need to determine how to display the correct text of
-- # Open, Busy or Maybe, given the integer value returned
-- # from by the model.
   = f.label "Busy"
   = f.radio_button :state, 1, :id => 'Busy'
   %br/
@@ -20,4 +17,4 @@
   = f.label "Open"
   = f.radio_button :state, 3, :id => 'Open'
   .actions
-    = f.submit
+  = f.submit

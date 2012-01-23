@@ -1,4 +1,6 @@
 
+@import 'variables';
+
 body {
   background: #ccc url('http://subtlepatterns.com/patterns/whitey.png');
   color: #222;
@@ -17,6 +19,19 @@ header {
 header img {
   padding: 1em;
   background: #fff;
+}
+
+header h2 {
+  margin-bottom:12px;
+  text-align:center;
+  //color:#ff4b33;
+  color: $redorange;
+  font-size:48px;
+  padding-bottom:8px;
+  //border-bottom:2px solid #ff4b33;
+  font-family: bistro-script-web,cursive;
+  font-style: normal;
+  font-weight: 400;
 }
 
 section {
@@ -53,7 +68,7 @@ nav {
 //*/
 nav {
   background-color: white;
-  padding: 0 0.7em;
+  padding: 0 0.7em 10px 0.7em;
   white-space: nowrap;
 }
 
@@ -83,6 +98,19 @@ nav ul li a:hover {
   text-decoration: underline;
   color: #C40022;
 }
+
+nav ul li a {
+  //margin-bottom:12px;
+  //text-align:center;
+  //color:#ff4b33;
+  font-size: 24px;
+  //padding-bottom:8px;
+  //border-bottom:2px solid #ff4b33;
+  font-family: bistro-script-web,cursive;
+  font-style: normal;
+  font-weight: 400;
+}
+
 
 /* Sign up button */
 
@@ -232,10 +260,10 @@ span.timestamp {
   font-size: 300%;
 }
 #busy {
-  color: red;
+  color: $redorange;
 }
 #maybe {
-  color: yellow;
+  color: #ffd42a;
 }
 #open {
   color: green;
@@ -248,9 +276,12 @@ span.timestamp {
   color: red;
 }
 #maybe:hover {
-  color: yellow;
+  color: #ffd42a;
 }
 #open:hover {
   color: green;
 }
+
+
+@import 'footer';
 

@@ -10,6 +10,4 @@
       Posted #{time_ago_in_words(status.created_at)} ago.
   - if current_user?(status.user)
     %td
-      = link_to "delete", status, :method => :delete, |
-        :confirm => "You sure?",                      |
-        :title => status.state                        |
+      = link_to "delete", status, :confirm => "You sure?", :method => :delete, :remote => true, :title => status.state                        
