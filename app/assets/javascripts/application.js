@@ -4,3 +4,5 @@
 //= require_self
 //= require_tree .
 //= require updater
+//= require status
+
