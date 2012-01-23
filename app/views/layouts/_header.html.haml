@@ -1,8 +1,6 @@
 %header.round
   .row
-    .four.columns
-      = link_to logo, root_path
-    .eight.columns
+    .twelve.colum
       %nav.round
         %ul
           %li= link_to "Home", root_path
@@ -14,7 +12,11 @@
           - if signed_in?
             %li= link_to "Sign out", signout_path, :method => :delete
           - else
-            %li= link_to "Sign in", signin_path
+            %li= link_to "Sign in", signin_path    
+  .row
+    .four.columns
+      = link_to logo, root_path
+    .eight.columns
       %div
         %h2
           Update Anywhere Status Everywhere
