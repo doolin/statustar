@@ -13,8 +13,8 @@
       \ 
     %span.timestamp
       Posted #{time_ago_in_words(feed_item.created_at)} ago.
-  - if current_user?(feed_item.user)
-    %td
+  %td 
+    - if current_user?(feed_item.user)
       = link_to "delete", feed_item, :method => :delete, |
         :title => feed_item.content ,                    |
         :class => 'delete',                              |
