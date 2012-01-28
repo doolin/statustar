@@ -34,6 +34,14 @@ header h2 {
   font-weight: 400;
 }
 
+.round table.profile {
+  border-width: $border-width;
+ -moz-border-radius: $border-radius;
+ -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+  border: 3px solid #ddd;
+}
+
 section {
   margin-top: 1em;
   font-size: 120%;
@@ -132,8 +140,8 @@ a.signup_button {
 /* Round corners */
 
 .round {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
+ -moz-border-radius:    10px;
+ -webkit-border-radius: 10px;
   border-radius:         10px;
 }
 
@@ -169,6 +177,13 @@ td.sidebar {
   vertical-align: top;
   background: #BEDCE7;
 }
+
+.sidebar {
+  //background: #BEDCE7;
+  background: #fff;
+  padding: 0;
+}
+
 
 .profile img.gravatar {
   border: 1px solid #999;
@@ -253,6 +268,7 @@ span.timestamp {
   font-size: 85%;
   color: #666;  
 }
+
 
 
 

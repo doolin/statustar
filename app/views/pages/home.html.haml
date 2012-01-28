@@ -1,13 +1,12 @@
 - if signed_in?
-  %table.front{:summary => "For signed-in users"}
-    %tr
-      %td.main
-        %h1.status Status here!
-        = render 'shared/status_form', :locals => { @status => :status }
-        = render 'shared/feed'
-      %td.sidebar.round
-        = render 'shared/user_info'
-        = render 'shared/stats'
+  .row 
+    .eight.columns
+      %h1.status Status here!
+      = render 'shared/status_form', :locals => { @status => :status }
+      = render 'shared/feed'
+    .four.columns.sidebar
+      = render 'shared/user_info'
+      = render 'shared/stats'
 - else
   %h1 Statustar
   %p
