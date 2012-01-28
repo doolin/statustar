@@ -32,6 +32,14 @@ header h2 {
   font-weight: 400;
 }
 
+.round table.profile {
+  border-width: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  border: 3px solid #ddd;
+}
+
 section {
   margin-top: 1em;
   font-size: 120%;
@@ -150,6 +158,11 @@ td.sidebar {
   padding: 1em;
   vertical-align: top;
   background: #BEDCE7;
+}
+
+.sidebar {
+  background: #fff;
+  padding: 0;
 }
 
 .profile img.gravatar {
