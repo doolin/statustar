@@ -9,7 +9,6 @@ gem 'sass'
 gem 'rb-fsevent'
 gem 'zurb-foundation', :group => :assets
 
-
 group :assets do
   gem 'sass-rails', " ~> 3.1.0"
   gem 'coffee-rails', " ~> 3.1.0"
@@ -48,5 +47,5 @@ group :test do
   gem 'capybara'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '1.0'
-  gem 'jasmine'
+  gem 'jasmine', :git => "git://github.com/pivotal/jasmine-gem.git"
 end

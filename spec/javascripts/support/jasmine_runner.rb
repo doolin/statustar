@@ -1,6 +1,7 @@
 $:.unshift(ENV['JASMINE_GEM_PATH']) if ENV['JASMINE_GEM_PATH'] # for gem testing purposes
 
 require 'rubygems'
+require File.expand_path("../../../../config/environment", __FILE__)
 require 'jasmine'
 require 'rspec'
 jasmine_config_overrides = File.expand_path(File.join(File.dirname(__FILE__), 'jasmine_config.rb'))
