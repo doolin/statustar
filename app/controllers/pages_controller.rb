@@ -26,4 +26,15 @@ class PagesController < ApplicationController
     @title = "Help"
   end
 
+  def terms
+    @title = "Terms"
+  end
+
+  def privacy
+    @title = "Privacy Policy"
+  end
+
+  def faq
+    @title = "Frequently Asked Questions"
+  end
 end

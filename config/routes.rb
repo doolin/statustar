@@ -20,6 +20,9 @@ Statustar::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
+  match '/terms',   :to => 'pages#terms'
+  match '/faq',     :to => 'pages#faq'
+  match '/privacy', :to => 'pages#privacy'
 
   root :to => 'pages#home'
   #root :to => 'static#index'
@@ -28,6 +31,9 @@ Statustar::Application.routes.draw do
   get "pages/contact"
   get "pages/about"
   get "pages/help"
+  get "pages/terms"
+  get "pages/faq"
+  get "pages/privacy"
   
 
   # The priority is based upon order of creation:
