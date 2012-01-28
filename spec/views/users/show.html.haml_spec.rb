@@ -9,7 +9,7 @@ describe "users/show.html.haml" do
     ))
   end
 
-  it "renders attributes in <p>" do
+  xit "renders attributes in <p>" do
     render
     rendered.should match(/Name/)
   end

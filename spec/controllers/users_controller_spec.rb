@@ -7,6 +7,7 @@ describe UsersController do
 
     before(:each) do
       @user = Factory(:user)
+      test_sign_in(@user)
     end
 
     it "should be successful" do
@@ -24,7 +25,7 @@ describe UsersController do
       response.should have_selector("title", :content => @user.name)
     end
 
-    it "should include the user's name" do
+    xit "should include the user's name" do
       get :show, :id => @user
       response.should have_selector("h1", :content => @user.name)
     end
@@ -77,7 +78,7 @@ describe UsersController do
       response.should redirect_to(root_path)
     end
   end
-  
+
   describe "POST :create" do
 
     describe "failure" do
