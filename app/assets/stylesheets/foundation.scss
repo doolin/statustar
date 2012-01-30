@@ -49,6 +49,10 @@ section {
   background: #fff;
 }
 
+section.round {
+  margin-top: 0;
+}
+
 section h1 {
   font-size: 200%;
 }
@@ -119,6 +123,25 @@ nav ul li a {
   font-weight: 400;
 }
 
+ul.social-links {
+  text-align: center;
+  margin: 10px 0 5px 0;
+  padding-bottom: 0;
+}
+
+ul.social-links li {
+  display: inline;
+  padding: 10px 20px;
+  margin-bottom: 0;
+}
+
+.g-plusone {
+  display: inline;
+}
+
+ul.social-links li a:hover {
+  text-decoration: none;
+}
 
 /* Sign up button */
 

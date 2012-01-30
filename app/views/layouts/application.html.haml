@@ -13,9 +13,11 @@
     .container
       .row
         = render 'layouts/header'
+        = render 'shared/social_buttons'
         %section.round
           - flash.each do |key, value|
             = content_tag(:div, value, :class => "flash #{key}")
           = yield
+        = render 'shared/social_buttons'
         = render 'layouts/footer'
         = debug(params) if Rails.env.development?
