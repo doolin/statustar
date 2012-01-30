@@ -223,29 +223,3 @@ span.timestamp {
 
 
 
-.star {
-  font-size: 300%;
-}
-#busy {
-  color: red;
-}
-#maybe {
-  color: yellow;
-}
-#open {
-  color: green;
-}
-#maybe.inactive, #open.inactive, #busy.inactive {
-  color: #ccc;
-}
-
-#busy:hover {
-  color: red;
-}
-#maybe:hover {
-  color: yellow;
-}
-#open:hover {
-  color: green;
-}
-

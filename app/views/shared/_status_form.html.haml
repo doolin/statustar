@@ -9,12 +9,13 @@
     %li= f.label "Open"
     %li= f.radio_button :state, 3, :id => 'Open', :onclick => "this.form.submit();"
   -#= f.submit
-
   %br
-  %span.content
-    %span#busy{:class => "star"} ✮
-    \
-    %span#maybe{:class => "star"} ✮
-    \
-    %span#open{:class => "star"} ✮
-    \
+  %br
+  %br
+%ul.stars
+  %li#busy{:class => "star"} &#10030;
+  \
+  %li#maybe{:class => "star"} ✮
+  \
+  %li#open{:class => "star"} ✮
+  \

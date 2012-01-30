@@ -5,11 +5,11 @@
     %span.user
       = link_to feed_item.user.name, feed_item.user
     %span.content
-      %span#busy{:class => "#{feed_item.find_active(1)} star"} ✮
+      %span.busy{:class => "#{feed_item.find_active(1)} star"} ✮
       \ 
-      %span#maybe{:class => "#{feed_item.find_active(2)} star"} ✮
+      %span.maybe{:class => "#{feed_item.find_active(2)} star"} ✮
       \ 
-      %span#open{:class => "#{feed_item.find_active(3)} star"} ✮
+      %span.open{:class => "#{feed_item.find_active(3)} star"} ✮
       \ 
     %span.timestamp
       Posted #{time_ago_in_words(feed_item.created_at)} ago.

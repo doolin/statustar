@@ -1,6 +1,9 @@
 /**
  * status.scss
  */
+/**
+ * variables.scss
+ */
 /* statuses */
 h1.status {
   text-align: center;
@@ -23,4 +26,86 @@ ul.field.status > li {
 
 ul.field.status label {
   display: inline;
+}
+
+ul.stars {
+  text-align: center;
+}
+
+ul.stars li {
+  display: inline;
+  padding: 0 12px;
+}
+
+/*
+ul.stars li:hover {
+  background-color: #ccc;
+}
+*/
+.star {
+  font-size: 400%;
+}
+
+#busy {
+  color: #ff4b33;
+}
+
+#maybe {
+  color: #ffd42a;
+}
+
+#open {
+  color: green;
+}
+
+.busy {
+  color: #ff4b33;
+}
+
+.maybe {
+  color: #ffd42a;
+}
+
+.open {
+  color: green;
+}
+
+#maybe.inactive, #open.inactive, #busy.inactive {
+  color: #ccc;
+}
+
+.maybe.inactive, .open.inactive, .busy.inactive {
+  color: #ccc;
+}
+
+#busy:hover, #maybe:hover, #open:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+#busy:hover {
+  color: #ff4b33;
+  color: rgba(255, 255, 0, 0.9);
+}
+
+#maybe:hover {
+  color: #ffd42a;
+  color: rgba(255, 0, 255, 0.9);
+}
+
+#open:hover {
+  color: green;
+  color: rgba(0, 255, 255, 0.9);
+}
+
+.busy:hover {
+  color: #ff4b33;
+}
+
+.maybe:hover {
+  color: #ffd42a;
+}
+
+.open:hover {
+  color: green;
 }
