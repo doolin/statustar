@@ -17,8 +17,9 @@ When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
   step %{I press "Sign in"}
 end
 
+# TODO: change this to check for a unique page id or something.
 When /^I should be signed in$/ do
-  step  %{I should see "/users/1"}
+  step  %{I should see "updates"}
 end
 
 # Signing out steps

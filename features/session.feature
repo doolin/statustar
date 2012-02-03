@@ -10,7 +10,7 @@ Feature: Users log in to sessions.
     When I go to the sign in page
     And I sign in as "user@test.com/please"
     And I should be signed in
-    Then I should see "/users/1"
+    Then I should see "updates"
 
   Scenario: Users signs out successfully
     Given user is logged in with "user@test.com/please"
