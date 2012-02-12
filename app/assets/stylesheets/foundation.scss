@@ -139,9 +139,14 @@ ul.social-links li {
   display: inline;
 }
 
+ul.social-links li a {
+  text-decoration: none;
+}
+
 ul.social-links li a:hover {
   text-decoration: none;
 }
+
 
 /* Sign up button */
 
