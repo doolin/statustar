@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '3.1'
 gem 'will_paginate'
 gem 'gravatar_image_tag', '1.0.0'
