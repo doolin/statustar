@@ -30,12 +30,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :development do
-  gem 'cucumber-rails'
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'faker'
-end
+gem 'launchy'
 
 group :test do
   gem 'faker'
