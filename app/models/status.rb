@@ -2,7 +2,7 @@ class Status < ActiveRecord::Base
 
   attr_accessible :state
   
-  belongs_to      :user
+  belongs_to :user
 
   validates :state, :presence => true, :length => { :maximum => 1 }, :inclusion => { :in => 1..3 }
   validates :user_id, :presence => true
@@ -22,18 +22,17 @@ class Status < ActiveRecord::Base
 
   default_scope :order => 'statuses.created_at DESC'
 
-    # Return statuses from the users being followed by the given user.
-    scope :from_users_followed_by, lambda { |user| followed_by(user) }
+  # Return statuses from the users being followed by the given user.
+  scope :from_users_followed_by, lambda { |user| followed_by(user) }
 
-    private
+  private
 
-      # Return an SQL condition for users followed by the given user.
-      # We include the user's own id as well.
-      def self.followed_by(user)
-        followed_ids = %(SELECT followed_id FROM relationships
-                         WHERE follower_id = :user_id)
-        where("user_id IN (#{followed_ids}) OR user_id = :user_id",
-              { :user_id => user })
-      end
-
+  # Return an SQL condition for users followed by the given user.
+  # We include the user's own id as well.
+  def self.followed_by(user)
+    followed_ids = %(SELECT followed_id FROM relationships
+                     WHERE follower_id = :user_id)
+    where("user_id IN (#{followed_ids}) OR user_id = :user_id",
+          { :user_id => user })
+  end
 end
