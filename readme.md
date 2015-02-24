@@ -15,3 +15,9 @@ and [Walter Yu](http://fiveamsoftware.com/)
 * upgrade to Rails 4.1
 * upgrade to Rails 4.2
 
+### Update FactoryGirl
+
+* (DONE) 2.0
+* 3.0
+* 4.0
+* 4.x
