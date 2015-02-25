@@ -26,8 +26,11 @@ gem 'escape_utils'
 group :production do
   gem 'pg'
 end
+
 group :development, :test do
   gem 'sqlite3'
+  gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 gem 'launchy'

@@ -132,8 +132,8 @@ describe User do
 
     before(:each) do
       @user = User.create(@attr)
-      @s1 = Factory(:status, :user => @user, :created_at => 1.day.ago)
-      @s2 = Factory(:status, :user => @user, :created_at => 1.hour.ago)
+      @s1 = FactoryGirl.create(:status, :user => @user, :created_at => 1.day.ago)
+      @s2 = FactoryGirl.create(:status, :user => @user, :created_at => 1.hour.ago)
     end
 
     it "should have a statuses attribute" do
@@ -145,6 +145,7 @@ describe User do
     end
 
     it "should destroy associated statuses" do
+      binding.pry
       @user.destroy
       [@s1, @s2].each do |status|
         Status.find_by_id(status.id).should be_nil
