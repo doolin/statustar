@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Status do
 
   before(:each) do
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     @attr = { :state => 1 }
   end
 
@@ -57,8 +57,8 @@ describe Status do
   describe "from_users_followed_by" do
 
     before(:each) do
-      @other_user = Factory(:user, :email => Factory.next(:email))
-      @third_user = Factory(:user, :email => Factory.next(:email))
+      @other_user = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
+      @third_user = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
 
       @user_post = @user.statuses.create!(:state => 1)
       @other_post = @other_user.statuses.create!(:state => 3)

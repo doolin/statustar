@@ -10,17 +10,17 @@ describe UsersController do
       test_sign_in(@user)
     end
 
-    xit "should be successful" do
+    it "should be successful" do
       get :show, :id => @user
       response.should be_success
     end
 
-    xit "should find the right user" do
+    it "should find the right user" do
       get :show, :id => @user
       assigns(:user).should == @user
     end
 
-    xit "should have the right title" do
+    it "should have the right title" do
       get :show, :id => @user
       response.should have_selector("title", :content => @user.name)
     end
@@ -30,7 +30,7 @@ describe UsersController do
       response.should have_selector("h1", :content => @user.name)
     end
 
-   xit "should show the user's statuses" do
+    xit "should show the user's statuses" do
       mp1 = FactoryGirl.create(:status, :user => @user, :content => "Foo bar")
       mp2 = FactoryGirl.create(:status, :user => @user, :content => "Baz quux")
       get :show, :id => @user

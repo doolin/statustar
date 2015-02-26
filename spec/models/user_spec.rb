@@ -145,7 +145,7 @@ describe User do
     end
 
     it "should destroy associated statuses" do
-      binding.pry
+      # binding.pry # Ruby 2.2.0 fails here
       @user.destroy
       [@s1, @s2].each do |status|
         Status.find_by_id(status.id).should be_nil

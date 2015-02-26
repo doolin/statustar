@@ -16,3 +16,4 @@ doc/app
 *~
 uploads/**/**/
 .rvmrc*
+*.journal
