@@ -47,7 +47,8 @@ describe "users/show.html.haml" do
   end
  
   it "should have correct <title> element " do
-    render :template => "layouts/application.html.haml"
+    # render :template => "layouts/application.html.haml"
+    render :template => "layouts/application"
     rendered.should have_selector "title", 
       :content => "Statustar"
   end

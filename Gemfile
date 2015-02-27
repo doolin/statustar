@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1'
+gem 'rails', '3.2'
 gem 'will_paginate'
 gem 'gravatar_image_tag', '1.0.0'
 gem 'thin'
@@ -10,8 +10,8 @@ gem 'sass'
 gem 'zurb-foundation', :group => :assets
 
 group :assets do
-  gem 'sass-rails', " ~> 3.1.0"
-  gem 'coffee-rails', " ~> 3.1.0"
+  gem 'sass-rails' # , " ~> 3.1.0"
+  gem 'coffee-rails' # , " ~> 3.1.0"
   gem 'uglifier'
 end
 
@@ -42,7 +42,7 @@ group :test do
   gem 'simplecov'
   gem 'cucumber-rails'
   gem 'database_cleaner'
-  gem 'rspec-rails', '2.6.0'
+  gem 'rspec-rails', '2.9.0'
   gem 'capybara'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '4.0'
