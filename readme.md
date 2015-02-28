@@ -30,8 +30,15 @@ and [Walter Yu](http://fiveamsoftware.com/)
 * Fix spec template render deprecation
 
 
+### Update Testing
 
-### Update FactoryGirl
+#### RSpec
+
+* 2.9.99
+* 3.0
+* 3.x
+
+#### FactoryGirl
 
 * (DONE) 2.0
 * (DONE) 3.0

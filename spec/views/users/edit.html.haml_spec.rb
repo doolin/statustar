@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "users/edit.html.haml" do
+describe "users/edit" do
   before(:each) do
     @user = assign(:user, stub_model(User,
       :new_record? => false,
