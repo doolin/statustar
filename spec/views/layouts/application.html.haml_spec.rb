@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'layouts/application.html.haml' do
+describe 'layouts/application' do
 
 	before do
 		render

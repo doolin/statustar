@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'layouts/statuses.html.haml' do
+describe 'layouts/statuses' do
 
 	
 	it "should render head, title, body and container tags" do
