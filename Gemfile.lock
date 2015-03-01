@@ -226,7 +226,7 @@ DEPENDENCIES
   pry-nav
   pry-rails
   rails (= 3.2)
-  rspec-rails (= 2.9.0)
+  rspec-rails (= 2.9)
   sass
   sass-rails
   simplecov

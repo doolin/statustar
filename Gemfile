@@ -40,9 +40,9 @@ group :test do
   gem 'minitest' # get rid of this on rspec 3.x
   gem 'faker'
   gem 'simplecov'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false # for "WARNING: Cucumber-rails required outside of env.rb"
   gem 'database_cleaner'
-  gem 'rspec-rails', '2.9.0'
+  gem 'rspec-rails', '2.9'
   gem 'capybara'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '4.0'
