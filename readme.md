@@ -7,13 +7,16 @@ Geolocation Status Notifier Application:
 by [Dave Doolin](http://tinobox.com/wordpress/) 
 and [Walter Yu](http://fiveamsoftware.com/)
 
+
 ## Log
+
 
 #### 2015-02-28
 
 * update all the views to rspec 2.9; file type suffixes are now inferred.
 * move rails_upgrade plugin out of vendor/plugins
 * 'require: false' on cucumber-rails to silence warning
+
 
 #### 2015-02-27
 
@@ -26,6 +29,7 @@ and [Walter Yu](http://fiveamsoftware.com/)
 
 * Get pg running locally for rspec
 * (DONE) upgrade to Rails 3.2
+* (DONE) upgrade to Rails 3.2.21
 * upgrade to Rails 4.0
 * upgrade to Rails 4.1
 * upgrade to Rails 4.2
@@ -33,10 +37,11 @@ and [Walter Yu](http://fiveamsoftware.com/)
 
 ### Views
 
-* Fix spec template render deprecation
-
+* (DONE) Fix spec template render deprecation
 
 ### Update Testing
+
+* Move template check to request spec
 
 #### RSpec
 
