@@ -9,6 +9,8 @@ gem 'sass'
 # gem 'rb-fsevent'
 gem 'zurb-foundation', :group => :assets
 
+gem 'awesome_print'
+
 group :assets do
   gem 'sass-rails' # , " ~> 3.1.0"
   gem 'coffee-rails' # , " ~> 3.1.0"
@@ -42,7 +44,7 @@ group :test do
   gem 'simplecov'
   gem 'cucumber-rails', require: false # for "WARNING: Cucumber-rails required outside of env.rb"
   gem 'database_cleaner'
-  gem 'rspec-rails', '2.9'
+  gem 'rspec-rails', '2.99'
   gem 'capybara'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '4.0'
