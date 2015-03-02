@@ -38,6 +38,8 @@ and [Walter Yu](http://fiveamsoftware.com/)
 ### Views
 
 * (DONE) Fix spec template render deprecation
+* Fix controller inference specs, change hash key to symbol
+
 
 ### Update Testing
 
@@ -62,4 +64,4 @@ and [Walter Yu](http://fiveamsoftware.com/)
 * (DONE) 2.0
 * (DONE) 3.0
 * (DONE) 4.0
-* 4.x
+* 4.5.0

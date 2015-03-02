@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'simplecov'
+require 'awesome_print'
 
 SimpleCov.start 'rails'
 
@@ -14,6 +15,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   config.mock_with :rspec
+
+  # config.raise_errors_for_deprecations!
 
   # config.warnings = false
 
