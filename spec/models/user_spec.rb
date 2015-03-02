@@ -99,11 +99,11 @@ describe User do
     describe "has_password? method" do
 
       it "should be true if the passwords match" do
-        @user.has_password?(@attr[:password]).should be_true
+        @user.has_password?(@attr[:password]).should be true
       end    
 
       it "should be false if the passwords don't match" do
-        @user.has_password?("invalid").should be_false
+        @user.has_password?("invalid").should be false
       end 
 
     end
