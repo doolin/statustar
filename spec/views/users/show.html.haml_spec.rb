@@ -33,11 +33,11 @@ describe "users/show.html.haml" do
   end
  
   it "should infer the controller path" do
-    controller.request.path_parameters["controller"].should eq('users')
+    controller.request.path_parameters[:controller].should eq('users')
   end
  
   it "should infer the controller action" do
-    controller.request.path_parameters["action"].should eq('show')
+    controller.request.path_parameters[:action].should eq('show')
   end
  
   # View does not render user partials.
