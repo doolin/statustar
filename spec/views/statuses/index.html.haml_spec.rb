@@ -12,11 +12,11 @@ describe "statuses/index.html.haml" do
 	end
  
   it "should infer the controller path" do
-    controller.request.path_parameters["controller"].should eq('statuses')
+    controller.request.path_parameters[:controller].should eq('statuses')
   end
  
   it "should infer the controller action" do
-    controller.request.path_parameters["action"].should eq('index')
+    controller.request.path_parameters[:action].should eq('index')
   end
  
   it "should display edit statuses" do

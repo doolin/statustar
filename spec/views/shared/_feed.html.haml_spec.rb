@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "shared/_feed" do
   it "should infer the controller path" do
-    controller.request.path_parameters["controller"].should eq('shared')
+    controller.request.path_parameters[:controller].should eq('shared')
   end
  
   it "should render head, title and body tags" do

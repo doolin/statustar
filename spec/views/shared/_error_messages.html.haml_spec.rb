@@ -6,7 +6,7 @@ describe "shared/_error_messages" do
   end
   
   it "should infer the controller path" do
-    controller.request.path_parameters["controller"].should eq('shared')
+    controller.request.path_parameters[:controller].should eq('shared')
   end
  
   it "should render head / title / body tags" do
