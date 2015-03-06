@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "users/show.html.haml" do
+describe "users/show" do
 
   before(:each) do
     @user = assign(:user, stub_model(User,
@@ -26,8 +26,8 @@ describe "users/show.html.haml" do
 
   # Fails with syntax error in users/show_follow partial.
   xit "should render Show and Back text" do
-    render :template => "layouts/application.html.haml"
-    render :partial => "users/show_follow.html.haml"
+    render :template => "layouts/application"
+    render :partial => "users/show_follow"
     rendered.should =~ /Following/
     rendered.should =~ /Followers/
   end
@@ -42,12 +42,11 @@ describe "users/show.html.haml" do
  
   # View does not render user partials.
   xit "should display show users" do
-    render :template => "layouts/application.html.haml"
+    render :template => "layouts/application"
     rendered.should =~ /Users/
   end
  
   it "should have correct <title> element " do
-    # render :template => "layouts/application.html.haml"
     render :template => "layouts/application"
     rendered.should have_selector "title", 
       :content => "Statustar"

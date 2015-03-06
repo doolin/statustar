@@ -27,9 +27,9 @@ describe "statuses/show.html.haml" do
 
   xit "displays all the statuses" do
     assign(:statuses, [
-        stub_model(Status, :name => "Busy"),
-        stub_model(Status, :name => "Maybe"),
-        stub_model(Status, :name => "Open"),
+        double(Status, :name => "Busy"),
+        double(Status, :name => "Maybe"),
+        double(Status, :name => "Open"),
       ])
     #render
     rendered.should =~ /Busy/

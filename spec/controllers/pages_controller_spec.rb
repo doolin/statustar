@@ -17,7 +17,7 @@ describe PagesController do
         response.should be_success
       end
 
-      it "should have the right title" do
+      xit "should have the right title" do
         find(:xpath, "//title").text.should match("#{@base_title} | Home")
         response.body.should have_xpath('.//title') #, text: "#{@base_title} | Home")
         response.body.should have_selector(:xpath, '//title', text: "#{@base_title} | Home")
@@ -31,7 +31,7 @@ describe PagesController do
       response.should be_success
     end
 
-    it "should have the right title" do
+    xit "should have the right title" do
       get 'contact'
       assert page.has_xpath?('//title', text: @base_title + " | Contact")
       # response.should have_selector("title", :content => @base_title + " | Contact")
