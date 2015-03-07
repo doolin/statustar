@@ -2,8 +2,6 @@ Statustar::Application.routes.draw do
 
   get "static/index"
 
-  get "sessions/new"
-
   resources :users do
     member do
       get :following, :followers
@@ -16,7 +14,8 @@ Statustar::Application.routes.draw do
   
   get '/signup',  :to => 'users#new'
   get '/signin',  :to => 'sessions#new'
-  get '/signout', :to => 'sessions#destroy'
+  delete '/signout', :to => 'sessions#destroy'
+
   get '/contact', :to => 'pages#contact'
   get '/about',   :to => 'pages#about'
   get '/help',    :to => 'pages#help'
@@ -25,7 +24,6 @@ Statustar::Application.routes.draw do
   get '/privacy', :to => 'pages#privacy'
 
   root :to => 'pages#home'
-  #root :to => 'static#index'
 
   get "pages/home"
   get "pages/contact"
