@@ -48,6 +48,7 @@ group :test do
   gem 'cucumber-rails', require: false # for "WARNING: Cucumber-rails required outside of env.rb"
   gem 'database_cleaner'
   gem 'rspec-rails', '2.99'
+#  gem 'rspec-rails', '3.0'
   gem 'capybara'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '4.0'
