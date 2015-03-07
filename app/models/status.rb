@@ -7,7 +7,9 @@ class Status < ActiveRecord::Base
   validates :state, :presence => true, :length => { :maximum => 1 }, :inclusion => { :in => 1..3 }
   validates :user_id, :presence => true
   
-  default_scope :order => 'statuses.created_at DESC'
+  # default_scope :order => 'statuses.created_at DESC'
+  # default_scope :order => 'statuses.created_at DESC'
+  default_scope { order('statuses.created_at DESC') }
 
   def content
     return state
@@ -20,7 +22,6 @@ class Status < ActiveRecord::Base
     return "inactive"
   end
 
-  default_scope :order => 'statuses.created_at DESC'
 
   # Return statuses from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }

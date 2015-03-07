@@ -1,6 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.21'
+# gem 'rails', '3.2.21'
+gem 'rails', '4.0.13'
+gem 'protected_attributes'
+
 gem 'will_paginate'
 gem 'gravatar_image_tag', '1.0.0'
 gem 'thin'

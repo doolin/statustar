@@ -1,5 +1,5 @@
 
-@import 'variables';
+@import 'variables.scss';
 
 body {
   background: #ccc url('http://subtlepatterns.com/patterns/whitey.png');
@@ -274,7 +274,7 @@ ul.users {
   list-style: none;
 }
 
-@import 'status';
+@import 'status.scss';
 
 
 
@@ -327,5 +327,5 @@ span.timestamp {
 }
 */
 
-@import 'footer';
+@import 'footer.scss';
 
