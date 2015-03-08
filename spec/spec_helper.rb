@@ -16,6 +16,10 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 RSpec.configure do |config|
   config.mock_with :rspec
 
+  config.expect_with :rspec do |c|
+    c.syntax = [:expect, :should]
+  end
+
   # config.raise_errors_for_deprecations!
   # config.warnings = false
 
