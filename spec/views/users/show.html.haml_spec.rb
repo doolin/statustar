@@ -40,7 +40,7 @@ describe "users/show" do
     controller.request.path_parameters[:action].should eq('show')
   end
  
-  # View does not render user partials.
+  # Need to get signed in correctly to get the correct view
   xit "should display show users" do
     render :template => "layouts/application"
     rendered.should =~ /Users/
