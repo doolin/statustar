@@ -41,7 +41,6 @@ end
 gem 'launchy'
 
 group :test do
-  gem 'test-unit'
   gem 'minitest' # get rid of this on rspec 3.x
   gem 'faker'
   gem 'simplecov'

@@ -2,8 +2,6 @@ require "spec_helper"
 
 describe StatusesController do
   describe "routing" do
-
-=begin
     it "recognizes and generates #index" do
       { :get => "/statuses" }.should route_to(:controller => "statuses", :action => "index")
     end
@@ -23,13 +21,13 @@ describe StatusesController do
     it "recognizes and generates #update" do
       { :put => "/statuses/1" }.should route_to(:controller => "statuses", :action => "update", :id => "1")
     end
-=end
+
     it "recognizes and generates #create" do
       { :post => "/statuses" }.should route_to(:controller => "statuses", :action => "create")
     end
 
     it "recognizes and generates #destroy" do
-      { :delete => "/statuses/1" }.should route_to(:controller => "statuses", :action => "destroy", :id => "1")
+      expect(:delete => "/statuses/1").to route_to(:controller => "statuses", :action => "destroy", :id => "1")
     end
 
   end
