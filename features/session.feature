@@ -4,6 +4,7 @@ Feature: Users log in to sessions.
   projects, and adding new projects. These features describe how the user
   manages his or her session.
 
+  @wip
   Scenario: User signs in successfully with email
     Given user is not logged in
     And user name is "foo" with email "user@test.com" and password "please"
