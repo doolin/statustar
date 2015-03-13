@@ -49,7 +49,9 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate_with_salt(id, cookie_salt)
+    #ap "#{__FILE__} #{__LINE__} id: #{id}, cookie_salt: #{cookie_salt}"
     user = find_by_id(id)
+    #ap "#{__FILE__} #{__LINE__} user: #{user}"
     (user && user.salt == cookie_salt) ? user : nil
   end
 
