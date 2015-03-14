@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-# gem 'rails', '3.2.21'
 gem 'rails', '4.0.13'
 gem 'protected_attributes'
 
@@ -15,8 +14,8 @@ gem 'zurb-foundation', :group => :assets
 gem 'awesome_print'
 
 group :assets do
-  gem 'sass-rails' # , " ~> 3.1.0"
-  gem 'coffee-rails' # , " ~> 3.1.0"
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
 end
 
@@ -50,6 +49,6 @@ group :test do
 #  gem 'rspec-rails', '3.0'
   gem 'capybara'
   gem 'webrat', '0.7.1'
-  gem 'factory_girl_rails', '4.0'
+  gem 'factory_girl_rails' # , '4.5.0'
   gem 'jasmine', :git => "git://github.com/pivotal/jasmine-gem.git"
 end

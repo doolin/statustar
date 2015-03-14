@@ -73,10 +73,10 @@ GEM
     escape_utils (1.0.1)
     eventmachine (1.0.7)
     execjs (2.4.0)
-    factory_girl (4.0.0)
+    factory_girl (4.5.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.0.0)
-      factory_girl (~> 4.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
@@ -216,7 +216,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   escape_utils
-  factory_girl_rails (= 4.0)
+  factory_girl_rails
   faker
   gravatar_image_tag (= 1.0.0)
   haml-rails

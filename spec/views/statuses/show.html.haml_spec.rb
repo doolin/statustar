@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-describe "statuses/show.html.haml" do
-
+describe "statuses/show" do
   before(:each) do
     @status = assign(:status, stub_model(Status,
       :state => 1,
@@ -36,5 +35,4 @@ describe "statuses/show.html.haml" do
     rendered.should =~ /Maybe/
     rendered.should =~ /Open/
   end
-
 end

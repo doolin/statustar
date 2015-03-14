@@ -30,7 +30,7 @@ and [Walter Yu](http://fiveamsoftware.com/)
 * Get pg running locally for rspec
 * (DONE) upgrade to Rails 3.2
 * (DONE) upgrade to Rails 3.2.21
-* upgrade to Rails 4.0
+* (DONE) upgrade to Rails 4.0
 * upgrade to Rails 4.1
 * upgrade to Rails 4.2
 * add travis.yml to get the build passing on ci
@@ -38,7 +38,7 @@ and [Walter Yu](http://fiveamsoftware.com/)
 ### Views
 
 * (DONE) Fix spec template render deprecation
-* Fix controller inference specs, change hash key to symbol
+* (DONE) Fix controller inference specs, change hash key to symbol
 
 
 ### Update Testing
@@ -48,7 +48,7 @@ and [Walter Yu](http://fiveamsoftware.com/)
 #### RSpec
 
 * (DONE) 2.9
-* 2.99
+* (DONE) 2.99
 * 3.0
 * 3.x
 * remove unneeded and pending specs
@@ -64,4 +64,4 @@ and [Walter Yu](http://fiveamsoftware.com/)
 * (DONE) 2.0
 * (DONE) 3.0
 * (DONE) 4.0
-* 4.5.0
+* (DONE) 4.5.0
