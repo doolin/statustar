@@ -28,7 +28,7 @@ describe "statuses/show" do
         double(Status, :name => "Maybe"),
         double(Status, :name => "Open"),
       ])
-    #render
+    render
     rendered.should =~ /Busy/
     rendered.should =~ /Maybe/
     rendered.should =~ /Open/
