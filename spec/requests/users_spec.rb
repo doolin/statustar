@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe "Users" do
-  
   describe "signup" do
-    
     describe "failure" do
-    
       it "should not make a new user" do
         lambda do
           visit signup_path
@@ -39,7 +36,6 @@ describe "Users" do
   end
 
   describe "sign in/out" do
-
     describe "failure" do
       it "should not sign a user in" do
         integration_sign_in nil
@@ -49,7 +45,7 @@ describe "Users" do
 
     describe "success" do
       xit "should sign a user in and out" do
-        user = Factory(:user)
+        user = FactoryGirl.create(:user)
         integration_sign_in user
         controller.should be_signed_in
         click_link "Sign out"
@@ -59,7 +55,6 @@ describe "Users" do
   end
 
   describe "admin attribute" do
-
     before(:each) do
       ### Using only "@user = User.create!(@attr)" as per the tutorial causes validation errors so I added the @attr definition
       @attr = { :name => "New User", :email => "user@example.com",
@@ -80,5 +75,4 @@ describe "Users" do
       @user.should be_admin
     end
   end
-    
 end
