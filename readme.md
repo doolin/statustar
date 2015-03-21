@@ -47,10 +47,23 @@ and [Walter Yu](http://fiveamsoftware.com/)
 
 #### RSpec
 
+The main issue as of 3-20-2015 is that logging in users in certain
+specs isn't working, and I don't know why. Here are some things to try:
+
+* See if any other specs require logging in users.
+* Find out how many of the specs which fail are due to this signin problem.
+* Trace the control of flow manually where signing in works, then trace it
+  through the spec to see what's different.
+
+RSpec upgrades:
+
 * (DONE) 2.9
 * (DONE) 2.99
 * 3.0
 * 3.x
+
+Other: 
+
 * remove unneeded and pending specs
 
 #### Cucumber

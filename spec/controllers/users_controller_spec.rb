@@ -21,20 +21,20 @@ describe UsersController do
 
     it "should have the right title" do
       get :show, :id => @user
-      response.should have_selector("title", :content => @user.name)
+      response.should have_selector("title", :text => @user.name)
     end
 
     xit "should include the user's name" do
       get :show, :id => @user
-      response.should have_selector("h1", :content => @user.name)
+      response.should have_selector("h1", :text => @user.name)
     end
 
     xit "should show the user's statuses" do
-      mp1 = FactoryGirl.create(:status, :user => @user, :content => "Foo bar")
-      mp2 = FactoryGirl.create(:status, :user => @user, :content => "Baz quux")
+      mp1 = FactoryGirl.create(:status, :user => @user, :text => "Foo bar")
+      mp2 = FactoryGirl.create(:status, :user => @user, :text => "Baz quux")
       get :show, :id => @user
-      response.should have_selector("span.content", :content => mp1.content)
-      response.should have_selector("span.content", :content => mp2.content)
+      response.should have_selector("span.content", :text => mp1.content)
+      response.should have_selector("span.content", :text => mp2.content)
     end
   end
   
@@ -66,7 +66,7 @@ describe UsersController do
 
     it "should have the right title" do
       get :new
-      response.should have_selector("title", :content => "Sign up")
+      response.should have_selector("title", :text => "Sign up")
     end
     
     it "as a signed in user you should be redirect to root url" do
@@ -91,7 +91,7 @@ describe UsersController do
 
       it "should have the right title" do
         post :create, :user => @attr
-        response.should have_selector("title", :content => "Sign up")
+        response.should have_selector("title", :text => "Sign up")
       end
 
       it "should render the :new page" do
@@ -149,7 +149,7 @@ describe UsersController do
 
     it "should have the right title" do
       get :edit, :id => @user
-      response.should have_selector("title", :content => "Edit user")
+      response.should have_selector("title", :text => "Edit user")
     end
   end
 
@@ -172,7 +172,8 @@ describe UsersController do
 
       it "should have the right title" do
         put :update, :id => @user, :user => @attr
-        response.should have_selector("title", :content => "Edit user")
+        expect(response.body).to match(/Edit user/)
+        # response.should have_selector("title", :text => "Edit user")
       end
     end
 
@@ -264,31 +265,28 @@ describe UsersController do
 
       it "should have the right title" do
         get :index
-        response.should have_selector("title", :content => "All users")
+        response.should have_selector("title", :text => "All users")
       end
 
       it "should have an element for each user" do
         get :index
         @users[0..2].each do |user|
-          response.should have_selector 'li', 
-            :content => user.name
+          # expect(response.body).to match(/#{@base_title} | Home/)
+          response.should have_selector 'li', :text => user.name
         end
       end
 
       it "should paginate users" do
         get :index
         response.should have_selector("div.pagination")
-        response.should have_selector("span.disabled", :content => "Previous")
-        response.should have_selector("a", :href => "/users?page=2",
-                                           :content => "2")
-        response.should have_selector("a", :href => "/users?page=2",
-                                           :content => "Next")
+        response.should have_selector("span.disabled", :text => "Previous")
+        response.should have_selector("a", :href => "/users?page=2", :text => "2")
+        response.should have_selector("a", :href => "/users?page=2", :text => "Next")
       end
     end
   end
 
   describe "DELETE 'destroy'" do
-
     before(:each) do
       @user = FactoryGirl.create(:user)
     end
