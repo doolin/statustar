@@ -33,12 +33,12 @@ describe UsersController do
       # response.should have_selector("h1", :text => @user.name)
     end
 
-    xit "should show the user's statuses" do
-      mp1 = FactoryGirl.create(:status, :user => @user, :text => "Foo bar")
-      mp2 = FactoryGirl.create(:status, :user => @user, :text => "Baz quux")
+    it "should show the user's statuses", type: :feature do
+      mp1 = FactoryGirl.create(:status, :user => @user)
+      mp2 = FactoryGirl.create(:status, :user => @user)
       get :show, :id => @user
-      expect(response.body).to match(/#{@mp1.content}/)
-      expect(response.body).to match(/#{@mp2.content}/)
+      expect(response.body).to match(/#{mp1.state}/)
+      expect(response.body).to match(/#{mp2.state}/)
       # response.should have_selector("span.content", :text => mp1.content)
       # response.should have_selector("span.content", :text => mp2.content)
     end
