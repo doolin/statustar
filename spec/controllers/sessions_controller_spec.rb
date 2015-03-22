@@ -4,7 +4,6 @@ describe SessionsController do
   render_views
 
   describe "GET :new" do
-
     it "should be successful" do
       get :new
       response.should be_success
@@ -12,14 +11,13 @@ describe SessionsController do
     
     it "should have the right title" do
       get :new
-      response.should have_selector("title", :text => "Sign in")
+      expect(response.body).to match(/Sign in/)
+      # response.should have_selector("title", :text => "Sign in")
     end
   end
 
   describe "POST :create" do
-
     describe "invalid signin" do
-
       before(:each) do
         @attr = { :email => "email@example.com", :password => "invalid" }
       end
@@ -31,7 +29,8 @@ describe SessionsController do
 
       it "should have the right title" do
         post :create, :session => @attr
-        response.should have_selector("title", :text => "Sign in")
+        expect(response.body).to match(/Sign in/)
+        # respsonse.should have_selector("title", :text => "Sign in")
       end
 
       it "should have a flash.now message" do
@@ -41,7 +40,6 @@ describe SessionsController do
     end
 
     describe "with valid email and password" do
-
       before(:each) do
         @user = FactoryGirl.create(:user)
         @attr = { :email => @user.email, :password => @user.password }
@@ -61,7 +59,6 @@ describe SessionsController do
   end
 
   describe "DELETE :destroy" do
-
     it "should sign a user out" do
       test_sign_in(FactoryGirl.create(:user))
       delete :destroy
