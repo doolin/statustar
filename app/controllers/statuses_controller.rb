@@ -1,6 +1,8 @@
 class StatusesController < ApplicationController
   helper SessionsHelper
 
+  skip_before_filter  :verify_authenticity_token
+
   def hello
     @statuses = Status.all
 
@@ -43,7 +45,6 @@ class StatusesController < ApplicationController
   end
 
   def create
-    #@status = Status.new(params[:status])
     @status = current_user.statuses.build(params[:status])
 
     respond_to do |format|

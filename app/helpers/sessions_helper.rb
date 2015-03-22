@@ -1,8 +1,6 @@
 module SessionsHelper
 
   def sign_in(user)
-    #ap user
-
     ### Changed from cookies to session
     # cookies.permanent.signed[:remember_token] = [user.id, user.salt]
     session[:remember_token] = [user.id, user.salt]
@@ -45,7 +43,6 @@ module SessionsHelper
   private
 
     def user_from_remember_token
-      #ap remember_token
       User.authenticate_with_salt(*remember_token)
     end
 
