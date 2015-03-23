@@ -6,38 +6,40 @@ describe "LayoutLinks" do
     expect(page).to have_title('Statustar | Home')
   end
 
-  xit "should have a Contact page at '/contact'" do
-    get '/contact'
-    response.should have_selector('title', :content => "Contact")
+  it "should have a Contact page at '/contact'" do
+    visit '/contact'
+    expect(page).to have_title('Statustar | Contact')
   end
 
-  xit "should have an About page at '/about'" do
-    get '/about'
-    response.should have_selector('title', :content => "About")
+  it "should have an About page at '/about'" do
+    visit '/about'
+    expect(page).to have_title('Statustar | About')
   end
   
-  xit "should have a Help page at '/help'" do
-    get '/help'
-    response.should have_selector('title', :content => "Help")
+  it "should have a Help page at '/help'" do
+    visit '/help'
+    expect(page).to have_title('Statustar | Help')
   end
   
-  xit "should have the right links on the layout" do
+  it "should have the right links on the layout" do
     visit root_path
     click_link "About"
-    response.should have_selector('title', :content => "About")
+    expect(page).to have_title('Statustar | About')
     click_link "Help"
-    response.should have_selector('title', :content => "Help")
+    expect(page).to have_title('Statustar | Help')
     click_link "Contact"
-    response.should have_selector('title', :content => "Contact")
+    expect(page).to have_title('Statustar | Contact')
     click_link "Home"
-    response.should have_selector('title', :content => "Home")
+    expect(page).to have_title('Statustar | Home')
   end
   
   describe "when not signed in" do
-    xit "should have a signin link" do
+    it "should have a signin link" do
       visit root_path
-      response.should have_selector("a", :href => signin_path,
-                                         :content => "Sign in")
+      # Working xpath, finally. Keep this around for a bit as working example.
+      # xp = find("/html/body/div/div/header/div[1]/div/nav/ul/li[3]/a").text
+      # ap xp
+      expect(page).to have_selector('a', text: "Sign in")
     end
   end
 
@@ -47,32 +49,34 @@ describe "LayoutLinks" do
       integration_sign_in @user
      end
 
-    xit "should have a signout link" do
+    it "should have a signout link" do
       visit root_path
-      response.should have_selector("a", :href => signout_path,
-                                         :content => "Sign out")
+      expect(page).to have_selector('a', text: "Sign out")
+      # response.should have_selector("a", :href => signout_path, :content => "Sign out")
     end
 
-    xit "should have a users link" do
+    it "should have a users link" do
       visit root_path
-      response.should have_selector("a", :href => users_path,
-                                         :content => "Users")
+      expect(page).to have_selector('a', text: "Users")
+      # response.should have_selector("a", :href => users_path, :content => "Users")
     end
 
-    xit "should have a profile link" do
+    it "should have a profile link" do
       visit root_path
-      response.should have_selector("a", :href => user_path(@user),
-                                         :content => "Profile")
+      expect(page).to have_selector('a', text: "Profile")
+      # response.should have_selector("a", :href => user_path(@user), :content => "Profile")
     end
 
-    xit "should have a Users page at '/users'" do
+    it "should have a Users page at '/users'" do
       visit users_path
-      response.should have_selector('title', :content => "All users")
+      expect(page).to have_content("All users")
+      # response.should have_selector('title', :content => "All users")
     end
 
-    xit "as non-admin should not have a delete link" do
+    it "as non-admin should not have a delete link" do
       visit users_path
-      response.should_not have_selector("a[href]", :content => "delete")
+      expect(page).not_to have_selector('a[href]', text: "delete")
+      # response.should_not have_selector("a[href]", :content => "delete")
     end
   end
 
@@ -82,10 +86,9 @@ describe "LayoutLinks" do
       integration_sign_in(admin)
     end
 
-    xit "you should not have a delete link for yourself" do
-      # btw, this depends on only creating one user (an admin user) for this test
+    it "you should not have a delete link for yourself" do
       visit users_path
-      response.should_not have_selector("a[href]", :content => "delete")
+      expect(page).not_to have_selector('a[href]', text: "delete")
     end
   end
 end

@@ -42,12 +42,12 @@ RSpec.configure do |config|
   def integration_sign_in(user)
     visit signin_path
     if user
-      fill_in :email,    :with => user.email
-      fill_in :password, :with => user.password
+      fill_in :session_email,    :with => user.email
+      fill_in :session_password, :with => user.password
     else
       fill_in :email,    :with => ""
       fill_in :password, :with => ""
     end
-    click_button
+    click_button "Sign in"
   end
 end
