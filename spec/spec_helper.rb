@@ -45,8 +45,8 @@ RSpec.configure do |config|
       fill_in :session_email,    :with => user.email
       fill_in :session_password, :with => user.password
     else
-      fill_in :email,    :with => ""
-      fill_in :password, :with => ""
+      fill_in :session_email,    :with => ""
+      fill_in :session_password, :with => ""
     end
     click_button "Sign in"
   end
