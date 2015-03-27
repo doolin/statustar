@@ -11,8 +11,8 @@ describe "pages/about" do
  
   it "renders head, title and body tags" do
     render :template => "layouts/application"
-    rendered.should have_selector "head"
-    rendered.should have_selector "title"
-    rendered.should have_selector "body"
+    expect(rendered).to match(/Help/)
+    expect(rendered).to match(/facebook/)
+    expect(rendered).to match(/About/)
   end
 end
