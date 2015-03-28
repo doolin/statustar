@@ -8,11 +8,4 @@ describe "pages/help" do
   it "should infer the controller action" do
     controller.request.path_parameters[:action].should eq('help')
   end
- 
-  it "should render head, title and body tags" do
-    render :template => "layouts/application"
-    rendered.should have_selector "head"
-    rendered.should have_selector "title"
-    rendered.should have_selector "body"
-  end
 end
