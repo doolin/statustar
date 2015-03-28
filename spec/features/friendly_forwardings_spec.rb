@@ -8,6 +8,6 @@ describe "FriendlyForwardings" do
     fill_in :session_password, :with => user.password
     click_button "Sign in"
 
-    page.should render_template('users/edit')
+    expect(page.body).to match(/Edit/)
   end
 end
