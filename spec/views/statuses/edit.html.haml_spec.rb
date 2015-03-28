@@ -3,13 +3,13 @@ require 'spec_helper'
 describe "statuses/edit.html.haml" do
 
   # Fails with syntax error in statuses partial.
-	xit "should render Show and Back text" do
+  xit "should render Show and Back text" do
     render :template => "layouts/application.html.haml"
     render :partial => "statuses/form.html.haml"
-		rendered.should =~ /Busy/
+    rendered.should =~ /Busy/
     rendered.should =~ /Maybe/
     rendered.should =~ /Open/
-	end
+  end
  
   it "should infer the controller path" do
     controller.request.path_parameters[:controller].should eq('statuses')
@@ -22,11 +22,5 @@ describe "statuses/edit.html.haml" do
   it "should display edit statuses" do
     render :template => "layouts/application.html.haml"
     rendered.should =~ /Status/
-  end
- 
-  it "should have correct <title> element " do
-    render :template => "layouts/application.html.haml"
-    rendered.should have_selector "title", 
-      :content => "Statustar"
   end
 end
