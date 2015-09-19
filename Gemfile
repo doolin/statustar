@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.0.13'
+gem 'rails', '4.2.4'
 gem 'protected_attributes'
 
 gem 'will_paginate'
