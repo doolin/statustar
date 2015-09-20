@@ -17,3 +17,4 @@ doc/app
 uploads/**/**/
 .rvmrc*
 *.journal
+todo.txt

@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe "Statuses" do
-
   before(:each) do
-    user = Factory(:user)
+    user = FactoryGirl.create(:user)
     visit signin_path
     fill_in :email,    :with => user.email
     fill_in :password, :with => user.password
@@ -11,22 +10,19 @@ describe "Statuses" do
   end
 
   describe "creation" do
-
     describe "failure" do
-
       xit "should not make a new status" do
-        lambda do
+        expect do
           visit root_path
           choose('Busy')
           click_button "Create Status"
           #response.should render_template('pages/home')
           #response.should have_selector("div#error_explanation")
-        end.should_not change(Status, :count)
+        end.to_not change(Status, :count)
       end
     end
 
     describe "success" do
-
       xit "should make a new status" do
         content = "Lorem ipsum dolor sit amet"
         lambda do
