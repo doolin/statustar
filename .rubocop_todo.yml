@@ -53,8 +53,7 @@ Lint/UnusedBlockArgument:
 
 # Offense count: 1
 Lint/UselessAccessModifier:
-  Exclude:
-    - 'app/models/status.rb'
+  Enabled: true
 
 # Offense count: 4
 Lint/UselessAssignment:

@@ -1,12 +1,11 @@
 class Status < ActiveRecord::Base
-
   attr_accessible :state
-  
+
   belongs_to :user
 
   validates :state, :presence => true, :length => { :maximum => 1 }, :inclusion => { :in => 1..3 }
   validates :user_id, :presence => true
-  
+
   default_scope { order('statuses.created_at DESC') }
 
   def content
@@ -14,17 +13,14 @@ class Status < ActiveRecord::Base
   end
 
   def find_active(_state)
-    if _state == self.state 
+    if _state == self.state
       return "active"
     end
     return "inactive"
   end
 
-
   # Return statuses from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
-
-  private
 
   # Return an SQL condition for users followed by the given user.
   # We include the user's own id as well.
