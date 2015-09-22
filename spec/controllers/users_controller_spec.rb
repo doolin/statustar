@@ -43,7 +43,7 @@ describe UsersController do
       # response.should have_selector("span.content", :text => mp2.content)
     end
   end
-  
+
   describe "GET :new" do
     xit "should have a name field" do
       get :new
@@ -74,7 +74,7 @@ describe UsersController do
       get :new
       response.should have_selector("title", :text => "Sign up")
     end
-    
+
     it "as a signed in user you should be redirect to root url" do
       @user = FactoryGirl.create(:user)
       test_sign_in(@user)
@@ -126,7 +126,7 @@ describe UsersController do
       it "should redirect to the user :show page" do
         post :create, :user => @attr
         response.should redirect_to(user_path(assigns(:user)))
-      end    
+      end
 
       it "should have a welcome message" do
         post :create, :user => @attr
@@ -207,7 +207,7 @@ describe UsersController do
       end
     end
   end
-  
+
   describe "authentication of edit/update pages" do
     before(:each) do
       @user = FactoryGirl.create(:user)
@@ -242,7 +242,7 @@ describe UsersController do
       end
     end
   end
-  
+
   describe "GET 'index'" do
     describe "for non-signed-in users" do
       it "should deny access" do

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @attr = { 
+    @attr = {
       :name => "Example User",
       :email => "user@example.com",
       :password => "foobar",
@@ -13,7 +13,7 @@ describe User do
   it "creates a new instance given valid attributes" do
     User.create!(@attr)
   end
-  
+
   it "requires a name" do
     no_name_user = User.new(@attr.merge(:name => ""))
     expect(no_name_user).not_to be_valid
@@ -98,11 +98,11 @@ describe User do
     describe "has_password? method" do
       it "should be true if the passwords match" do
         expect(@user.has_password?(@attr[:password])).to be true
-      end    
+      end
 
       it "should be false if the passwords don't match" do
         expect(@user.has_password?("invalid")).to be false
-      end 
+      end
     end
 
     describe "authenticate method" do

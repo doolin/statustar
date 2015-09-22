@@ -12,7 +12,6 @@ class StatusesController < ApplicationController
     end
   end
 
-  
   def index
     @statuses = Status.all
 

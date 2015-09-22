@@ -39,7 +39,7 @@ module SessionsHelper
     redirect_to(session[:return_to] || default)
     clear_return_to
   end
-  
+
   private
 
     def user_from_remember_token
@@ -51,7 +51,7 @@ module SessionsHelper
       # cookies.signed[:remember_token] || [nil, nil]
       session[:remember_token] || [nil, nil]
     end
-    
+
     def store_location
       session[:return_to] = request.fullpath
     end

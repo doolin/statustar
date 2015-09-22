@@ -6,7 +6,7 @@ describe PagesController do
   before(:each) do
     @base_title = "Statustar"
   end
-  
+
   describe "GET 'home'" do
     describe "when not signed in" do
       before(:each) do

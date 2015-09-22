@@ -18,7 +18,7 @@ describe Status do
     it "has a user attribute" do
       expect(@status).to respond_to(:user)
     end
-    
+
     it "has the right associated user" do
       expect(@status.user).to eq @user
     end
@@ -42,7 +42,7 @@ describe Status do
     status = Status.new(:state => 1)
     expect(status.find_active(1)).to eq "active"
   end
-  
+
   it "returns inactive correctly" do
     status = Status.new(:state =>2)
     expect(status.find_active(1)).to eq("inactive")

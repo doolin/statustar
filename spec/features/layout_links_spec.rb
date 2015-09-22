@@ -15,12 +15,12 @@ describe "LayoutLinks" do
     visit '/about'
     expect(page).to have_title('Statustar | About')
   end
-  
+
   it "should have a Help page at '/help'" do
     visit '/help'
     expect(page).to have_title('Statustar | Help')
   end
-  
+
   it "should have the right links on the layout" do
     visit root_path
     click_link "About"
@@ -32,7 +32,7 @@ describe "LayoutLinks" do
     click_link "Home"
     expect(page).to have_title('Statustar | Home')
   end
-  
+
   describe "when not signed in" do
     it "should have a signin link" do
       visit root_path

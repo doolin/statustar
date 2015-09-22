@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_filter :correct_user,  :only => [:edit, :update]               # you can only update your own stuff
   before_filter :admin_user,    :only => :destroy                       # only admins can delete
 
-  
   def index
     @title = "All users"
     @users = User.paginate(:page => params[:page])
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new
     @title = "Sign up"
   end
-  
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -57,7 +56,7 @@ class UsersController < ApplicationController
     end
     redirect_to users_path
   end
-  
+
   def following
     show_follow(:following)
   end
@@ -72,7 +71,7 @@ class UsersController < ApplicationController
     @users = @user.send(action).paginate(:page => params[:page])
     render 'show_follow'
   end
-  
+
   private
 
     def correct_user
@@ -83,7 +82,7 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
-      
+
     def registered
       redirect_to(root_path) unless !signed_in?
     end

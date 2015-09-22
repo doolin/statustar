@@ -8,7 +8,7 @@ describe SessionsController do
       get :new
       response.should be_success
     end
-    
+
     it "should have the right title" do
       get :new
       expect(response.body).to match(/Sign in/)

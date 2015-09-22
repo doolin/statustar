@@ -6,14 +6,14 @@ class User < ActiveRecord::Base
 
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent   => :destroy
-  has_many :following,     :through     => :relationships, 
+  has_many :following,     :through     => :relationships,
                            :source      => :followed
   has_many :reverse_relationships, :foreign_key => "followed_id",
                                    :class_name  => "Relationship",
                                    :dependent   => :destroy
-  has_many :followers, :through => :reverse_relationships, 
-                       :source  => :follower                           
-                             
+  has_many :followers, :through => :reverse_relationships,
+                       :source  => :follower
+
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name,  :presence => true,
                     :length   => { :maximum => 50}
@@ -51,15 +51,15 @@ class User < ActiveRecord::Base
   def follow!(followed)
     self.relationships.create!(:followed_id => followed.id)
   end
-  
+
   def unfollow!(followed)
     relationships.find_by_followed_id(followed).destroy
   end
-  
+
   def feed
     Status.from_users_followed_by(self)
   end
-      
+
   private
 
   def encrypt_password
@@ -78,5 +78,4 @@ class User < ActiveRecord::Base
   def secure_hash(string)
     Digest::SHA2.hexdigest(string)
   end
- 
 end

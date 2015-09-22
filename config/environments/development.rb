@@ -4,9 +4,9 @@ Statustar::Application.configure do
   config.assets.compress = false
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
   config.eager_load = false
-  
+
   # Settings specified here will take precedence over those in config/environment.rb
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
