@@ -54,11 +54,11 @@ describe Relationship do
 
     before(:each) do
           @attr = {
-      :name => "Example User",
-      :email => "user@example.com",
-      :password => "foobar",
-      :password_confirmation => "foobar"
-    }
+            :name => "Example User",
+            :email => "user@example.com",
+            :password => "foobar",
+            :password_confirmation => "foobar"
+          }
 
       @user = User.create!(@attr)
       @followed = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
