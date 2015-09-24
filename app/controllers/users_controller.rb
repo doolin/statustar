@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
-  before_filter :registered,    :only => [:new, :create]                # no registration for signed in users
-  before_filter :authenticate,  :except => [:show, :new, :create]       # ...
-  before_filter :correct_user,  :only => [:edit, :update]               # you can only update your own stuff
-  before_filter :admin_user,    :only => :destroy                       # only admins can delete
+  before_filter :registered,    only: [:new, :create]                # no registration for signed in users
+  before_filter :authenticate,  except: [:show, :new, :create]       # ...
+  before_filter :correct_user,  only: [:edit, :update]               # you can only update your own stuff
+  before_filter :admin_user,    only: :destroy                       # only admins can delete
 
   def index
     @title = "All users"
-    @users = User.paginate(:page => params[:page])
+    @users = User.paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
-    @statuses = @user.statuses.paginate(:page => params[:page])
+    @statuses = @user.statuses.paginate(page: params[:page])
     @title = @user.name
   end
 
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   def show_follow(action)
     @title = action.to_s.capitalize
     @user = User.find(params[:id])
-    @users = @user.send(action).paginate(:page => params[:page])
+    @users = @user.send(action).paginate(page: params[:page])
     render 'show_follow'
   end
 

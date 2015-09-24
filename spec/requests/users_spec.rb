@@ -7,8 +7,8 @@ describe "Users" do
     before(:each) do
       # Using only "@user = User.create!(@attr)" as per the tutorial
       # causes validation errors so I added the @attr definition
-      @attr = { :name => "New User", :email => "user@example.com",
-                :password => "foobar", :password_confirmation => "foobar" }
+      @attr = { name: "New User", email: "user@example.com",
+                password: "foobar", password_confirmation: "foobar" }
       @user = User.create!(@attr)
     end
 

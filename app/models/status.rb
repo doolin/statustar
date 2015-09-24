@@ -3,8 +3,8 @@ class Status < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :state, :presence => true, :length => { :maximum => 1 }, :inclusion => { :in => 1..3 }
-  validates :user_id, :presence => true
+  validates :state, presence: true, length: { maximum: 1 }, inclusion: { in: 1..3 }
+  validates :user_id, presence: true
 
   default_scope { order('statuses.created_at DESC') }
 
@@ -28,6 +28,6 @@ class Status < ActiveRecord::Base
     followed_ids = %(SELECT followed_id FROM relationships
                      WHERE follower_id = :user_id)
     where("user_id IN (#{followed_ids}) OR user_id = :user_id",
-          { :user_id => user })
+          { user_id: user })
   end
 end

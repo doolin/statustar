@@ -10,7 +10,7 @@ describe "pages/about" do
   end
 
   it "renders head, title and body tags" do
-    render :template => "layouts/application"
+    render template: "layouts/application"
     expect(rendered).to match(/Help/)
     expect(rendered).to match(/facebook/)
     expect(rendered).to match(/About/)

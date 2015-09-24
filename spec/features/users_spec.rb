@@ -6,10 +6,10 @@ describe "Users" do
       it "should not make a new user" do
         lambda do
           visit signup_path
-          fill_in "Name",         :with => "Example user"
-          fill_in "Email",        :with => "user@example.com"
-          fill_in "Password",     :with => "foobar"
-          fill_in "Confirmation", :with => ""
+          fill_in "Name",         with: "Example user"
+          fill_in "Email",        with: "user@example.com"
+          fill_in "Password",     with: "foobar"
+          fill_in "Confirmation", with: ""
           click_button "Sign up"
 
           expect(page.body).to have_selector("#error_explanation")
@@ -21,13 +21,13 @@ describe "Users" do
       it "should make a new user" do
         lambda do
           visit signup_path
-          fill_in "Name",         :with => "Example User"
-          fill_in "Email",        :with => "user@example.com"
-          fill_in "Password",     :with => "foobar"
-          fill_in "Confirmation", :with => "foobar"
+          fill_in "Name",         with: "Example User"
+          fill_in "Email",        with: "user@example.com"
+          fill_in "Password",     with: "foobar"
+          fill_in "Confirmation", with: "foobar"
           click_button "Sign up"
 
-          expect(page.body).to have_selector(".flash.success", :text => "Welcome")
+          expect(page.body).to have_selector(".flash.success", text: "Welcome")
         end.should change(User, :count).by(1)
       end
     end
@@ -37,7 +37,7 @@ describe "Users" do
     describe "failure" do
       it "should not sign a user in" do
         integration_sign_in nil
-        expect(page.body).to have_selector(".flash.error", :text => "Invalid")
+        expect(page.body).to have_selector(".flash.error", text: "Invalid")
       end
     end
 

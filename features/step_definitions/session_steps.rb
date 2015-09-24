@@ -5,10 +5,10 @@ Given /^user is not logged in$/ do
 end
 
 Given /^user name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  User.new(:name => name,
-           :email => email,
-           :password => password,
-           :password_confirmation => password).save!
+  User.new(name: name,
+           email: email,
+           password: password,
+           password_confirmation: password).save!
 end
 
 When /^I sign in as "(.*)\/(.*)"$/ do |email, password|

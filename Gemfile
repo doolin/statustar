@@ -8,7 +8,7 @@ gem 'gravatar_image_tag', '1.0.0'
 gem 'thin'
 gem 'haml-rails'
 gem 'sass'
-gem 'zurb-foundation', :group => :assets
+gem 'zurb-foundation', group: :assets
 
 gem 'awesome_print'
 gem 'rubocop'
@@ -47,5 +47,5 @@ group :test do
   gem 'capybara'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails' # , '4.5.0'
-  gem 'jasmine', :git => "git://github.com/pivotal/jasmine-gem.git"
+  gem 'jasmine', git: "git://github.com/pivotal/jasmine-gem.git"
 end

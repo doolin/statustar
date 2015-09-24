@@ -5,9 +5,9 @@ describe Relationship do
 
   before(:each) do
     @follower = FactoryGirl.create(:user)
-    @followed = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
+    @followed = FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
 
-    @relationship = @follower.relationships.build(:followed_id => @followed.id)
+    @relationship = @follower.relationships.build(followed_id: @followed.id)
   end
 
   it "should create a new instance given valid attributes" do
@@ -54,14 +54,14 @@ describe Relationship do
 
     before(:each) do
           @attr = {
-            :name => "Example User",
-            :email => "user@example.com",
-            :password => "foobar",
-            :password_confirmation => "foobar"
+            name: "Example User",
+            email: "user@example.com",
+            password: "foobar",
+            password_confirmation: "foobar"
           }
 
       @user = User.create!(@attr)
-      @followed = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
+      @followed = FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
     end
 
     it "should have a relationships method" do

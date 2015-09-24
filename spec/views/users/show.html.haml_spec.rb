@@ -4,9 +4,9 @@ describe "users/show" do
 
   before(:each) do
     @user = assign(:user, double(User,
-      :name => "Name",
-      :email => "Email",
-      :statuses => []
+      name: "Name",
+      email: "Email",
+      statuses: []
     ))
   end
 
@@ -17,8 +17,8 @@ describe "users/show" do
 
   xit "renders list of status updates" do
     u1 = FactoryGirl.create(:user)
-    u1.statuses.create({:state => 1})
-    u1.statuses.create!({:state => 2})
+    u1.statuses.create({state: 1})
+    u1.statuses.create!({state: 2})
     u1.save
     render
     rendered.should have_selector("active")
@@ -27,8 +27,8 @@ describe "users/show" do
 
   # Fails with syntax error in users/show_follow partial.
   xit "should render Show and Back text" do
-    render :template => "layouts/application"
-    render :template => "users/show_follow"
+    render template: "layouts/application"
+    render template: "users/show_follow"
     rendered.should =~ /Following/
     rendered.should =~ /Followers/
   end
@@ -43,12 +43,12 @@ describe "users/show" do
 
   # Need to get signed in correctly to get the correct view
   xit "should display show users" do
-    render :template => "layouts/application"
+    render template: "layouts/application"
     rendered.should =~ /Users/
   end
 
   xit "should have correct <title> element " do
-    render :template => "layouts/application"
-    rendered.should have_selector "title", :text => "Statustar"
+    render template: "layouts/application"
+    rendered.should have_selector "title", text: "Statustar"
   end
 end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Status do
   before(:each) do
     @user = FactoryGirl.create(:user)
-    @attr = { :state => 1 }
+    @attr = { state: 1 }
   end
 
   it "creates a new instance given valid attributes" do
@@ -30,32 +30,32 @@ describe Status do
     end
 
     it "requires nonblank content" do
-      expect(@user.statuses.build(:state => "  ")).not_to be_valid
+      expect(@user.statuses.build(state: "  ")).not_to be_valid
     end
 
     it "rejects long content" do
-      expect(@user.statuses.build(:state => "a" * 141)).not_to be_valid
+      expect(@user.statuses.build(state: "a" * 141)).not_to be_valid
     end
   end
 
   it "returns the correct state" do
-    status = Status.new(:state => 1)
+    status = Status.new(state: 1)
     expect(status.find_active(1)).to eq "active"
   end
 
   it "returns inactive correctly" do
-    status = Status.new(:state =>2)
+    status = Status.new(state: 2)
     expect(status.find_active(1)).to eq("inactive")
   end
 
   describe "from_users_followed_by" do
     before(:each) do
-      @other_user = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
-      @third_user = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
+      @other_user = FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
+      @third_user = FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
 
-      @user_post = @user.statuses.create!(:state => 1)
-      @other_post = @other_user.statuses.create!(:state => 3)
-      @third_post = @third_user.statuses.create!(:state => 2)
+      @user_post = @user.statuses.create!(state: 1)
+      @other_post = @other_user.statuses.create!(state: 3)
+      @third_post = @third_user.statuses.create!(state: 2)
 
       @user.follow!(@other_user)
     end

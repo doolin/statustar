@@ -4,8 +4,8 @@ describe "statuses/index.html.haml" do
 
   # Fails with syntax error in statuses partial.
   xit "should render Show and Back text" do
-    render :template => "layouts/application.html.haml"
-    render :partial => "statuses/form.html.haml"
+    render template: "layouts/application.html.haml"
+    render partial: "statuses/form.html.haml"
     rendered.should =~ /Busy/
     rendered.should =~ /Maybe/
     rendered.should =~ /Open/
@@ -20,7 +20,7 @@ describe "statuses/index.html.haml" do
   end
 
   it "should display edit statuses" do
-    render :template => "layouts/application.html.haml"
+    render template: "layouts/application.html.haml"
     rendered.should =~ /Status/
   end
 end

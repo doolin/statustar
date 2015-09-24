@@ -82,7 +82,7 @@ describe "LayoutLinks" do
 
   describe "when signed in as admin" do
     before(:each) do
-      admin = FactoryGirl.create(:user, :email => "admin@example.com", :admin => true)
+      admin = FactoryGirl.create(:user, email: "admin@example.com", admin: true)
       integration_sign_in(admin)
     end
 

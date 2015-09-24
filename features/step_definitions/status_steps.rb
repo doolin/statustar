@@ -1,7 +1,7 @@
 
 Given /^the user's status is "([^"]*)"$/ do |oldstate|
   #response_body.should have_selector 'input[type=radio][checked=checked][value=information]'
-  @user = User.create!(:name => 'dave', :email => 'dave@test.com', :password => 'foobar', :password_confirmation => 'foobar')
+  @user = User.create!(name: 'dave', email: 'dave@test.com', password: 'foobar', password_confirmation: 'foobar')
   #puts @user.instance_variables
   visit('/statuses/new')
   #input("#busy").should be_checked
@@ -29,7 +29,7 @@ Then /^the user's status changes to "([^"]*)"$/ do |newstate|
   #find_field(newstate).should be_checked
   newstate = newstate.downcase
   ###  TODO: explain why this passes.
-  page.should have_selector("span", :class => 'foobabractive', :id => newstate)
+  page.should have_selector("span", class: 'foobabractive', id: newstate)
   page.should have_css("span.active##{newstate}")
   #page.should have_no_selector("span", :class => 'inactive', :id => newstate)
   page.should have_no_css("span.inactive##{newstate}")

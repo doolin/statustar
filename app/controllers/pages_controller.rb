@@ -4,7 +4,7 @@ class PagesController < ApplicationController
     @title = "Home"
     if signed_in?
       @status = Status.new
-      @feed_items = current_user.feed.paginate(:page => params[:page])
+      @feed_items = current_user.feed.paginate(page: params[:page])
     end
 
     respond_to do |format|

@@ -15,18 +15,18 @@ describe "statuses/show" do
   xit "should render tags" do
     rendered.should have_selector "p"
     rendered.should have_selector "b"
-    rendered.should have_selector "span", :id => "busy"
-    rendered.should have_selector "span", :id => "maybe"
-    rendered.should have_selector "span", :id => "open"
-    rendered.should have_selector "span", :id => "busy1"
-    rendered.should have_selector "span", :id => "busy2"
+    rendered.should have_selector "span", id: "busy"
+    rendered.should have_selector "span", id: "maybe"
+    rendered.should have_selector "span", id: "open"
+    rendered.should have_selector "span", id: "busy1"
+    rendered.should have_selector "span", id: "busy2"
   end
 
   xit "displays all the statuses" do
     assign(:statuses, [
-        double(Status, :name => "Busy"),
-        double(Status, :name => "Maybe"),
-        double(Status, :name => "Open"),
+        double(Status, name: "Busy"),
+        double(Status, name: "Maybe"),
+        double(Status, name: "Open"),
       ])
     render
     rendered.should =~ /Busy/
