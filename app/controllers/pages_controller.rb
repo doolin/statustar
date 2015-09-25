@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml  { head :ok }
+      format.xml { head :ok }
       format.js
     end
   end

@@ -1,7 +1,7 @@
 class StatusesController < ApplicationController
   helper SessionsHelper
 
-  skip_before_filter  :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token
 
   def hello
     @statuses = Status.all

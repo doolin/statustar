@@ -198,7 +198,7 @@ Style/EmptyLinesAroundModuleBody:
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.
 Style/ExtraSpacing:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 381
 # Cop supports --auto-correct.

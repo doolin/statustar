@@ -19,7 +19,7 @@ end
 
 # TODO: change this to check for a unique page id or something.
 When /^I should be signed in$/ do
-  step  %{I should see "updates"}
+  step %{I should see "updates"}
 end
 
 # Signing out steps

@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20111005152621) do
   create_table "statuses", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "available",  default: true
+    t.boolean  "available", default: true
     t.integer  "state"
     t.integer  "user_id"
   end
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20111005152621) do
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.boolean  "admin",              default: false
+    t.boolean  "admin", default: false
   end
 
 end
