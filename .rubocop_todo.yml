@@ -86,10 +86,7 @@ Metrics/MethodLength:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, Include.
 Rails/ActionFilter:
-  Exclude:
-    - 'app/controllers/relationships_controller.rb'
-    - 'app/controllers/statuses_controller.rb'
-    - 'app/controllers/users_controller.rb'
+  Enabled: true
 
 # Offense count: 4
 # Cop supports --auto-correct.
@@ -112,7 +109,7 @@ Style/BracesAroundHashParameters:
 # Cop supports --auto-correct.
 # Configuration parameters: IndentWhenRelativeTo, SupportedStyles, IndentOneStep.
 Style/CaseIndentation:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -148,7 +145,6 @@ Style/Documentation:
 # Cop supports --auto-correct.
 Style/EmptyLines:
   Exclude:
-    - 'app/models/status.rb'
     - 'config/application.rb'
     - 'config/environments/production.rb'
     - 'features/step_definitions/status_steps.rb'
@@ -406,8 +402,7 @@ Style/StringLiterals:
 # Offense count: 11
 # Cop supports --auto-correct.
 Style/Tab:
-  Exclude:
-    - 'spec/views/statuses/_form.html.haml_spec.rb'
+  Enabled: true
 
 # Offense count: 12
 # Cop supports --auto-correct.

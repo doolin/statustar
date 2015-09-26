@@ -64,16 +64,16 @@ When /^I (press|follow|check|uncheck|choose) "([^\"]*)" for (.*) whose (.*) is "
   end
   within("tr[id=row_#{class_name}_#{id}]") do
     case action
-      when "press"
-        click_button(whatyouclick)
-      when "follow"
-        click_link(whatyouclick)
-      when "check"
-        check(whatyouclick)
-      when "uncheck"
-        uncheck(whatyouclick)
-      when "choose"
-        uncheck(whatyouclick)
+    when "press"
+      click_button(whatyouclick)
+    when "follow"
+      click_link(whatyouclick)
+    when "check"
+      check(whatyouclick)
+    when "uncheck"
+      uncheck(whatyouclick)
+    when "choose"
+      uncheck(whatyouclick)
     end
   end
 end
