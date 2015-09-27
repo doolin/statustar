@@ -14,7 +14,7 @@ When /^the user clicks "([^"]*)"$/ do |newstate|
 end
 
 When /^presses "([^"]*)"$/ do |arg1|
-  click_button "Create Status"
+  click_button 'Create Status'
 end
 
 Then /^the user's status changes to "([^"]*)"$/ do |newstate|
@@ -29,7 +29,7 @@ Then /^the user's status changes to "([^"]*)"$/ do |newstate|
   #find_field(newstate).should be_checked
   newstate = newstate.downcase
   ###  TODO: explain why this passes.
-  page.should have_selector("span", class: 'foobabractive', id: newstate)
+  page.should have_selector('span', class: 'foobabractive', id: newstate)
   page.should have_css("span.active##{newstate}")
   #page.should have_no_selector("span", :class => 'inactive', :id => newstate)
   page.should have_no_css("span.inactive##{newstate}")
@@ -57,22 +57,22 @@ end
 
 
 When /^I (press|follow|check|uncheck|choose) "([^\"]*)" for (.*) whose (.*) is "([^\"]*)"$/ do |action, whatyouclick, class_name, var_name, value|
-  unless var_name == "id" then
+  unless var_name == 'id' then
     id = eval("\"#{class_name}\".classify.constantize.find_by_#{var_name}(\"#{value}\").id.to_s")
   else
     id = value
   end
   within("tr[id=row_#{class_name}_#{id}]") do
     case action
-    when "press"
+    when 'press'
       click_button(whatyouclick)
-    when "follow"
+    when 'follow'
       click_link(whatyouclick)
-    when "check"
+    when 'check'
       check(whatyouclick)
-    when "uncheck"
+    when 'uncheck'
       uncheck(whatyouclick)
-    when "choose"
+    when 'choose'
       uncheck(whatyouclick)
     end
   end

@@ -10,16 +10,16 @@ describe 'statuses/_form.html.haml' do
     render template: 'layouts/application', action: 'show'
   end
 
-  xit "should render field and action tags" do
-    rendered.should have_selector "div", class: 'field'
-    rendered.should have_selector "div", class: 'actions'
+  xit 'should render field and action tags' do
+    rendered.should have_selector 'div', class: 'field'
+    rendered.should have_selector 'div', class: 'actions'
   end
 
-  xit "displays all the statuses" do
+  xit 'displays all the statuses' do
     assign(:statuses, [
-        stub_model(Status, name: "Busy"),
-        stub_model(Status, name: "Maybe"),
-        stub_model(Status, name: "Open"),
+        stub_model(Status, name: 'Busy'),
+        stub_model(Status, name: 'Maybe'),
+        stub_model(Status, name: 'Open'),
       ])
     #render
     rendered.should =~ /Busy/

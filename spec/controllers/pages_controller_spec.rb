@@ -4,20 +4,20 @@ describe PagesController do
   render_views
 
   before(:each) do
-    @base_title = "Statustar"
+    @base_title = 'Statustar'
   end
 
   describe "GET 'home'" do
-    describe "when not signed in" do
+    describe 'when not signed in' do
       before(:each) do
         get :home
       end
 
-      it "should be successful" do
+      it 'should be successful' do
         response.should be_success
       end
 
-      it "should have the right title" do
+      it 'should have the right title' do
         # find(:xpath, "//title").text.should match("#{@base_title} | Home")
         expect(response.body).to match(/#{@base_title} | Home/)
         # response.body.should have_xpath('.//title') #, text: "#{@base_title} | Home")
@@ -27,12 +27,12 @@ describe PagesController do
   end
 
   describe "GET 'contact'" do
-    it "should be successful" do
+    it 'should be successful' do
       get 'contact'
       response.should be_success
     end
 
-    it "should have the right title" do
+    it 'should have the right title' do
       get 'contact'
       expect(response.body).to match(/#{@base_title} | Contact/)
       # assert page.has_xpath?('//title', text: @base_title + " | Contact")
@@ -42,12 +42,12 @@ describe PagesController do
   end
 
   describe "GET 'about'" do
-    it "should be successful" do
+    it 'should be successful' do
       get 'about'
       response.should be_success
     end
 
-    it "should have the right title" do
+    it 'should have the right title' do
       get 'about'
       expect(response.body).to match(/#{@base_title} | About/)
       # response.should have_selector("title", :text => @base_title + " | About")
@@ -55,12 +55,12 @@ describe PagesController do
   end
 
   describe "GET 'help'" do
-    it "should be successful" do
+    it 'should be successful' do
       get 'help'
       response.should be_success
     end
 
-    it "should have the right title" do
+    it 'should have the right title' do
       get 'help'
       expect(response.body).to match(/#{@base_title} | Help/)
       # response.should have_selector("title", :text => @base_title + " | Help")

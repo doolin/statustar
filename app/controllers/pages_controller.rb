@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @title = "Home"
+    @title = 'Home'
     if signed_in?
       @status = Status.new
       @feed_items = current_user.feed.paginate(page: params[:page])
@@ -15,26 +15,26 @@ class PagesController < ApplicationController
   end
 
   def contact
-    @title = "Contact"
+    @title = 'Contact'
   end
 
   def about
-    @title = "About"
+    @title = 'About'
   end
 
   def help
-    @title = "Help"
+    @title = 'Help'
   end
 
   def terms
-    @title = "Terms"
+    @title = 'Terms'
   end
 
   def privacy
-    @title = "Privacy Policy"
+    @title = 'Privacy Policy'
   end
 
   def faq
-    @title = "Frequently Asked Questions"
+    @title = 'Frequently Asked Questions'
   end
 end

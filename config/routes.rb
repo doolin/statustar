@@ -1,6 +1,6 @@
 Statustar::Application.routes.draw do
 
-  get "static/index"
+  get 'static/index'
 
   resources :users do
     member do
@@ -25,11 +25,11 @@ Statustar::Application.routes.draw do
 
   root to: 'pages#home'
 
-  get "pages/home"
-  get "pages/contact"
-  get "pages/about"
-  get "pages/help"
-  get "pages/terms"
-  get "pages/faq"
-  get "pages/privacy"
+  get 'pages/home'
+  get 'pages/contact'
+  get 'pages/about'
+  get 'pages/help'
+  get 'pages/terms'
+  get 'pages/faq'
+  get 'pages/privacy'
 end

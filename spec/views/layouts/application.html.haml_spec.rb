@@ -10,14 +10,14 @@ describe 'layouts/application' do
     render
   end
 
-  it "should render head, title, body and container tags" do
+  it 'should render head, title, body and container tags' do
     rendered.should match /head/
     rendered.should match /title/
     rendered.should match /body/
     # rendered.should have_selector "div", :class => 'container'
   end
 
-  it "should render javascript" do
+  it 'should render javascript' do
     rendered.should match /script/
   end
 end

@@ -14,9 +14,9 @@ class Status < ActiveRecord::Base
 
   def find_active(_state)
     if _state == self.state
-      return "active"
+      return 'active'
     end
-    return "inactive"
+    return 'inactive'
   end
 
   # Return statuses from the users being followed by the given user.

@@ -53,7 +53,7 @@ class StatusesController < ApplicationController
         format.xml  { render xml: @status, status: :created, location: @status }
         format.js
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.xml  { render xml: @status.errors, status: :unprocessable_entity }
       end
     end
@@ -68,7 +68,7 @@ class StatusesController < ApplicationController
         format.html { redirect_to(@status) }
         format.xml  { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.xml  { render xml: @status.errors, status: :unprocessable_entity }
       end
     end

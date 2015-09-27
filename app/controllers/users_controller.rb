@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_filter :admin_user,    only: :destroy                       # only admins can delete
 
   def index
-    @title = "All users"
+    @title = 'All users'
     @users = User.paginate(page: params[:page])
   end
 
@@ -17,17 +17,17 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @title = "Sign up"
+    @title = 'Sign up'
   end
 
   def create
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to Statustar!"
+      flash[:success] = 'Welcome to Statustar!'
       redirect_to @user
     else
-      @title = "Sign up"
+      @title = 'Sign up'
       @user.password = nil
       @user.password_confirmation = nil
       render 'new'
@@ -35,15 +35,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @title = "Edit user"
+    @title = 'Edit user'
   end
 
   def update
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated."
+      flash[:success] = 'Profile updated.'
       redirect_to @user
     else
-      @title = "Edit user"
+      @title = 'Edit user'
       render 'edit'
     end
   end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     unless current_user?(user) # Can't delete yourself Mr. Admin!
       user.destroy
-      flash[:success] = "User destroyed."
+      flash[:success] = 'User destroyed.'
     end
     redirect_to users_path
   end

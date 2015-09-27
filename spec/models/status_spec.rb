@@ -6,49 +6,49 @@ describe Status do
     @attr = { state: 1 }
   end
 
-  it "creates a new instance given valid attributes" do
+  it 'creates a new instance given valid attributes' do
     @user.statuses.create!(@attr)
   end
 
-  describe "user associations" do
+  describe 'user associations' do
     before(:each) do
       @status = @user.statuses.create(@attr)
     end
 
-    it "has a user attribute" do
+    it 'has a user attribute' do
       expect(@status).to respond_to(:user)
     end
 
-    it "has the right associated user" do
+    it 'has the right associated user' do
       expect(@status.user).to eq @user
     end
   end
 
-  describe "validations" do
-    it "requires a user id" do
+  describe 'validations' do
+    it 'requires a user id' do
       expect(Status.new(@attr)).not_to be_valid
     end
 
-    it "requires nonblank content" do
-      expect(@user.statuses.build(state: "  ")).not_to be_valid
+    it 'requires nonblank content' do
+      expect(@user.statuses.build(state: '  ')).not_to be_valid
     end
 
-    it "rejects long content" do
-      expect(@user.statuses.build(state: "a" * 141)).not_to be_valid
+    it 'rejects long content' do
+      expect(@user.statuses.build(state: 'a' * 141)).not_to be_valid
     end
   end
 
-  it "returns the correct state" do
+  it 'returns the correct state' do
     status = Status.new(state: 1)
-    expect(status.find_active(1)).to eq "active"
+    expect(status.find_active(1)).to eq 'active'
   end
 
-  it "returns inactive correctly" do
+  it 'returns inactive correctly' do
     status = Status.new(state: 2)
-    expect(status.find_active(1)).to eq("inactive")
+    expect(status.find_active(1)).to eq('inactive')
   end
 
-  describe "from_users_followed_by" do
+  describe 'from_users_followed_by' do
     before(:each) do
       @other_user = FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
       @third_user = FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
@@ -60,7 +60,7 @@ describe Status do
       @user.follow!(@other_user)
     end
 
-    it "has a from_users_followed_by class method" do
+    it 'has a from_users_followed_by class method' do
       expect(Status).to respond_to(:from_users_followed_by)
     end
 
