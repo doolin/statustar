@@ -17,8 +17,8 @@ describe 'users/show' do
 
   xit 'renders list of status updates' do
     u1 = FactoryGirl.create(:user)
-    u1.statuses.create({state: 1})
-    u1.statuses.create!({state: 2})
+    u1.statuses.create({ state: 1 })
+    u1.statuses.create!({ state: 2 })
     u1.save
     render
     rendered.should have_selector('active')
