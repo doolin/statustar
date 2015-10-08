@@ -9,14 +9,14 @@ class Status < ActiveRecord::Base
   default_scope { order('statuses.created_at DESC') }
 
   def content
-    return state
+    state
   end
 
   def find_active(_state)
     if _state == self.state
       return 'active'
     end
-    return 'inactive'
+    'inactive'
   end
 
   # Return statuses from the users being followed by the given user.

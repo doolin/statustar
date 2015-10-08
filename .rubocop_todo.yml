@@ -317,8 +317,7 @@ Style/PredicateName:
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleReturnValues.
 Style/RedundantReturn:
-  Exclude:
-    - 'app/models/status.rb'
+  Enabled: true
 
 # Offense count: 4
 # Cop supports --auto-correct.
@@ -373,7 +372,7 @@ Style/SpaceAroundOperators:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/SpaceBeforeBlockBraces:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 6
 # Cop supports --auto-correct.
