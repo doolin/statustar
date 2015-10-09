@@ -97,11 +97,11 @@ describe User do
 
     describe 'has_password? method' do
       it 'should be true if the passwords match' do
-        expect(@user.has_password?(@attr[:password])).to be true
+        expect(@user.password?(@attr[:password])).to be true
       end
 
       it "should be false if the passwords don't match" do
-        expect(@user.has_password?('invalid')).to be false
+        expect(@user.password?('invalid')).to be false
       end
     end
 
