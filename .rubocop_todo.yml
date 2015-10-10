@@ -283,8 +283,7 @@ Style/MultilineIfThen:
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/NegatedIf:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
+  Enabled: true
 
 # Offense count: 1
 # Cop supports --auto-correct.
