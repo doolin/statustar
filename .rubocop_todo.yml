@@ -101,9 +101,7 @@ Style/AlignParameters:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/BracesAroundHashParameters:
-  Exclude:
-    - 'app/models/status.rb'
-    - 'spec/views/users/show.html.haml_spec.rb'
+  Enabled: true
 
 # Offense count: 5
 # Cop supports --auto-correct.
@@ -220,7 +218,7 @@ Style/IndentArray:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/IndentHash:
-  Enabled: true
+  Enabled: false
 
 # Offense count: 14
 # Cop supports --auto-correct.
