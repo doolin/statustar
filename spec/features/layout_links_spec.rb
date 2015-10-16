@@ -47,7 +47,7 @@ describe 'LayoutLinks' do
     before(:each) do
       @user = FactoryGirl.create(:user)
       integration_sign_in @user
-     end
+    end
 
     it 'should have a signout link' do
       visit root_path

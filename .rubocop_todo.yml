@@ -18,9 +18,7 @@ Lint/AmbiguousRegexpLiteral:
 # Offense count: 2
 # Cop supports --auto-correct.
 Lint/BlockAlignment:
-  Exclude:
-    - 'spec/features/layout_links_spec.rb'
-    - 'spec/views/statuses/_form.html.haml_spec.rb'
+  Enabled: true
 
 # Offense count: 1
 Lint/Debugger:
