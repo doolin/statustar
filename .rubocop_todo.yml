@@ -170,13 +170,7 @@ Style/EmptyLinesAroundBlockBody:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'app/controllers/pages_controller.rb'
-    - 'app/controllers/sessions_controller.rb'
-    - 'app/controllers/static_controller.rb'
-    - 'app/models/status.rb'
-    - 'spec/javascripts/support/jasmine_config.rb'
-    - 'test/functional/static_controller_test.rb'
+  Enabled: true
 
 # Offense count: 4
 # Cop supports --auto-correct.
