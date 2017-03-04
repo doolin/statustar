@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.8'
 gem 'protected_attributes'
 
 gem 'will_paginate'
-gem 'gravatar_image_tag', '1.0.0'
+gem 'gravatar_image_tag'
 gem 'thin'
 gem 'haml-rails'
 gem 'sass'
@@ -43,9 +43,9 @@ group :test do
   gem 'simplecov'
   gem 'cucumber-rails', require: false # for "WARNING: Cucumber-rails required outside of env.rb"
   gem 'database_cleaner'
-  gem 'rspec-rails', '3.3'
+  gem 'rspec-rails'
   gem 'capybara'
-  gem 'webrat', '0.7.1'
-  gem 'factory_girl_rails' # , '4.5.0'
+  gem 'webrat'
+  gem 'factory_girl_rails'
   gem 'jasmine', git: 'git://github.com/pivotal/jasmine-gem.git'
 end
