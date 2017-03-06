@@ -83,29 +83,31 @@ describe User do
   end
 
   describe 'password encryption' do
-    before(:each) do
-      @user = User.create!(attr)
-    end
+    let(:user) { create :user }
 
     it 'has an encrypted password attribute' do
-      expect(@user).to respond_to(:encrypted_password)
+      expect(user).to respond_to(:encrypted_password)
     end
 
     it 'sets the encrypted password' do
-      expect(@user.encrypted_password).not_to be_blank
+      expect(user.encrypted_password).not_to be_blank
     end
 
-    describe 'has_password? method' do
+    describe '#has_password?' do
       it 'should be true if the passwords match' do
-        expect(@user.password?(attr[:password])).to be true
+        expect(user.password?(attr[:password])).to be true
       end
 
       it "should be false if the passwords don't match" do
-        expect(@user.password?('invalid')).to be false
+        expect(user.password?('invalid')).to be false
       end
     end
 
-    describe 'authenticate method' do
+    describe '.authenticate' do
+      before(:each) do
+        @user = User.create!(attr)
+      end
+
       it 'returns nil on email/password mismatch' do
         wrong_password_user = User.authenticate(attr[:email], 'wrongpass')
         expect(wrong_password_user).to be_nil
