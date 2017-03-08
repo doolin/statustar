@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe 'layouts/statuses' do # , type: :feature do
@@ -10,4 +11,3 @@ describe 'layouts/statuses' do # , type: :feature do
     # expect(page.body).to have_css "container"
   end
 end
-

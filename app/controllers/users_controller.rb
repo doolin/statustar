@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UsersController < ApplicationController
   before_filter :registered,    only: [:new, :create]                # no registration for signed in users
   before_filter :authenticate,  except: [:show, :new, :create]       # ...

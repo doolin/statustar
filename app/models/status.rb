@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Status < ActiveRecord::Base
   attr_accessible :state
 

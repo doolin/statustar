@@ -1,17 +1,16 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe 'users/index.html.haml' do
   before(:each) do
     assign(:users, [
-      stub_model(User,
-        name: 'Name',
-        email: 'Email'
-      ),
-      stub_model(User,
-        name: 'Name',
-        email: 'Email'
-      )
-    ])
+             stub_model(User,
+               name: 'Name',
+               email: 'Email'),
+             stub_model(User,
+               name: 'Name',
+               email: 'Email')
+           ])
   end
 
   xit 'renders a list of users' do

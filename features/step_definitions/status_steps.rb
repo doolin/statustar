@@ -57,11 +57,11 @@ end
 
 
 When /^I (press|follow|check|uncheck|choose) "([^\"]*)" for (.*) whose (.*) is "([^\"]*)"$/ do |action, whatyouclick, class_name, var_name, value|
-  unless var_name == 'id' then
-    id = eval("\"#{class_name}\".classify.constantize.find_by_#{var_name}(\"#{value}\").id.to_s")
-  else
-    id = value
-  end
+  id = unless var_name == 'id' then
+         eval("\"#{class_name}\".classify.constantize.find_by_#{var_name}(\"#{value}\").id.to_s")
+       else
+         value
+       end
   within("tr[id=row_#{class_name}_#{id}]") do
     case action
     when 'press'

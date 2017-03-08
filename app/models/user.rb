@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :email, :password, :password_confirmation
@@ -35,7 +36,7 @@ class User < ActiveRecord::Base
 
   def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
-    (user && user.salt == cookie_salt) ? user : nil
+    user && user.salt == cookie_salt ? user : nil
   end
 
   def password?(submitted_password)

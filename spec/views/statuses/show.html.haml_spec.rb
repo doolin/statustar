@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe 'statuses/show' do
@@ -26,7 +27,7 @@ describe 'statuses/show' do
     assign(:statuses, [
         double(Status, name: 'Busy'),
         double(Status, name: 'Maybe'),
-        double(Status, name: 'Open'),
+        double(Status, name: 'Open')
       ])
     render
     rendered.should =~ /Busy/

@@ -1,14 +1,15 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe User do
-   let(:attr) do
-     {
-      name: 'Example User',
-      email: 'user@example.com',
-      password: 'foobar',
-      password_confirmation: 'foobar'
-    }
-   end
+  let(:attr) do
+    {
+     name: 'Example User',
+     email: 'user@example.com',
+     password: 'foobar',
+     password_confirmation: 'foobar'
+   }
+  end
 
   it 'creates a new instance given valid attributes' do
     expect(User.new(attr)).to be_valid

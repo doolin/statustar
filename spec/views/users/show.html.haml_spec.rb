@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe 'users/show' do
@@ -6,8 +7,7 @@ describe 'users/show' do
     @user = assign(:user, double(User,
       name: 'Name',
       email: 'Email',
-      statuses: []
-    ))
+      statuses: []))
   end
 
   xit 'renders attributes in <p>' do

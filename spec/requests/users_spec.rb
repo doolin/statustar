@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 # This should go into the model spec
