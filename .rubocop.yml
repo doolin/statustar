@@ -291,39 +291,10 @@ Style/RegexpLiteral:
     - 'features/step_definitions/session_steps.rb'
     - 'features/step_definitions/web_steps.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment.
-Style/SpaceAroundOperators:
-  Exclude:
-    - 'lib/tasks/sample_data.rake'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: use_perl_names, use_english_names
-Style/SpecialGlobalVars:
-  Exclude:
-    - 'spec/javascripts/support/jasmine_runner.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AllowSafeAssignment.
-# SupportedStyles: require_parentheses, require_no_parentheses, require_parentheses_when_complex
-Style/TernaryParentheses:
-  Exclude:
-    - 'features/step_definitions/web_steps.rb'
-
+# TODO: This won't autocorrect correctly, produces an
+# error on both rubocop and cucumber afterwards.
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/UnlessElse:
   Exclude:
     - 'features/step_definitions/status_steps.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: SupportedStyles, WordRegex.
-# SupportedStyles: percent, brackets
-Style/WordArray:
-  EnforcedStyle: percent
-  MinSize: -Infinity
