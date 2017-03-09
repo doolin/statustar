@@ -44,11 +44,11 @@ class User < ActiveRecord::Base
   end
 
   def following?(followed)
-    self.relationships.find_by_followed_id(followed)
+    relationships.find_by_followed_id(followed)
   end
 
   def follow!(followed)
-    self.relationships.create!(followed_id: followed.id)
+    relationships.create!(followed_id: followed.id)
   end
 
   def unfollow!(followed)

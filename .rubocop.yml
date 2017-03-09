@@ -282,14 +282,6 @@ Style/PerlBackrefs:
     - 'features/support/paths.rb'
     - 'features/support/selectors.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/RedundantSelf:
-  Exclude:
-    - 'app/models/status.rb'
-    - 'app/models/user.rb'
-    - 'features/support/paths.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerSlashes.
@@ -297,12 +289,6 @@ Style/RedundantSelf:
 Style/RegexpLiteral:
   Exclude:
     - 'features/step_definitions/session_steps.rb'
-    - 'features/step_definitions/web_steps.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/SpaceAfterComma:
-  Exclude:
     - 'features/step_definitions/web_steps.rb'
 
 # Offense count: 1
