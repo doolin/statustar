@@ -1,10 +1,10 @@
 
 Given /^the user's status is "([^"]*)"$/ do |oldstate|
-  #response_body.should have_selector 'input[type=radio][checked=checked][value=information]'
+  # response_body.should have_selector 'input[type=radio][checked=checked][value=information]'
   @user = User.create!(name: 'dave', email: 'dave@test.com', password: 'foobar', password_confirmation: 'foobar')
-  #puts @user.instance_variables
+  # puts @user.instance_variables
   visit('/statuses/new')
-  #input("#busy").should be_checked
+  # input("#busy").should be_checked
   choose(oldstate)
   find_field(oldstate).should be_checked
 end
@@ -18,24 +18,24 @@ When /^presses "([^"]*)"$/ do |arg1|
 end
 
 Then /^the user's status changes to "([^"]*)"$/ do |newstate|
-  #puts "Status path" + status_path(1) #, status_path
+  # puts "Status path" + status_path(1) #, status_path
   # get :show, :id => @status
-  #puts @user.instance_variables
-  #puts @user.inspect
-  #puts @user.to_s
-  #puts @user.to_yaml
+  # puts @user.instance_variables
+  # puts @user.inspect
+  # puts @user.to_s
+  # puts @user.to_yaml
   puts YAML::dump(@user.statuses)
   visit status_path(@user)
-  #find_field(newstate).should be_checked
+  # find_field(newstate).should be_checked
   newstate = newstate.downcase
   ###  TODO: explain why this passes.
   page.should have_selector('span', class: 'foobabractive', id: newstate)
   page.should have_css("span.active##{newstate}")
-  #page.should have_no_selector("span", :class => 'inactive', :id => newstate)
+  # page.should have_no_selector("span", :class => 'inactive', :id => newstate)
   page.should have_no_css("span.inactive##{newstate}")
-  #page.should have_xpath('//span[@class="inactive"]', :count => 2)
-  #page.should have_xpath('//span[@class="active"]', :count => 2)
-  #response.should have_xpath('//span[@class="active"]', :count => 2)
+  # page.should have_xpath('//span[@class="inactive"]', :count => 2)
+  # page.should have_xpath('//span[@class="active"]', :count => 2)
+  # response.should have_xpath('//span[@class="active"]', :count => 2)
 end
 
 

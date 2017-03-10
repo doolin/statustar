@@ -49,7 +49,7 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.save
-        #flash[:notice] = 'Status was successfully created.'
+        # flash[:notice] = 'Status was successfully created.'
         format.html { redirect_to(root_path) }
         format.xml  { render xml: @status, status: :created, location: @status }
         format.js
@@ -80,7 +80,7 @@ class StatusesController < ApplicationController
     @status.destroy
 
     respond_to do |format|
-      #format.html { redirect_to(statuses_url) }
+      # format.html { redirect_to(statuses_url) }
       format.html { redirect_to(root_path) }
       format.xml  { head :ok }
     end

@@ -220,19 +220,6 @@ Style/Lambda:
   Exclude:
     - 'app/models/status.rb'
 
-# Offense count: 22
-# Cop supports --auto-correct.
-Style/LeadingCommentSpace:
-  Exclude:
-    - 'app/controllers/statuses_controller.rb'
-    - 'config/application.rb'
-    - 'config/environments/development.rb'
-    - 'config/initializers/new_rails_defaults.rb'
-    - 'features/step_definitions/frontpage_steps.rb'
-    - 'features/step_definitions/status_steps.rb'
-    - 'spec/requests/statuses_spec.rb'
-    - 'spec/views/statuses/_form.html.haml_spec.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/LineEndConcatenation:
@@ -265,15 +252,6 @@ Style/MultilineOperationIndentation:
 # Cop supports --auto-correct.
 Style/NumericLiterals:
   MinDigits: 15
-
-# Offense count: 12
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'features/step_definitions/session_steps.rb'
-    - 'features/step_definitions/web_steps.rb'
-    - 'spec/models/user_spec.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.

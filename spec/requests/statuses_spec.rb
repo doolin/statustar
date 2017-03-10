@@ -17,8 +17,8 @@ describe 'Statuses' do
           visit root_path
           choose('Busy')
           click_button 'Create Status'
-          #response.should render_template('pages/home')
-          #response.should have_selector("div#error_explanation")
+          # response.should render_template('pages/home')
+          # response.should have_selector("div#error_explanation")
         end.to_not change(Status, :count)
       end
     end

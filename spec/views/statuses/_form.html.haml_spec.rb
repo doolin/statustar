@@ -21,7 +21,7 @@ describe 'statuses/_form.html.haml' do
         stub_model(Status, name: 'Maybe'),
         stub_model(Status, name: 'Open')
       ])
-    #render
+    # render
     rendered.should =~ /Busy/
     rendered.should =~ /Maybe/
     rendered.should =~ /Open/
