@@ -4,11 +4,11 @@ require 'spec_helper'
 describe User do
   let(:attr) do
     {
-     name: 'Example User',
-     email: 'user@example.com',
-     password: 'foobar',
-     password_confirmation: 'foobar'
-   }
+      name: 'Example User',
+      email: 'user@example.com',
+      password: 'foobar',
+      password_confirmation: 'foobar'
+    }
   end
 
   it 'creates a new instance given valid attributes' do

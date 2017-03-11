@@ -17,10 +17,10 @@ module SessionsHelper
   end
 
   def sign_out
-      ### Changed from cookies to session
-      # cookies.delete(:remember_token)
-      reset_session
-      current_user = nil
+    ### Changed from cookies to session
+    # cookies.delete(:remember_token)
+    reset_session
+    current_user = nil
   end
 
   def current_user?(user)
@@ -43,22 +43,22 @@ module SessionsHelper
 
   private
 
-    def user_from_remember_token
-      User.authenticate_with_salt(*remember_token)
-    end
+  def user_from_remember_token
+    User.authenticate_with_salt(*remember_token)
+  end
 
-    def remember_token
-      ### Changed from cookies to session
-      # cookies.signed[:remember_token] || [nil, nil]
-      session[:remember_token] || [nil, nil]
-    end
+  def remember_token
+    ### Changed from cookies to session
+    # cookies.signed[:remember_token] || [nil, nil]
+    session[:remember_token] || [nil, nil]
+  end
 
-    def store_location
-      session[:return_to] = request.fullpath
-    end
+  def store_location
+    session[:return_to] = request.fullpath
+  end
 
-    def clear_return_to
-      session[:return_to] = nil
-    end
+  def clear_return_to
+    session[:return_to] = nil
+  end
 
 end

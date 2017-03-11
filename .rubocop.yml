@@ -180,38 +180,6 @@ Style/IndentArray:
     - 'spec/views/statuses/_form.html.haml_spec.rb'
     - 'spec/views/statuses/show.html.haml_spec.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: special_inside_parentheses, consistent, align_braces
-Style/IndentHash:
-  Exclude:
-    - 'spec/models/user_spec.rb'
-
-# Offense count: 14
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: normal, rails
-Style/IndentationConsistency:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
-    - 'app/helpers/sessions_helper.rb'
-    - 'config/application.rb'
-    - 'config/environments/production.rb'
-    - 'spec/models/relationship_spec.rb'
-
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: Width.
-Style/IndentationWidth:
-  Exclude:
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/sessions_helper.rb'
-    - 'app/models/user.rb'
-    - 'config/application.rb'
-    - 'lib/tasks/cucumber.rake'
-    - 'spec/models/relationship_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

@@ -48,12 +48,12 @@ describe Relationship do
 
   describe 'relationships' do
     before(:each) do
-          @attr = {
-            name: 'Example User',
-            email: 'user@example.com',
-            password: 'foobar',
-            password_confirmation: 'foobar'
-          }
+      @attr = {
+        name: 'Example User',
+        email: 'user@example.com',
+        password: 'foobar',
+        password_confirmation: 'foobar'
+      }
 
       @user = User.create!(@attr)
       @followed = create(:user, email: generate(:email))
