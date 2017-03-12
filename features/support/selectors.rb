@@ -30,8 +30,8 @@ module HtmlSelectorsHelpers
       $1
 
     else
-      raise "Can't find mapping from \"#{locator}\" to a selector.\n" +
-        "Now, go and add a mapping in #{__FILE__}"
+      raise "Can't find mapping from \"#{locator}\" to a selector.\n" \
+            "Now, go and add a mapping in #{__FILE__}"
     end
   end
 end

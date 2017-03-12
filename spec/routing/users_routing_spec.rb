@@ -3,7 +3,6 @@ require 'spec_helper'
 
 describe UsersController do
   describe 'routing' do
-
     it 'recognizes and generates #index' do
       { get: '/users' }.should route_to(controller: 'users', action: 'index')
     end
@@ -31,6 +30,5 @@ describe UsersController do
     it 'recognizes and generates #destroy' do
       { delete: '/users/1' }.should route_to(controller: 'users', action: 'destroy', id: '1')
     end
-
   end
 end

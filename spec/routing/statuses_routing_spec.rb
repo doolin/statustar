@@ -30,6 +30,5 @@ describe StatusesController do
     it 'recognizes and generates #destroy' do
       expect(delete: '/statuses/1').to route_to(controller: 'statuses', action: 'destroy', id: '1')
     end
-
   end
 end

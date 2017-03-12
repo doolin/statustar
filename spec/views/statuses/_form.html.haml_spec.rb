@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe 'statuses/_form.html.haml' do
-
   before(:each) do
     @status = assign(:status, stub_model(Status,
       state: 1,
@@ -17,10 +16,10 @@ describe 'statuses/_form.html.haml' do
 
   xit 'displays all the statuses' do
     assign(:statuses, [
-        stub_model(Status, name: 'Busy'),
-        stub_model(Status, name: 'Maybe'),
-        stub_model(Status, name: 'Open')
-      ])
+             stub_model(Status, name: 'Busy'),
+             stub_model(Status, name: 'Maybe'),
+             stub_model(Status, name: 'Open')
+           ])
     # render
     rendered.should =~ /Busy/
     rendered.should =~ /Maybe/

@@ -137,25 +137,7 @@ Style/EmptyLines:
 # SupportedStyles: empty_lines, no_empty_lines
 Style/EmptyLinesAroundBlockBody:
   Exclude:
-    - 'config/environments/development.rb'
-    - 'config/routes.rb'
     - 'db/schema.rb'
-    - 'spec/routing/statuses_routing_spec.rb'
-    - 'spec/routing/users_routing_spec.rb'
-    - 'spec/views/statuses/_form.html.haml_spec.rb'
-    - 'spec/views/statuses/edit.html.haml_spec.rb'
-    - 'spec/views/statuses/index.html.haml_spec.rb'
-    - 'spec/views/statuses/new.html.haml_spec.rb'
-    - 'spec/views/users/show.html.haml_spec.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines
-Style/EmptyLinesAroundModuleBody:
-  Exclude:
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/sessions_helper.rb'
 
 # Offense count: 57
 # Cop supports --auto-correct.
@@ -171,15 +153,6 @@ Style/IfUnlessModifier:
   Exclude:
     - 'app/models/status.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: special_inside_parentheses, consistent, align_brackets
-Style/IndentArray:
-  Exclude:
-    - 'spec/views/statuses/_form.html.haml_spec.rb'
-    - 'spec/views/statuses/show.html.haml_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -187,13 +160,6 @@ Style/IndentArray:
 Style/Lambda:
   Exclude:
     - 'app/models/status.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/LineEndConcatenation:
-  Exclude:
-    - 'features/support/paths.rb'
-    - 'features/support/selectors.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -206,15 +172,6 @@ Style/MultilineIfModifier:
 Style/MultilineIfThen:
   Exclude:
     - 'features/step_definitions/status_steps.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: aligned, indented
-Style/MultilineOperationIndentation:
-  Exclude:
-    - 'features/support/paths.rb'
-    - 'features/support/selectors.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe 'statuses/index.html.haml' do
-
   # Fails with syntax error in statuses partial.
   xit 'should render Show and Back text' do
     render template: 'layouts/application.html.haml'

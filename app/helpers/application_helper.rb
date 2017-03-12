@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 module ApplicationHelper
-
   # insert logo and path
   def logo
     image_tag('statustar_logo.png', alt: 'StatuStar - Update Anywhere Status Everywhere', class: 'round')
@@ -15,5 +14,4 @@ module ApplicationHelper
       "#{base_title} | #{@title}"
     end
   end
-
 end

@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe 'statuses/new.html.haml' do
-
   it 'should infer the controller path' do
     controller.request.path_parameters[:controller].should eq('statuses')
   end

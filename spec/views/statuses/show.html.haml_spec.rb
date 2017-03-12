@@ -25,10 +25,10 @@ describe 'statuses/show' do
 
   xit 'displays all the statuses' do
     assign(:statuses, [
-        double(Status, name: 'Busy'),
-        double(Status, name: 'Maybe'),
-        double(Status, name: 'Open')
-      ])
+             double(Status, name: 'Busy'),
+             double(Status, name: 'Maybe'),
+             double(Status, name: 'Open')
+           ])
     render
     rendered.should =~ /Busy/
     rendered.should =~ /Maybe/
