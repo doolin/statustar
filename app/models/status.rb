@@ -21,7 +21,7 @@ class Status < ActiveRecord::Base
   end
 
   # Return statuses from the users being followed by the given user.
-  scope :from_users_followed_by, lambda { |user| followed_by(user) }
+  scope :from_users_followed_by, ->(user) { followed_by(user) }
 
   # Return an SQL condition for users followed by the given user.
   # We include the user's own id as well.

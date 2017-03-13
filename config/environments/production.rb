@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Statustar::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -41,7 +42,6 @@ Statustar::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
-
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"

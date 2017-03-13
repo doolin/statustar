@@ -120,17 +120,6 @@ Style/CommentIndentation:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 8
-# Cop supports --auto-correct.
-Style/EmptyLines:
-  Exclude:
-    - 'config/application.rb'
-    - 'config/environments/production.rb'
-    - 'features/step_definitions/status_steps.rb'
-    - 'features/step_definitions/web_steps.rb'
-    - 'lib/tasks/cucumber.rake'
-    - 'spec/javascripts/support/jasmine_config.rb'
-
 # Offense count: 12
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -138,13 +127,6 @@ Style/EmptyLines:
 Style/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
-
-# Offense count: 57
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: when_needed, always, never
-Style/FrozenStringLiteralComment:
-  Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -155,23 +137,9 @@ Style/IfUnlessModifier:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: line_count_dependent, lambda, literal
-Style/Lambda:
-  Exclude:
-    - 'app/models/status.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/MultilineIfModifier:
   Exclude:
     - 'config/boot.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/MultilineIfThen:
-  Exclude:
-    - 'features/step_definitions/status_steps.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -184,15 +152,6 @@ Style/PerlBackrefs:
   Exclude:
     - 'features/support/paths.rb'
     - 'features/support/selectors.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerSlashes.
-# SupportedStyles: slashes, percent_r, mixed
-Style/RegexpLiteral:
-  Exclude:
-    - 'features/step_definitions/session_steps.rb'
-    - 'features/step_definitions/web_steps.rb'
 
 # TODO: This won't autocorrect correctly, produces an
 # error on both rubocop and cucumber afterwards.

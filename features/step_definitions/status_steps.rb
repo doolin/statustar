@@ -1,4 +1,5 @@
 
+# frozen_string_literal: true
 Given /^the user's status is "([^"]*)"$/ do |oldstate|
   # response_body.should have_selector 'input[type=radio][checked=checked][value=information]'
   @user = User.create!(name: 'dave', email: 'dave@test.com', password: 'foobar', password_confirmation: 'foobar')
@@ -38,7 +39,6 @@ Then /^the user's status changes to "([^"]*)"$/ do |newstate|
   # response.should have_xpath('//span[@class="active"]', :count => 2)
 end
 
-
 Given /^the user is on the home page$/ do
   visit root_path
 end
@@ -55,9 +55,8 @@ Then /^the user must not be able to delete existing statuses$/ do
   pending # express the regexp above with the code you wish you had
 end
 
-
 When /^I (press|follow|check|uncheck|choose) "([^\"]*)" for (.*) whose (.*) is "([^\"]*)"$/ do |action, whatyouclick, class_name, var_name, value|
-  id = unless var_name == 'id' then
+  id = unless var_name == 'id'
          eval("\"#{class_name}\".classify.constantize.find_by_#{var_name}(\"#{value}\").id.to_s")
        else
          value

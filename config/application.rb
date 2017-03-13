@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -11,7 +12,6 @@ if defined?(Bundler)
   Bundler.require(:default, :assets, Rails.env)
 end
 
-
 module Statustar
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -23,7 +23,6 @@ module Statustar
 
 # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
