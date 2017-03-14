@@ -25,7 +25,7 @@ Then /^the user's status changes to "([^"]*)"$/ do |newstate|
   # puts @user.inspect
   # puts @user.to_s
   # puts @user.to_yaml
-  puts YAML::dump(@user.statuses)
+  puts YAML.dump(@user.statuses)
   visit status_path(@user)
   # find_field(newstate).should be_checked
   newstate = newstate.downcase

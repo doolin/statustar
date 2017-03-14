@@ -87,16 +87,6 @@ Security/Eval:
   Exclude:
     - 'features/step_definitions/status_steps.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: with_first_parameter, with_fixed_indentation
-Style/AlignParameters:
-  Exclude:
-    - 'spec/views/statuses/_form.html.haml_spec.rb'
-    - 'spec/views/users/index.html.haml_spec.rb'
-    - 'spec/views/users/show.html.haml_spec.rb'
-
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: nested, compact
@@ -127,19 +117,6 @@ Style/Documentation:
 Style/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: MaxLineLength.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'app/models/status.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/MultilineIfModifier:
-  Exclude:
-    - 'config/boot.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

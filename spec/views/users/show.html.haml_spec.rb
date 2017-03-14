@@ -4,9 +4,9 @@ require 'spec_helper'
 describe 'users/show' do
   before(:each) do
     @user = assign(:user, double(User,
-      name: 'Name',
-      email: 'Email',
-      statuses: []))
+                                 name: 'Name',
+                                 email: 'Email',
+                                 statuses: []))
   end
 
   xit 'renders attributes in <p>' do

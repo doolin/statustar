@@ -5,11 +5,11 @@ describe 'users/index.html.haml' do
   before(:each) do
     assign(:users, [
              stub_model(User,
-               name: 'Name',
-               email: 'Email'),
+                        name: 'Name',
+                        email: 'Email'),
              stub_model(User,
-               name: 'Name',
-               email: 'Email')
+                        name: 'Name',
+                        email: 'Email')
            ])
   end
 

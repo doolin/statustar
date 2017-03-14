@@ -1,4 +1,5 @@
 
+# frozen_string_literal: true
 # Signing in steps.
 Given /^user is not logged in$/ do
   visit('/signout') # ensure that at least

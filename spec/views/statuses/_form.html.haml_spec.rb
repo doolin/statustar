@@ -4,8 +4,8 @@ require 'spec_helper'
 describe 'statuses/_form.html.haml' do
   before(:each) do
     @status = assign(:status, stub_model(Status,
-      state: 1,
-      user_id: 1))
+                                         state: 1,
+                                         user_id: 1))
     render template: 'layouts/application', action: 'show'
   end
 

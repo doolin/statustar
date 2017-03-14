@@ -14,9 +14,7 @@ class Status < ActiveRecord::Base
   end
 
   def find_active(_state)
-    if _state == state
-      return 'active'
-    end
+    return 'active' if _state == state
     'inactive'
   end
 
