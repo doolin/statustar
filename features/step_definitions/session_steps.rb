@@ -12,7 +12,7 @@ Given /^user name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do 
            password_confirmation: password).save!
 end
 
-When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
+When %r{^I sign in as "(.*)/(.*)"$} do |email, password|
   step %(I fill in "Email" with "#{email}")
   step %(I fill in "Password" with "#{password}")
   step %(I press "Sign in")
