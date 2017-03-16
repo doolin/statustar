@@ -56,10 +56,10 @@ Then /^the user must not be able to delete existing statuses$/ do
 end
 
 When /^I (press|follow|check|uncheck|choose) "([^\"]*)" for (.*) whose (.*) is "([^\"]*)"$/ do |action, whatyouclick, class_name, var_name, value|
-  id = unless var_name == 'id'
-         eval("\"#{class_name}\".classify.constantize.find_by_#{var_name}(\"#{value}\").id.to_s")
-       else
+  id = if var_name == 'id'
          value
+       else
+         eval("\"#{class_name}\".classify.constantize.find_by_#{var_name}(\"#{value}\").id.to_s")
        end
   within("tr[id=row_#{class_name}_#{id}]") do
     case action

@@ -18,10 +18,10 @@ module Statustar
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-# Enable the asset pipeline
+    # Enable the asset pipeline
     config.assets.enabled = true
 
-# Version of your assets, change this if you want to expire all your assets
+    # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
     # Custom directories with classes and modules you want to be autoloadable.
