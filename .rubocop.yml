@@ -24,30 +24,9 @@ Lint/AmbiguousRegexpLiteral:
     - 'spec/views/layouts/application.html.haml_spec.rb'
 
 # Offense count: 1
-# Cop supports --auto-correct.
-Lint/Debugger:
-  Exclude:
-    - 'features/step_definitions/web_steps.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/DeprecatedClassMethods:
-  Exclude:
-    - 'spec/javascripts/support/jasmine_runner.rb'
-
-# Offense count: 1
 Lint/UnderscorePrefixedVariableName:
   Exclude:
     - 'app/models/status.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'features/step_definitions/session_steps.rb'
-    - 'features/step_definitions/status_steps.rb'
-    - 'spec/controllers/users_controller_spec.rb'
 
 # Offense count: 4
 Lint/UselessAssignment:
@@ -94,7 +73,6 @@ Style/ClassAndModuleChildren:
   Exclude:
     - 'test/test_helper.rb'
 
-# Offense count: 31
 Style/Documentation:
   Enabled: false
 
@@ -102,14 +80,7 @@ Style/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
 
-# Offense count: 1
 # Cop supports --auto-correct.
 Style/NumericLiterals:
-  MinDigits: 15
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/PerlBackrefs:
   Exclude:
-    - 'features/support/paths.rb'
-    - 'features/support/selectors.rb'
+    - 'db/schema.rb'

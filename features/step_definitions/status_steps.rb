@@ -14,7 +14,7 @@ When /^the user clicks "([^"]*)"$/ do |newstate|
   choose(newstate)
 end
 
-When /^presses "([^"]*)"$/ do |arg1|
+When /^presses "([^"]*)"$/ do |_arg1|
   click_button 'Create Status'
 end
 

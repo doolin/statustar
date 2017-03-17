@@ -30,7 +30,7 @@ Given /^user is logged in with "([^"]*)"$/ do |userpass|
   step %(I sign in as "#{userpass}")
 end
 
-When /^user clicks "([^"]*)" link$/ do |arg1|
+When /^user clicks "([^"]*)" link$/ do |_arg1|
   step %(I follow "Sign out")
 end
 

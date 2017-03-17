@@ -278,7 +278,7 @@ describe UsersController do
 
       it 'should have an element for each user' do
         get :index
-        @users[0..2].each do |user|
+        @users[0..2].each do |_user|
           expect(response.body).to match(/#{@base_title} | Home/)
           # response.should have_selector 'li', :text => user.name
         end
