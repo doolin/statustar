@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe UsersController do
-  render_views
+  # render_views
 
   describe '.show' do
     before(:each) do
@@ -22,6 +22,22 @@ describe UsersController do
 
     it 'has the right title' do
       get :show, id: @user
+    end
+
+    it 'is successful' do
+      get :show, params: { id: @user }
+      response.should be_success
+    end
+
+    it 'finds the right user' do
+      get :show, params: { id: @user }
+      assigns(:user).should == @user
+    end
+
+    it 'has the right title' do
+      binding.pry
+      get :show, params: { id: @user }
+      binding.pry
       expect(response.body).to match(/#{@user.name}/)
     end
 
@@ -29,6 +45,7 @@ describe UsersController do
     # spec above. It's not supposed to be.
     it "includes the user's name" do
       get :show, id: @user
+      get :show, params: { id: @user }
       expect(response.body).to match(/#{@user.name}/)
     end
 
@@ -36,7 +53,8 @@ describe UsersController do
     it "shows the user's statuses", type: :feature do
       mp1 = create :status, user: @user
       mp2 = create :status, user: @user
-      get :show, id: @user
+      get :show, params: { id: @user }
+
       expect(response.body).to match(/#{mp1.state}/)
       expect(response.body).to match(/#{mp2.state}/)
     end

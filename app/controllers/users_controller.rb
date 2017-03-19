@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 class UsersController < ApplicationController
-  before_filter :registered,    only: [:new, :create]                # no registration for signed in users
-  before_filter :authenticate,  except: [:show, :new, :create]       # ...
-  before_filter :correct_user,  only: [:edit, :update]               # you can only update your own stuff
-  before_filter :admin_user,    only: :destroy                       # only admins can delete
+  before_action :registered,    only: [:new, :create]                # no registration for signed in users
+  before_action :authenticate,  except: [:show, :new, :create]       # ...
+  before_action :correct_user,  only: [:edit, :update]               # you can only update your own stuff
+  before_action :admin_user,    only: :destroy                       # only admins can delete
 
   def index
     @title = 'All users'
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    binding.pry
     @statuses = @user.statuses.paginate(page: params[:page])
     @title = @user.name
   end
