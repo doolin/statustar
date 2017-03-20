@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe UsersController do
-  # render_views
+  render_views
 
   describe '.show' do
     before(:each) do
@@ -35,9 +35,7 @@ describe UsersController do
     end
 
     it 'has the right title' do
-      binding.pry
       get :show, params: { id: @user }
-      binding.pry
       expect(response.body).to match(/#{@user.name}/)
     end
 
@@ -106,7 +104,13 @@ describe UsersController do
         @attr = { name: '', email: '', password: '', password_confirmation: '' }
       end
 
+      # TODO: implement permitted parameters in the controller.
       it 'does not create a user' do
+=begin
+        lambda do
+          post :create, user: @attr
+        end.should_not change(User, :count)
+=end
         expect do
           post :create, user: @attr
         end.not_to change(User, :count)
