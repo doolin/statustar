@@ -5,12 +5,12 @@ describe SessionsController do
   render_views
 
   describe 'GET :new' do
-    it 'should be successful' do
+    it 'succeeds' do
       get :new
-      response.should be_success
+      expect(response).to be_success
     end
 
-    it 'should have the right title' do
+    it 'has the right title' do
       get :new
       expect(response.body).to match(/Sign in/)
       # response.should have_selector("title", :text => "Sign in")
@@ -23,9 +23,9 @@ describe SessionsController do
         @attr = { email: 'email@example.com', password: 'invalid' }
       end
 
-      it 'should re-render the new page' do
+      it 're-renders the new page' do
         post :create, session: @attr
-        response.should render_template('new')
+        expect(response).to render_template('new')
       end
 
       it 'should have the right title' do
@@ -36,7 +36,8 @@ describe SessionsController do
 
       it 'should have a flash.now message' do
         post :create, session: @attr
-        flash.now[:error].should =~ /invalid/i
+        # flash.now[:error].should =~ /invalid/i
+        expect(flash.now[:error]).to match(/invalid/i)
       end
     end
 
@@ -46,15 +47,15 @@ describe SessionsController do
         @attr = { email: @user.email, password: @user.password }
       end
 
-      it 'should sign the user in' do
+      it 'signs in the user' do
         post :create, session: @attr
-        controller.current_user.should == @user
-        controller.should be_signed_in
+        expect(controller.current_user).to eq @user
+        expect(controller).to be_signed_in
       end
 
       it 'should redirect to the user show page' do
         post :create, session: @attr
-        response.should redirect_to(user_path(@user))
+        expect(response).to redirect_to(user_path(@user))
       end
     end
   end
@@ -63,8 +64,8 @@ describe SessionsController do
     it 'should sign a user out' do
       test_sign_in(FactoryGirl.create(:user))
       delete :destroy
-      controller.should_not be_signed_in
-      response.should redirect_to(root_path)
+      expect(controller).to_not be_signed_in
+      expect(response).to redirect_to(root_path)
     end
   end
 end
