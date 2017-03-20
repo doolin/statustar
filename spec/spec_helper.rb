@@ -17,9 +17,9 @@ RSpec.configure do |config|
   config.mock_with :rspec
 
   # TODO: remove once updated to RSpec 3+
-  config.expect_with :rspec do |c|
-    c.syntax = [:expect, :should]
-  end
+  # config.expect_with :rspec do |c|
+  #   c.syntax = [:expect, :should]
+  # end
 
   config.include FactoryGirl::Syntax::Methods
 
