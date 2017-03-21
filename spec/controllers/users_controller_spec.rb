@@ -11,27 +11,17 @@ describe UsersController do
     end
 
     it 'succeeds' do
-      get :show, id: @user
+      get :show, params: { id: @user }
       expect(response).to be_success
     end
 
     it 'finds the right user' do
-      get :show, id: @user
+      get :show, params: { id: @user }
       expect(assigns(:user)).to eq @user
     end
 
     it 'has the right title' do
       get :show, id: @user
-    end
-
-    it 'is successful' do
-      get :show, params: { id: @user }
-      response.should be_success
-    end
-
-    it 'finds the right user' do
-      get :show, params: { id: @user }
-      assigns(:user).should == @user
     end
 
     it 'has the right title' do
