@@ -3,14 +3,14 @@ require 'spec_helper'
 
 describe 'statuses/show' do
   before(:each) do
-    @status = Status.new state: 1, user_id: 1
-    @status.stub(:id).and_return(1)
+    @status = Status.new state: 1, user_id: 1, id: 1
+    allow(@status).to receive(:id).and_return(1)
     render
   end
 
-  it 'should display all statuses' do
-    rendered.should =~ /State/
-    rendered.should =~ /1/
+  it 'displays all statuses' do
+    expect(rendered).to match(/State/)
+    expect(rendered).to match(/1/)
   end
 
   xit 'should render tags' do

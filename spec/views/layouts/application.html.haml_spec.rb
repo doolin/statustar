@@ -12,13 +12,12 @@ describe 'layouts/application' do
   end
 
   it 'should render head, title, body and container tags' do
-    rendered.should match /head/
-    rendered.should match /title/
-    rendered.should match /body/
-    # rendered.should have_selector "div", :class => 'container'
+    expect(rendered).to match(/head/)
+    expect(rendered).to match(/title/)
+    expect(rendered).to match(/body/)
   end
 
   it 'should render javascript' do
-    rendered.should match /script/
+    expect(rendered).to match(/script/)
   end
 end
