@@ -2,11 +2,11 @@
 require 'spec_helper'
 
 describe 'pages/contact', type: :view do
-  it 'should infer the controller path' do
-    controller.request.path_parameters[:controller].should eq('pages')
+  it 'infers the controller path' do
+    expect(controller.request.path_parameters[:controller]).to eq('pages')
   end
 
-  it 'should infer the controller action' do
-    controller.request.path_parameters[:action].should eq('contact')
+  it 'infers the controller action' do
+    expect(controller.request.path_parameters[:action]).to eq('contact')
   end
 end

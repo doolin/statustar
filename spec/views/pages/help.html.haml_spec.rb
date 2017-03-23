@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'pages/help' do
-  it 'should infer the controller path' do
-    controller.request.path_parameters[:controller].should eq('pages')
+RSpec.describe 'pages/help' do
+  it 'infers the controller path' do
+    expect(controller.request.path_parameters[:controller]).to eq('pages')
   end
 
-  it 'should infer the controller action' do
-    controller.request.path_parameters[:action].should eq('help')
+  it 'infers the controller action' do
+    expect(controller.request.path_parameters[:action]).to eq('help')
   end
 end

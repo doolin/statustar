@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'sessions/new' do
-  it 'should infer the controller path' do
-    controller.request.path_parameters[:controller].should eq('sessions')
+RSpec.describe 'sessions/new' do
+  it 'infers the controller path' do
+    expect(controller.request.path_parameters[:controller]).to eq('sessions')
   end
 
-  it 'should infer the controller action' do
-    controller.request.path_parameters[:action].should eq('new')
+  it 'infers the controller action' do
+    expect(controller.request.path_parameters[:action]).to eq('new')
   end
 end

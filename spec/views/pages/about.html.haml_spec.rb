@@ -3,11 +3,11 @@ require 'spec_helper'
 
 describe 'pages/about' do
   it 'infers the controller path' do
-    controller.request.path_parameters[:controller].should eq('pages')
+    expect(controller.request.path_parameters[:controller]).to eq('pages')
   end
 
   it 'infers the controller action' do
-    controller.request.path_parameters[:action].should eq('about')
+    expect(controller.request.path_parameters[:action]).to eq('about')
   end
 
   it 'renders head, title and body tags' do
