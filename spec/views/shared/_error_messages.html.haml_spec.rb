@@ -7,6 +7,6 @@ describe 'shared/_error_messages' do
   end
 
   it 'should infer the controller path' do
-    controller.request.path_parameters[:controller].should eq('shared')
+    expect(controller.request.path_parameters[:controller]).to eq('shared')
   end
 end
