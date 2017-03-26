@@ -2,11 +2,11 @@
 require 'spec_helper'
 
 describe 'statuses/new.html.haml' do
-  it 'should infer the controller path' do
-    controller.request.path_parameters[:controller].should eq('statuses')
+  it 'infers the controller path' do
+    expect(controller.request.path_parameters[:controller]).to eq('statuses')
   end
 
-  it 'should infer the controller action' do
-    controller.request.path_parameters[:action].should eq('new')
+  it 'infers the controller action' do
+    expect(controller.request.path_parameters[:action]).to eq('new')
   end
 end
