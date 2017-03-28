@@ -18,31 +18,31 @@ describe Relationship do
     end
 
     it 'has a follower attribute' do
-      @relationship.should respond_to(:follower)
+      expect(@relationship).to respond_to(:follower)
     end
 
     it 'has the right follower' do
-      @relationship.follower.should == @follower
+      expect(@relationship.follower).to eq @follower
     end
 
     it 'has a followed attribute' do
-      @relationship.should respond_to(:followed)
+      expect(@relationship).to respond_to(:followed)
     end
 
     it 'has the right followed user' do
-      @relationship.followed.should == @followed
+      expect(@relationship.followed).to eq @followed
     end
   end
 
   describe 'validations' do
     it 'requires a follower_id' do
       @relationship.follower_id = nil
-      @relationship.should_not be_valid
+      expect(@relationship).to_not be_valid
     end
 
     it 'requires a followed_id' do
       @relationship.followed_id = nil
-      @relationship.should_not be_valid
+      expect(@relationship).not_to be_valid
     end
   end
 
@@ -60,52 +60,52 @@ describe Relationship do
     end
 
     it 'has a relationships method' do
-      @user.should respond_to(:relationships)
+      expect(@user).to respond_to(:relationships)
     end
 
     it 'has a following method' do
-      @user.should respond_to(:following)
+      expect(@user).to respond_to(:following)
     end
 
     it 'has a following? method' do
-      @user.should respond_to(:following?)
+      expect(@user).to respond_to(:following?)
     end
 
     it 'has a follow! method' do
-      @user.should respond_to(:follow!)
+      expect(@user).to respond_to(:follow!)
     end
 
     it 'follows another user' do
       @user.follow!(@followed)
-      @user.should be_following(@followed)
+      expect(@user).to be_following(@followed)
     end
 
     it 'includes the followed user in the following array' do
       @user.follow!(@followed)
-      @user.following.should include(@followed)
+      expect(@user.following).to include(@followed)
     end
 
     it 'has an unfollow! method' do
-      @followed.should respond_to(:unfollow!)
+      expect(@followed).to respond_to(:unfollow!)
     end
 
     it 'unfollows a user' do
       @user.follow!(@followed)
       @user.unfollow!(@followed)
-      @user.should_not be_following(@followed)
+      expect(@user).to_not be_following(@followed)
     end
 
     it 'has a reverse_relationships method' do
-      @user.should respond_to(:reverse_relationships)
+      expect(@user).to respond_to(:reverse_relationships)
     end
 
     it 'has a followers method' do
-      @user.should respond_to(:followers)
+      expect(@user).to respond_to(:followers)
     end
 
     it 'includes the follower in the followers array' do
       @user.follow!(@followed)
-      @followed.followers.should include(@user)
+      expect(@followed.followers).to include(@user)
     end
   end
 end
