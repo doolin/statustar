@@ -32,12 +32,12 @@ describe 'users/show' do
     rendered.should =~ /Followers/
   end
 
-  it 'should infer the controller path' do
-    controller.request.path_parameters[:controller].should eq('users')
+  it 'infers the controller path' do
+    expect(controller.request.path_parameters[:controller]).to eq('users')
   end
 
-  it 'should infer the controller action' do
-    controller.request.path_parameters[:action].should eq('show')
+  it 'infers the controller action' do
+    expect(controller.request.path_parameters[:action]).to eq('show')
   end
 
   # Need to get signed in correctly to get the correct view
