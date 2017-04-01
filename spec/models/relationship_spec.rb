@@ -12,6 +12,10 @@ describe Relationship do
     @relationship.save!
   end
 
+  # Note: these are all "test the framework specs, and would seem to be
+  # useless. It turns out during the Rails 5 upgrade, having these methods
+  # exposed needed changes in the model, which would have been difficult to
+  # ascertain otherwise.
   describe 'follow methods' do
     before(:each) do
       @relationship.save
