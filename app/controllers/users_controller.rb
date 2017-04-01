@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(permitted_parameters)
     if @user.save
       sign_in @user
       flash[:success] = 'Welcome to Statustar!'
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(permitted_parameters_with_user)
       flash[:success] = 'Profile updated.'
       redirect_to @user
     else
@@ -86,5 +86,15 @@ class UsersController < ApplicationController
 
   def registered
     redirect_to(root_path) if signed_in?
+  end
+
+  private
+
+  def permitted_parameters_with_user
+    params.require(:user).permit(:email, :name, :password, :password_confirmation)
+  end
+
+  def permitted_parameters
+    params.permit(:email, :name, :password, :password_confirmation)
   end
 end
