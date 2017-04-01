@@ -4,7 +4,7 @@ require 'spec_helper'
 describe 'users/edit' do
   before(:each) do
     @user = User.new name: 'My Name', email: 'myname@example.com'
-    @user.stub(:id).and_return(1)
+    allow(@user).to receive(:id).and_return(1)
   end
 
   it 'renders the edit user form' do
