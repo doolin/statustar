@@ -6,7 +6,7 @@ describe UsersController do
 
   describe '.show' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = create :user
       test_sign_in(@user)
     end
 
@@ -34,8 +34,8 @@ describe UsersController do
 
     # TODO: move or delete
     it "shows the user's statuses", type: :feature do
-      mp1 = FactoryGirl.create(:status, user: @user)
-      mp2 = FactoryGirl.create(:status, user: @user)
+      mp1 = create :status, user: @user
+      mp2 = create :status, user: @user
       get :show, id: @user
       expect(response.body).to match(/#{mp1.state}/)
       expect(response.body).to match(/#{mp2.state}/)
@@ -49,7 +49,7 @@ describe UsersController do
     end
 
     it 'redirects to root url when signed in' do
-      @user = FactoryGirl.create(:user)
+      @user = create :user
       test_sign_in(@user)
       get :new
       expect(response).to redirect_to(root_path)
@@ -135,7 +135,7 @@ describe UsersController do
     end
 
     it 'redirects to root url after signing in' do
-      @user = FactoryGirl.create(:user)
+      @user = create :user
       test_sign_in(@user)
       post :create # No need to send any attributes, shouldn't get that far ...
       expect(response).to redirect_to(root_path)
@@ -144,7 +144,7 @@ describe UsersController do
 
   describe '.edit' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = create :user
       test_sign_in(@user)
     end
 
@@ -162,7 +162,7 @@ describe UsersController do
 
   describe '.update' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = create :user
       test_sign_in(@user)
     end
 
@@ -219,7 +219,7 @@ describe UsersController do
 
   describe 'authentication of edit/update pages' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = create :user
     end
 
     context 'for non-signed-in users' do
@@ -236,7 +236,7 @@ describe UsersController do
 
     context 'for signed-in users' do
       before(:each) do
-        wrong_user = FactoryGirl.create(:user, email: 'user@example.net')
+        wrong_user = create :user, email: 'user@example.net'
         test_sign_in(wrong_user)
       end
 
@@ -263,13 +263,13 @@ describe UsersController do
 
     describe 'for signed-in users' do
       before(:each) do
-        @user = test_sign_in(FactoryGirl.create(:user))
-        second = FactoryGirl.create(:user, email: 'another@example.com')
-        third  = FactoryGirl.create(:user, email: 'another@example.net')
+        @user = test_sign_in create(:user)
+        second = create :user, email: 'another@example.com'
+        third  = create :user, email: 'another@example.net'
 
         @users = [@user, second, third]
         30.times do
-          @users << FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
+          @users << create(:user, email: generate(:email))
         end
       end
 
@@ -305,7 +305,7 @@ describe UsersController do
 
   describe '.destroy' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = create :user
     end
 
     context 'as a non-signed-in user' do
@@ -325,7 +325,7 @@ describe UsersController do
 
     context 'as an admin user' do
       before(:each) do
-        admin = FactoryGirl.create(:user, email: 'admin@example.com', admin: true)
+        admin = create :user, email: 'admin@example.com', admin: true
         test_sign_in(admin)
       end
 
