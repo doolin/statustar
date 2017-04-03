@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class User < ActiveRecord::Base
   attr_accessor :password
-  # attr_accessor :name, :email, :password, :password_confirmation
+  attr_accessor :name, :email, :password, :password_confirmation
 
   has_many :statuses,      dependent: :destroy
 

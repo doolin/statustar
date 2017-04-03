@@ -2,6 +2,10 @@
 require 'spec_helper'
 
 describe 'FriendlyForwardings', type: :feature do
+  # TODO: check to see if this is loading the sessions_helper,
+  # because it doesn't appear to be loading it from the single
+  # stepping with pry. Without `authenticate` from sessions_helper,
+  # this spec is a none-starter.
   it 'forwards to the requested page after signin' do
     user = create :user
     visit edit_user_path(user)
