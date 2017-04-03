@@ -3,15 +3,12 @@ require 'spec_helper'
 
 describe 'users/show' do
   before(:each) do
-    @user = assign(:user, double(User,
-                                 name: 'Name',
-                                 email: 'Email',
-                                 statuses: []))
+    @user = create :user
   end
 
   xit 'renders attributes in <p>' do
     render
-    rendered.should match(/Name/)
+    expect(rendered).to match(/Name/)
   end
 
   xit 'renders list of status updates' do

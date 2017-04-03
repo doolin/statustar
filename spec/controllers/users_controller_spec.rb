@@ -42,7 +42,8 @@ describe UsersController do
     end
   end
 
-  describe '.new' do
+  # TODO: move all this into features/new_user
+  describe '.new', type: :feature do
     it 'succeeds' do
       get :new
       expect(response).to be_success
@@ -55,7 +56,6 @@ describe UsersController do
       expect(response).to redirect_to(root_path)
     end
 
-    # TODO: move into view spec or delete
     xit 'has a name field' do
       get :new
       expect(response).to have_selector("input[name='user[name]'][type='text']")
