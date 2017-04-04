@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Status < ActiveRecord::Base
-  attr_accessible :state
+  # attr_accessible :state
 
   belongs_to :user
 
