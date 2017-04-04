@@ -6,9 +6,10 @@ class SessionsController < ApplicationController
 
   def create
 
-    binding.pry
+    # binding.pry
     params.permit(:email, :password)
-    user = User.authenticate(params[:session][:email], params[:session][:password])
+    # user = User.authenticate(params[:session][:email], params[:session][:password])
+    user = User.authenticate(params[:email], params[:password])
 
     # user = User.authenticate
 

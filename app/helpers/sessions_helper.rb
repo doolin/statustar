@@ -4,7 +4,7 @@ module SessionsHelper
     ### Changed from cookies to session
     # cookies.permanent.signed[:remember_token] = [user.id, user.salt]
     session[:remember_token] = [user.id, user.salt]
-    binding.pry
+    # binding.pry
     current_user = user
   end
 
