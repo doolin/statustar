@@ -36,7 +36,7 @@ describe 'layouts/statuses' do # , type: :feature do
 
     context 'success' do
       xit 'should make a new status' do
-        content = 'Lorem ipsum dolor sit amet'
+        _content = 'Lorem ipsum dolor sit amet'
         lambda do
           visit root_path
           choose('Busy')
@@ -45,5 +45,4 @@ describe 'layouts/statuses' do # , type: :feature do
       end
     end
   end
-
 end

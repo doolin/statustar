@@ -20,7 +20,7 @@ describe StatusesController do
     end
 
     it 'recognizes and generates #update' do
-       expect(put: '/statuses/1').to route_to(controller: 'statuses', action: 'update', id: '1')
+      expect(put: '/statuses/1').to route_to(controller: 'statuses', action: 'update', id: '1')
     end
 
     it 'recognizes and generates #create' do

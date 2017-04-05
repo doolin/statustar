@@ -176,7 +176,7 @@ describe UsersController do
         }
       end
 
-      it "renders the edit page" do
+      it 'renders the edit page' do
         put :update, id: @user, user: @attr
         expect(response).to render_template('edit')
       end
