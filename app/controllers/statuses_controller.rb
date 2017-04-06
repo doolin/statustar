@@ -58,6 +58,7 @@ class StatusesController < ApplicationController
   end
 
   def update
+    # binding.pry
     @status = Status.find(params[:id])
 
     respond_to do |format|
