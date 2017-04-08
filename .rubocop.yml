@@ -48,7 +48,11 @@ Metrics/AbcSize:
 # Offense count: 24
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/BlockLength:
-  Max: 272
+  Max: 22
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'config/routes.rb'
+    - 'db/schema.rb'
 
 # Offense count: 105
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
