@@ -4,13 +4,6 @@ require 'spec_helper'
 describe StatusesController do
   render_views
 
-  describe 'hello' do
-    xit 'renders template' do
-      get :hello
-      expect(response).to render_template(:hello)
-    end
-  end
-
   describe 'index' do
     it 'renders template' do
       get :index
@@ -20,8 +13,9 @@ describe StatusesController do
   end
 
   describe 'show' do
-    xit 'renders template' do
-      get :show, params: { id: 1 }
+    it 'renders template' do
+      status = create :status
+      get :show, id: status.id
       expect(response).to render_template(:show)
     end
   end
@@ -35,9 +29,9 @@ describe StatusesController do
   end
 
   describe 'edit' do
-    xit 'renders template' do
+    it 'renders template' do
       status = create :status
-      get :edit, params: { id: status.id }
+      get :edit, id: status.id
       expect(response).to render_template(:edit)
     end
   end
@@ -46,7 +40,7 @@ describe StatusesController do
     xit 'renders template' do
       post :create, params: attributes_for(:status)
       expect(response).to have_http_status(:created)
-      expect(response).to repostnder_template(:create)
+      expect(response).to render_template(:create)
     end
   end
 
@@ -58,9 +52,12 @@ describe StatusesController do
   end
 
   describe 'destroy' do
-    xit 'renders template' do
-      delete :destroy
-      expect(response).to render_template(:destroy)
+    it 'renders template' do
+      status = create :status
+      expect do
+        delete :destroy, id: status.id
+        expect(response).to redirect_to(root_path)
+      end.to change(Status, :count).by(-1)
     end
   end
 end
