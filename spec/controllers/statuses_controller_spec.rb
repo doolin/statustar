@@ -37,10 +37,11 @@ describe StatusesController do
   end
 
   describe 'create' do
-    xit 'renders template' do
-      post :create, params: attributes_for(:status)
-      expect(response).to have_http_status(:created)
-      expect(response).to render_template(:create)
+    it 'renders template' do
+      user = create :user
+      test_sign_in(user)
+      post :create, status: { state: 1 }
+      expect(response).to redirect_to(root_path)
     end
   end
 

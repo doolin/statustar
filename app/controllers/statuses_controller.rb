@@ -35,8 +35,12 @@ class StatusesController < ApplicationController
     @status = Status.find(params[:id])
   end
 
+  def permitted_params
+    params.require(:status).permit(:state)
+  end
+
   def create
-    @status = current_user.statuses.build(params[:status])
+    @status = current_user.statuses.build(permitted_params)
 
     respond_to do |format|
       if @status.save
