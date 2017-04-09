@@ -28,7 +28,7 @@ describe StatusesController do
   describe 'show' do
     it 'renders template with :ok' do
       status = create :status, user: user
-      get :show, id: status.id
+      get :show, params: { id: status.id }
       expect(response).to render_template(:show)
       expect(response).to have_http_status(:ok)
     end
@@ -57,7 +57,7 @@ describe StatusesController do
     it 'renders template' do
       test_sign_in(user)
       status = create :status, user: user
-      get :edit, id: status.id
+      get :edit, params: { id: status.id }
       expect(response).to render_template(:edit)
     end
   end
@@ -65,7 +65,7 @@ describe StatusesController do
   describe 'create' do
     it 'renders template' do
       test_sign_in(user)
-      post :create, status: { state: 1 }
+      post :create, params: { status: { state: 1 } }
       expect(response).to redirect_to(root_path)
     end
   end
@@ -94,7 +94,7 @@ describe StatusesController do
       status = create :status, user: user
       test_sign_in(user)
       expect do
-        delete :destroy, id: status.id
+        delete :destroy, params: { id: status.id }
         expect(response).to redirect_to(root_path)
       end.to change(Status, :count).by(-1)
     end
