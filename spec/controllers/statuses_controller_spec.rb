@@ -75,16 +75,19 @@ describe StatusesController do
       it 'redirects to status page' do
         test_sign_in(user)
         status = create :status, user: user
-        patch :update, id: status.id, state: 0
+        # TODO: valid states are 1..3, need to add a spec for invalid state update attempt.
+        patch :update, params: { id: status.id, status: { state: 1 } }
         expect(response).to redirect_to(status_path(status))
+        expect(response).to have_http_status(:found)
       end
     end
 
     context 'signed out' do
       it 'redirects to sign in' do
         status = create :status, user: user
-        patch :update, id: status.id, state: 0
+        patch :update, params: { id: status.id, status: { state: 3 } }
         expect(response).to redirect_to(signin_path)
+        expect(response).to have_http_status(:found)
       end
     end
   end
