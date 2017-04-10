@@ -4,6 +4,8 @@ class StatusesController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
 
+  before_filter :authenticate,  except: [:show]
+
   def index
     @statuses = Status.all
 

@@ -2,35 +2,61 @@
 require 'spec_helper'
 
 describe StatusesController do
+  let(:user) { create :user }
+
   render_views
 
   describe 'index' do
-    it 'renders template' do
-      get :index
-      expect(response).to render_template(:index)
-      expect(response).to have_http_status(:ok)
+    context 'signed in' do
+      it 'renders template with :ok' do
+        test_sign_in(user)
+        get :index
+        expect(response).to render_template(:index)
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'signed out' do
+      it 'renders template with :found' do
+        get :index
+        expect(response).to redirect_to(signin_path)
+        expect(response).to have_http_status(:found)
+      end
     end
   end
 
   describe 'show' do
-    it 'renders template' do
-      status = create :status
+    it 'renders template with :ok' do
+      status = create :status, user: user
       get :show, id: status.id
       expect(response).to render_template(:show)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'new' do
-    it 'renders template' do
-      get :new
-      expect(response).to render_template(:new)
-      expect(response).to have_http_status(:ok)
+    context 'signed in' do
+      it 'renders template with ok' do
+        test_sign_in(user)
+        get :new
+        expect(response).to render_template(:new)
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'signed out' do
+      it 'renders template with ok' do
+        get :new
+        expect(response).to redirect_to(signin_path)
+        expect(response).to have_http_status(:found)
+      end
     end
   end
 
   describe 'edit' do
     it 'renders template' do
-      status = create :status
+      test_sign_in(user)
+      status = create :status, user: user
       get :edit, id: status.id
       expect(response).to render_template(:edit)
     end
@@ -38,7 +64,6 @@ describe StatusesController do
 
   describe 'create' do
     it 'renders template' do
-      user = create :user
       test_sign_in(user)
       post :create, status: { state: 1 }
       expect(response).to redirect_to(root_path)
@@ -46,15 +71,28 @@ describe StatusesController do
   end
 
   describe 'update' do
-    xit 'renders template' do
-      post :update
-      expect(response).to render_template(:update)
+    context 'signed in' do
+      it 'redirects to status page' do
+        test_sign_in(user)
+        status = create :status, user: user
+        patch :update, id: status.id, state: 0
+        expect(response).to redirect_to(status_path(status))
+      end
+    end
+
+    context 'signed out' do
+      it 'redirects to sign in' do
+        status = create :status, user: user
+        patch :update, id: status.id, state: 0
+        expect(response).to redirect_to(signin_path)
+      end
     end
   end
 
   describe 'destroy' do
-    it 'renders template' do
-      status = create :status
+    it 'redirects to root after destroying status' do
+      status = create :status, user: user
+      test_sign_in(user)
       expect do
         delete :destroy, id: status.id
         expect(response).to redirect_to(root_path)
