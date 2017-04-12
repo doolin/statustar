@@ -8,7 +8,7 @@ describe 'Statuses' do
 
   context 'signed in' do
     before do
-      post sessions_path, "session" => { "email" => status.user.email, "password" => status.user.password }
+      post sessions_path, params: { "email" => status.user.email, "password" => status.user.password }
     end
 
     describe 'new' do
@@ -51,7 +51,7 @@ describe 'Statuses' do
 
     describe 'update' do
       it 'redirects to status' do
-        put status_path(status)
+        put status_path(status), params: { "status" => { "state" => "3" } }
         expect(response).to redirect_to(status_path(status))
       end
     end
