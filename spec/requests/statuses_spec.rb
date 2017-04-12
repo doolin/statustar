@@ -8,7 +8,11 @@ describe 'Statuses' do
 
   context 'signed in' do
     before do
-      post sessions_path, params: { "email" => status.user.email, "password" => status.user.password }
+      post sessions_path, params: {
+        "session" => {
+          "email" => status.user.email, "password" => status.user.password
+        }
+      }
     end
 
     describe 'new' do

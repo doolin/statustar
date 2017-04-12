@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    params.permit(:email, :password)
-    user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(email, password)
 
     if user.nil?
       flash.now[:error] = 'Invalid email/password combination.'
@@ -18,8 +17,20 @@ class SessionsController < ApplicationController
     end
   end
 
+  def permitted_params
+    params.require(:session).permit(:email, :password)
+  end
+
   def destroy
     sign_out
     redirect_to root_path
+  end
+
+  def email
+    permitted_params.to_h[:email]
+  end
+
+  def password
+    permitted_params.to_h[:password]
   end
 end

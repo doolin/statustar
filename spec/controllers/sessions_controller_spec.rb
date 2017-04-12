@@ -24,18 +24,18 @@ describe SessionsController do
       end
 
       it 're-renders the new page' do
-        post :create, params: @attr
+        post :create, params: { session: @attr }
         expect(response).to render_template('new')
       end
 
       it 'has the right title' do
-        post :create, session: @attr
+        post :create, params: { session: @attr }
         expect(response.body).to match(/Sign in/)
         # respsonse.should have_selector("title", :text => "Sign in")
       end
 
       it 'displays flash message for invalid signin' do
-        post :create, session: @attr
+        post :create, params: { session: @attr }
         # flash.now[:error].should =~ /invalid/i
         expect(flash.now[:error]).to match(/invalid/i)
       end
@@ -48,13 +48,13 @@ describe SessionsController do
       end
 
       it 'signs in the user' do
-        post :create, params: @attr
+        post :create, params: { session: @attr }
         expect(controller.current_user).to eq @user
         expect(controller).to be_signed_in
       end
 
       it 'redirects to the user show page' do
-        post :create, params: @attr
+        post :create, params: { session: @attr }
         expect(response).to redirect_to(user_path(@user))
       end
     end

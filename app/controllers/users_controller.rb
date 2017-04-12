@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(permitted_parameters)
+    @user = User.new(permitted_parameters_with_user)
     if @user.save
       sign_in @user
       flash[:success] = 'Welcome to Statustar!'

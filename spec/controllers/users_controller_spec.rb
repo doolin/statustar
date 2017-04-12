@@ -91,18 +91,18 @@ describe UsersController do
 
       it 'does not create a user' do
         expect do
-          post :create, params: @attr
+          post :create, params: { user: @attr }
         end.not_to change(User, :count)
       end
 
       # TODO: move to view spec or delete
       xit 'has the right title' do
-        post :create, params: @attr
+        post :create, params: { user: @attr }
         response.should have_selector('title', text: 'Sign up')
       end
 
       it 'renders the signup page' do
-        post :create, params: @attr
+        post :create, params: { user: @attr }
         expect(response).to render_template('new')
       end
     end
@@ -120,22 +120,22 @@ describe UsersController do
 
       it 'creates a user' do
         expect do
-          post :create, params: @attr
+          post :create, params: { user: @attr }
         end.to change(User, :count).by(1)
       end
 
       it 'signs the user in' do
-        post :create, params: @attr
+        post :create, params: { user: @attr }
         expect(controller).to be_signed_in
       end
 
       it "redirects to the user's page" do
-        post :create, params: @attr
+        post :create, params: { user: @attr }
         expect(response).to redirect_to(user_path(assigns(:user)))
       end
 
       it 'displays a welcome message' do
-        post :create, params: @attr
+        post :create, params: { user: @attr }
         expect(flash[:success]).to match(/welcome to statustar/i)
       end
     end
