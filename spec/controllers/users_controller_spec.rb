@@ -11,24 +11,24 @@ describe UsersController do
     end
 
     it 'succeeds' do
-      get :show, id: @user
+      get :show, params: { id: @user }
       expect(response).to be_success
     end
 
     it 'finds the right user' do
-      get :show, id: @user
+      get :show, params: { id: @user }
       expect(assigns(:user)).to eq @user
     end
 
     it 'has the right title' do
-      get :show, id: @user
+      get :show, params: { id: @user }
       expect(response.body).to match(/#{@user.name}/)
     end
 
     # Yes this spec is currently redundant with respect to the
     # spec above. It's not supposed to be.
     it "includes the user's name" do
-      get :show, id: @user
+      get :show, params: { id: @user }
       expect(response.body).to match(/#{@user.name}/)
     end
 
@@ -36,7 +36,8 @@ describe UsersController do
     it "shows the user's statuses", type: :feature do
       mp1 = create :status, user: @user
       mp2 = create :status, user: @user
-      get :show, id: @user
+      get :show, params: { id: @user }
+
       expect(response.body).to match(/#{mp1.state}/)
       expect(response.body).to match(/#{mp2.state}/)
     end
@@ -83,53 +84,58 @@ describe UsersController do
   end
 
   describe '.create' do
-    describe 'failure' do
+    context 'failure' do
       before(:each) do
         @attr = { name: '', email: '', password: '', password_confirmation: '' }
       end
 
       it 'does not create a user' do
         expect do
-          post :create, user: @attr
+          post :create, params: { user: @attr }
         end.not_to change(User, :count)
       end
 
       # TODO: move to view spec or delete
       xit 'has the right title' do
-        post :create, user: @attr
+        post :create, params: { user: @attr }
         response.should have_selector('title', text: 'Sign up')
       end
 
       it 'renders the signup page' do
-        post :create, user: @attr
+        post :create, params: { user: @attr }
         expect(response).to render_template('new')
       end
     end
 
     context 'success' do
+      # TODO: change to let, invoke attributes_for
       before(:each) do
-        @attr = { name: 'New User', email: 'user@example.com',
-                  password: 'foobar', password_confirmation: 'foobar' }
+        @attr = {
+          name: 'New User',
+          email: 'user@example.com',
+          password: 'foobar',
+          password_confirmation: 'foobar'
+        }
       end
 
       it 'creates a user' do
         expect do
-          post :create, user: @attr
+          post :create, params: { user: @attr }
         end.to change(User, :count).by(1)
       end
 
       it 'signs the user in' do
-        post :create, user: @attr
+        post :create, params: { user: @attr }
         expect(controller).to be_signed_in
       end
 
       it "redirects to the user's page" do
-        post :create, user: @attr
+        post :create, params: { user: @attr }
         expect(response).to redirect_to(user_path(assigns(:user)))
       end
 
       it 'displays a welcome message' do
-        post :create, user: @attr
+        post :create, params: { user: @attr }
         expect(flash[:success]).to match(/welcome to statustar/i)
       end
     end
@@ -149,13 +155,13 @@ describe UsersController do
     end
 
     it 'succeeds' do
-      get :edit, id: @user
+      get :edit, params: { id: @user }
       expect(response).to be_success
     end
 
     # TODO: move to view spec or delete
     xit 'has the right title' do
-      get :edit, id: @user
+      get :edit, params: { id: @user }
       expect(response).to have_selector('title', text: 'Edit user')
     end
   end
@@ -176,14 +182,14 @@ describe UsersController do
         }
       end
 
-      it 'renders the edit page' do
-        put :update, id: @user, user: @attr
+      it "renders the edit page" do
+        put :update, params: { id: @user, user: @attr }
         expect(response).to render_template('edit')
       end
 
       # TODO: move to view spec or delete
       it 'has the right title' do
-        put :update, id: @user, user: @attr
+        put :update, params: { id: @user, user: @attr }
         expect(response.body).to match(/Edit user/)
       end
     end
@@ -199,19 +205,19 @@ describe UsersController do
       end
 
       it "changes the user's attributes" do
-        put :update, id: @user, user: @attr
+        put :update, params: { id: @user, user: @attr }
         @user.reload
         expect(@user.name).to eq @attr[:name]
         expect(@user.email).to eq @attr[:email]
       end
 
       it 'redirects to the user show page' do
-        put :update, id: @user, user: @attr
+        put :update, params: { id: @user, user: @attr }
         expect(response).to redirect_to(user_path(@user))
       end
 
       it 'displays a success message' do
-        put :update, id: @user, user: @attr
+        put :update, params: { id: @user, user: @attr }
         expect(flash[:success]).to match(/updated/)
       end
     end
@@ -224,12 +230,12 @@ describe UsersController do
 
     context 'for non-signed-in users' do
       it "denies access to 'edit'" do
-        get :edit, id: @user
+        get :edit, params: { id: @user }
         expect(response).to redirect_to(signin_path)
       end
 
       it "denies access to 'update'" do
-        put :update, id: @user, user: {}
+        put :update, params: { id: @user, user: {} }
         expect(response).to redirect_to(signin_path)
       end
     end
@@ -241,12 +247,12 @@ describe UsersController do
       end
 
       it "requires matching users for 'edit'" do
-        get :edit, id: @user
+        get :edit, params: { id: @user }
         expect(response).to redirect_to(root_path)
       end
 
       it "requires matching users for 'update'" do
-        put :update, id: @user, user: {}
+        put :update, params: { id: @user, user: {} }
         expect(response).to redirect_to(root_path)
       end
     end
@@ -310,7 +316,7 @@ describe UsersController do
 
     context 'as a non-signed-in user' do
       it 'denies access' do
-        delete :destroy, id: @user
+        delete :destroy, params: { id: @user }
         expect(response).to redirect_to(signin_path)
       end
     end
@@ -318,7 +324,7 @@ describe UsersController do
     context 'as a non-admin user' do
       it 'protects the page' do
         test_sign_in(@user)
-        delete :destroy, id: @user
+        delete :destroy, params: { id: @user }
         expect(response).to redirect_to(root_path)
       end
     end
@@ -331,17 +337,17 @@ describe UsersController do
 
       it 'destroys the user' do
         expect do
-          delete :destroy, id: @user
+          delete :destroy, params: { id: @user }
         end.to change(User, :count).by(-1)
       end
 
       it 'redirects to the users page' do
-        delete :destroy, id: @user
+        delete :destroy, params: { id: @user }
         expect(response).to redirect_to(users_path)
       end
 
       it 'does not allow admin to self-delete' do
-        delete :destroy, id: @user
+        delete :destroy, params: { id: @user }
         expect(response).to redirect_to(users_path)
       end
     end

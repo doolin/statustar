@@ -2,9 +2,9 @@
 class StatusesController < ApplicationController
   helper SessionsHelper
 
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
-  before_filter :authenticate,  except: [:show]
+  before_action :authenticate,  except: [:show]
 
   def index
     @statuses = Status.all
@@ -61,7 +61,8 @@ class StatusesController < ApplicationController
     @status = Status.find(params[:id])
 
     respond_to do |format|
-      if @status.update_attributes(params[:status])
+      # if @status.update_attributes(params[:status])
+      if @status.update_attributes(permitted_params)
         flash[:notice] = 'Status was successfully updated.'
         format.html { redirect_to(@status) }
         format.xml  { head :ok }

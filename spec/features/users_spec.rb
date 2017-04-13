@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'Users' do
+describe 'Users', type: :feature do
   describe 'signup' do
     context 'failure' do
       it 'fails to make a new user' do
@@ -22,7 +22,7 @@ describe 'Users' do
       it 'makes a new user' do
         expect do
           visit signup_path
-          fill_in 'Name',         with: 'Example User'
+          page.fill_in 'Name', with: 'Example User'
           fill_in 'Email',        with: 'user@example.com'
           fill_in 'Password',     with: 'foobar'
           fill_in 'Confirmation', with: 'foobar'
@@ -36,20 +36,20 @@ describe 'Users' do
 
   describe 'sign in/out' do
     context 'failure' do
-      it 'should not sign a user in' do
+      it 'does not sign a user in' do
         integration_sign_in nil
         expect(page.body).to have_selector('.flash.error', text: 'Invalid')
       end
     end
 
     context 'success' do
-      xit 'should sign a user in and out' do
-        user = FactoryGirl.create(:user)
+      it 'signs a user in and out' do
+        user = create :user
         integration_sign_in user
-        controller.should be_signed_in
+        expect(page.body).to match('Sign out')
 
         click_link 'Sign out'
-        controller.should_not be_signed_in
+        expect(page.body).to match('Sign in')
       end
     end
   end

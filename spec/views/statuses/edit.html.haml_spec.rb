@@ -2,6 +2,13 @@
 require 'spec_helper'
 
 describe 'statuses/edit.html.haml' do
+  before do
+    allow(view).to receive(:title).and_return('Blah')
+    allow(view).to receive(:signed_in?).and_return(true)
+    allow(view).to receive(:current_user).and_return(create(:user))
+    allow(view).to receive(:logo).and_return('logo')
+  end
+
   # Fails with syntax error in statuses partial.
   xit 'should render Show and Back text' do
     render template: 'layouts/application.html.haml'

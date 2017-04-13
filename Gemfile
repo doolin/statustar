@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 source 'http://rubygems.org'
 
-gem 'rails', '4.2.8'
-gem 'protected_attributes'
+gem 'rails', '5.0.2'
+gem 'rails-controller-testing'
+# gem 'protected_attributes'
 
 gem 'will_paginate'
 gem 'gravatar_image_tag'
