@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'Statuses' do
@@ -9,8 +10,8 @@ describe 'Statuses' do
   context 'signed in' do
     before do
       post sessions_path, params: {
-        "session" => {
-          "email" => status.user.email, "password" => status.user.password
+        'session' => {
+          'email' => status.user.email, 'password' => status.user.password
         }
       }
     end
@@ -55,7 +56,7 @@ describe 'Statuses' do
 
     describe 'update' do
       it 'redirects to status' do
-        put status_path(status), params: { "status" => { "state" => "3" } }
+        put status_path(status), params: { 'status' => { 'state' => '3' } }
         expect(response).to redirect_to(status_path(status))
       end
     end

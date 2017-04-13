@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Rack
   module Utils
     def escape(s)

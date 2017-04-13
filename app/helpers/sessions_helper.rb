@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module SessionsHelper
   def sign_in(user)
     ### Changed from cookies to session

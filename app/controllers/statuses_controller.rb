@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 class StatusesController < ApplicationController
   helper SessionsHelper
 
   skip_before_action :verify_authenticity_token
 
-  before_action :authenticate,  except: [:show]
+  before_action :authenticate, except: [:show]
 
   def index
     @statuses = Status.all

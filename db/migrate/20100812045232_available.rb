@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Available < ActiveRecord::Migration
   def self.up
     add_column :statuses, :available, :boolean, default: true

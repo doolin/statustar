@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Statustar::Application.routes.draw do
   get 'static/index'
 
@@ -9,8 +10,8 @@ Statustar::Application.routes.draw do
   end
 
   resources :statuses
-  resources :sessions,      only: [:new, :create, :destroy]
-  resources :relationships, only: [:create, :destroy]
+  resources :sessions,      only: %i[new create destroy]
+  resources :relationships, only: %i[create destroy]
 
   get    '/signup',  to: 'users#new'
   get    '/signin',  to: 'sessions#new'

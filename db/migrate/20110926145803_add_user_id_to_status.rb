@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class AddUserIdToStatus < ActiveRecord::Migration
   def self.up
     add_column :statuses, :user_id, :integer

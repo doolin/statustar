@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 describe UsersController do
@@ -182,7 +183,7 @@ describe UsersController do
         }
       end
 
-      it "renders the edit page" do
+      it 'renders the edit page' do
         put :update, params: { id: @user, user: @attr }
         expect(response).to render_template('edit')
       end

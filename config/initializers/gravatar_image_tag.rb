@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 GravatarImageTag.configure do |config|
   # Set this to use your own default gravatar image rather then serving
   # up Gravatar's default image

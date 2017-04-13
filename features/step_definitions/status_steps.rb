@@ -1,5 +1,6 @@
 
 # frozen_string_literal: true
+
 Given /^the user's status is "([^"]*)"$/ do |oldstate|
   # response_body.should have_selector 'input[type=radio][checked=checked][value=information]'
   @user = User.create!(name: 'dave', email: 'dave@test.com', password: 'foobar', password_confirmation: 'foobar')

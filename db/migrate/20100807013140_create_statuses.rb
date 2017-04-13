@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CreateStatuses < ActiveRecord::Migration
   def self.up
     create_table :statuses do |t|
