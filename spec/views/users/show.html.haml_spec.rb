@@ -7,9 +7,13 @@ describe 'users/show' do
     @user = create :user
   end
 
-  xit 'renders attributes in <p>' do
+  it 'renders attributes in <p>' do
+    user = build :user, id: 1
+    allow(view).to receive(:current_user).and_return(user)
+    allow(view).to receive(:signed_in?).and_return(false)
+    allow(view).to receive(:gravatar_for).with(user, size: 125)
     render
-    expect(rendered).to match(/Name/)
+    expect(rendered).to match(/#{user.name}/)
   end
 
   xit 'renders list of status updates' do
