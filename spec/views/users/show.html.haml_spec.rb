@@ -34,12 +34,46 @@ describe 'users/show' do
     expect(rendered).to have_css('p.statuses')
   end
 
-  # Fails with syntax error in users/show_follow partial.
-  xit 'should render Show and Back text' do
-    render template: 'layouts/application'
-    render template: 'users/show_follow'
-    rendered.should =~ /Following/
-    rendered.should =~ /Followers/
+  # TODO: this should be in its own spec file as the view file
+  # is apparently not a partial
+  context 'followers and following' do
+    context 'user has followers or is following' do
+      # Fails with syntax error in users/show_follow partial.
+      # TODO: the example description is wrong, needs to be
+      # 'following' and 'followers' or something similar.
+      it 'renders Show and Back text' do
+        # @users = [@user]
+        @users = @user.send(:followers).paginate(page: params[:page])
+        allow(view).to receive(:title)
+        allow(view).to receive(:signed_in?).and_return(true)
+        allow(view).to receive(:current_user).and_return(@user)
+        allow(view).to receive(:logo)
+
+        render template: 'layouts/application'
+        render template: 'users/show_follow'
+        expect(rendered).to match(/following/)
+        expect(rendered).to match(/followers/)
+      end
+
+      # TODO: make this more clear. Since it's unclear I can't even
+      # explain why it's unclear, other than it's not semantically
+      # congruent.
+      context 'user has no followers' do
+        it 'renders Show and Back text' do
+          @users = []
+          # @users = @user.send(:followers).paginate(page: params[:page])
+          allow(view).to receive(:title)
+          allow(view).to receive(:signed_in?).and_return(true)
+          allow(view).to receive(:current_user).and_return(@user)
+          allow(view).to receive(:logo)
+
+          render template: 'layouts/application'
+          render template: 'users/show_follow'
+          expect(rendered).to match(/following/)
+          expect(rendered).to match(/followers/)
+        end
+      end
+    end
   end
 
   it 'infers the controller path' do
@@ -51,13 +85,13 @@ describe 'users/show' do
   end
 
   # Need to get signed in correctly to get the correct view
-  xit 'should display show users' do
+  xit 'displays show users' do
     render template: 'layouts/application'
-    rendered.should =~ /Users/
+    expect(rendered).to match(/Users/)
   end
 
-  xit 'should have correct <title> element ' do
+  xit 'has correct <title> element ' do
     render template: 'layouts/application'
-    rendered.should have_selector 'title', text: 'Statustar'
+    expect(rendered).to have_selector('title', text: 'Statustar')
   end
 end

@@ -1,9 +1,5 @@
 .row
   .eight.columns
-    -#%h1
-    -#= gravatar_for @user
-    -#= @user.name
-    -#%br
     = render 'follow_form' if signed_in?
     - unless @user.statuses.empty?
       %table.statuses{:summary => "User status updates"}
