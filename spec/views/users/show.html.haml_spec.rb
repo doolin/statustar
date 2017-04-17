@@ -85,13 +85,26 @@ describe 'users/show' do
   end
 
   # Need to get signed in correctly to get the correct view
-  xit 'displays show users' do
+  it 'displays show users' do
+    allow(view).to receive(:title)
+    allow(view).to receive(:signed_in?).and_return(true)
+    allow(view).to receive(:current_user).and_return(@user)
+    allow(view).to receive(:logo)
     render template: 'layouts/application'
     expect(rendered).to match(/Users/)
   end
 
-  xit 'has correct <title> element ' do
+  # TODO: all this title checking, there seemed a good reason for it when
+  # it was first implemented, but cannot recall what that reason was at
+  # the moment. The action item here is figuring out whether these title
+  # calls need to be tested, if so, how, and if not, to get rid of all
+  # the associated specs.
+  it 'has correct <title> element ' do
+    allow(view).to receive(:title).and_return('foo')
+    allow(view).to receive(:signed_in?).and_return(true)
+    allow(view).to receive(:current_user).and_return(@user)
+    allow(view).to receive(:logo)
     render template: 'layouts/application'
-    expect(rendered).to have_selector('title', text: 'Statustar')
+    expect(rendered).to have_selector('title', text: 'foo', visible: false)
   end
 end
