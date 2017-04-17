@@ -96,10 +96,9 @@ describe UsersController do
         end.not_to change(User, :count)
       end
 
-      # TODO: move to view spec or delete
-      xit 'has the right title' do
+      it 'has the right title' do
         post :create, params: { user: @attr }
-        response.should have_selector('title', text: 'Sign up')
+        expect(response.body).to have_selector('title', text: 'Statustar | Sign up', visible: false)
       end
 
       it 'renders the signup page' do
