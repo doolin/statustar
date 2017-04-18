@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'layouts/statuses' do # , type: :feature do
-  xit 'should render head, title, body and container tags' do
+  it 'renders head, title, body and container tags' do
     visit '/statuses'
 
     expect(page.body).to have_css 'nav'

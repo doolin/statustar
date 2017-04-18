@@ -14,25 +14,27 @@ describe 'statuses/show' do
     expect(rendered).to match(/1/)
   end
 
-  xit 'should render tags' do
-    rendered.should have_selector 'p'
-    rendered.should have_selector 'b'
-    rendered.should have_selector 'span', id: 'busy'
-    rendered.should have_selector 'span', id: 'maybe'
-    rendered.should have_selector 'span', id: 'open'
-    rendered.should have_selector 'span', id: 'busy1'
-    rendered.should have_selector 'span', id: 'busy2'
+  it 'renders tags' do
+    expect(rendered).to have_selector 'p'
+    expect(rendered).to have_selector 'b'
+    expect(rendered).to have_selector 'span', id: 'busy'
+    expect(rendered).to have_selector 'span', id: 'maybe'
+    expect(rendered).to have_selector 'span', id: 'open'
+    expect(rendered).to have_selector 'span', id: 'busy1'
+    expect(rendered).to have_selector 'span', id: 'busy2'
   end
 
-  xit 'displays all the statuses' do
+  it 'displays all the statuses' do
     assign(:statuses, [
              double(Status, name: 'Busy'),
              double(Status, name: 'Maybe'),
              double(Status, name: 'Open')
            ])
     render
-    rendered.should =~ /Busy/
-    rendered.should =~ /Maybe/
-    rendered.should =~ /Open/
+    expect(rendered).to match(/★</)
+    # TODO: figure out some way of testing these gadgets,
+    # just for fun.
+    # expect(rendered).to match(/☆ /)
+    # expect(rendered).to match(/☆/)
   end
 end
