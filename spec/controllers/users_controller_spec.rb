@@ -58,29 +58,29 @@ describe UsersController do
       expect(response).to redirect_to(root_path)
     end
 
-    xit 'has a name field' do
+    it 'has a name field' do
       get :new
-      expect(response).to have_selector("input[name='user[name]'][type='text']")
+      expect(response.body).to have_selector("input[name='user[name]'][type='text']")
     end
 
-    xit 'has an email field' do
+    it 'has an email field' do
       get :new
-      expect(response).to have_selector("input[name='user[email]'][type='text']")
+      expect(response.body).to have_selector("input[name='user[email]'][type='text']")
     end
 
-    xit 'has a password field' do
+    it 'has a password field' do
       get :new
-      expect(response).to have_selector("input[name='user[password]'][type='password']")
+      expect(response.body).to have_selector("input[name='user[password]'][type='password']")
     end
 
-    xit 'has a password confirmation field' do
+    it 'has a password confirmation field' do
       get :new
-      expect(response).to have_selector("input[name='user[password_confirmation]'][type='password']")
+      expect(response.body).to have_selector("input[name='user[password_confirmation]'][type='password']")
     end
 
-    xit 'has the right title' do
+    it 'has the right title' do
       get :new
-      expect(response).to have_selector('title', text: 'Sign up')
+      expect(response.body).to have_selector('title', text: 'Statustar | Sign up', visible: false)
     end
   end
 
@@ -159,10 +159,9 @@ describe UsersController do
       expect(response).to be_success
     end
 
-    # TODO: move to view spec or delete
-    xit 'has the right title' do
+    it 'has the right title' do
       get :edit, params: { id: @user }
-      expect(response).to have_selector('title', text: 'Edit user')
+      expect(response.body).to have_selector('title', text: 'Statustar | Edit user', visible: false)
     end
   end
 
@@ -190,7 +189,7 @@ describe UsersController do
       # TODO: move to view spec or delete
       it 'has the right title' do
         put :update, params: { id: @user, user: @attr }
-        expect(response.body).to match(/Edit user/)
+        expect(response.body).to have_selector('title', text: 'Statustar | Edit user', visible: false)
       end
     end
 
@@ -284,13 +283,11 @@ describe UsersController do
         expect(response).to be_success
       end
 
-      # TODO: move or delete
       it 'has the right title' do
         get :index
         expect(response.body).to match(/All users/)
       end
 
-      # TODO: move or delete
       it 'has an element for each user' do
         get :index
         @users[0..2].each do |_user|
@@ -298,13 +295,12 @@ describe UsersController do
         end
       end
 
-      # TODO: move or delete
-      xit 'paginates users' do
+      it 'paginates users' do
         get :index
-        response.should have_selector('div.pagination')
-        response.should have_selector('span.disabled', text: 'Previous')
-        response.should have_selector('a', href: '/users?page=2', text: '2')
-        response.should have_selector('a', href: '/users?page=2', text: 'Next')
+        expect(response.body).to have_selector('div.pagination')
+        expect(response.body).to have_selector('span.disabled', text: 'Previous')
+        expect(response.body).to have_link(nil, href: '/users?page=2', text: '2')
+        expect(response.body).to have_link(nil, href: '/users?page=2', text: 'Next')
       end
     end
   end
