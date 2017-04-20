@@ -3,31 +3,18 @@
 require 'spec_helper'
 
 describe 'users/index.html.haml' do
-  before(:each) do
-=begin
-    assign(:users, [
-             stub_model(User,
-                        name: 'Name',
-                        email: 'Email'),
-             stub_model(User,
-                        name: 'Name',
-                        email: 'Email')
-           ])
-=end
+  let(:user1) { create :user }
+  let(:user2) { create :user, email: 'foo@example.com' }
 
-    @users = [
-      create(:user),
-      create(:user, email: 'foo@example.com')
-    ]
+  before(:each) do
+    users = [user1, user2]
+    allow(users).to receive(:total_pages).and_return(1)
+    assign(:users, users)
   end
 
-  xit 'renders a list of users' do
+  it 'renders a list of users' do
+    allow(view).to receive(:current_user).and_return(user1)
     render
-    # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    # assert_select 'tr>td', text: 'Name'.to_s, count: 2
-    expect(view).to have_selector('tr>td', text: 'Name'.to_s, count: 2)
-    # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    # assert_select 'tr>td', text: 'Email'.to_s, count: 2
-    expect(view).to have_selector('tr>td', text: 'Email'.to_s, count: 2)
+    expect(rendered).to have_selector('li>a', count: 2) # , text: 'Michael Hartl')
   end
 end
