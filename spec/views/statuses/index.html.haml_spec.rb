@@ -10,13 +10,13 @@ describe 'statuses/index.html.haml' do
     allow(view).to receive(:logo).and_return('logo')
   end
 
-  # Fails with syntax error in statuses partial.
-  xit 'renders Show and Back text' do
+  it 'renders Show and Back text' do
+    assign(:status, Status.new)
     render template: 'layouts/application.html.haml'
     render partial: 'statuses/form.html.haml'
-    rendered.should =~ /Busy/
-    rendered.should =~ /Maybe/
-    rendered.should =~ /Open/
+    expect(rendered).to match(/Busy/)
+    expect(rendered).to match(/Maybe/)
+    expect(rendered).to match(/Open/)
   end
 
   it 'infers the controller path' do
