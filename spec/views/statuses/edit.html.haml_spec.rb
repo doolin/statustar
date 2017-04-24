@@ -14,9 +14,9 @@ describe 'statuses/edit.html.haml' do
   xit 'should render Show and Back text' do
     render template: 'layouts/application.html.haml'
     render partial: 'statuses/form.html.haml'
-    rendered.should =~ /Busy/
-    rendered.should =~ /Maybe/
-    rendered.should =~ /Open/
+    expect(rendered).to match(/Busy/)
+    expect(rendered).to match(/Maybe/)
+    expect(rendered).to match(/Open/)
   end
 
   it 'should infer the controller path' do
