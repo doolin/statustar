@@ -10,10 +10,9 @@ describe 'statuses/edit.html.haml' do
     allow(view).to receive(:logo).and_return('logo')
   end
 
-  # Fails with syntax error in statuses partial.
-  xit 'should render Show and Back text' do
-    render template: 'layouts/application.html.haml'
-    render partial: 'statuses/form.html.haml'
+  it 'should render Show and Back text' do
+    @status = assign(:status, Status.new(state: 1, user_id: 1))
+    render
     expect(rendered).to match(/Busy/)
     expect(rendered).to match(/Maybe/)
     expect(rendered).to match(/Open/)
