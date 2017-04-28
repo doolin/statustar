@@ -3,6 +3,10 @@
 require 'spec_helper'
 
 describe 'layouts/statuses' do
+  before(:each) do
+    integration_sign_in create(:user)
+  end
+
   it 'renders head, title, body and container tags' do
     visit '/statuses'
 
@@ -11,27 +15,7 @@ describe 'layouts/statuses' do
     expect(page.body).to have_selector('h1', text: 'Listing statuses')
   end
 
-  # TODO: see if integration signin will work here.
-  before(:each) do
-    user = create :user
-    visit signin_path
-    fill_in :session_email,    with: user.email
-    fill_in :session_password, with: user.password
-    click_button
-  end
-
   describe 'creation' do
-    context 'failure' do
-      it 'does not make a new status' do
-        expect do
-          visit root_path
-          choose('Busy')
-          # binding.pry
-          # expect(page.body).to have_selector("div#error_explanation")
-        end.to_not change(Status, :count)
-      end
-    end
-
     context 'success' do
       xit 'makes a new status' do
         expect do

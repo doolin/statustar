@@ -4,7 +4,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '5.1.0.rc2'
 gem 'rails-controller-testing'
-# gem 'protected_attributes'
 
 gem 'will_paginate'
 gem 'gravatar_image_tag'
@@ -26,6 +25,7 @@ gem 'jquery-rails'
 
 # Fix Rack/Capybara/whatever UTF encoding crapola:
 # gem 'rack', '1.3'
+# TODO: get rid of escape_utils if possible
 gem 'escape_utils'
 
 group :production do
@@ -41,14 +41,12 @@ end
 gem 'launchy'
 
 group :test do
-  # gem 'minitest' # get rid of this on rspec 3.x
   gem 'faker'
   gem 'simplecov'
   gem 'cucumber-rails', require: false # for "WARNING: Cucumber-rails required outside of env.rb"
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'capybara'
-  # gem 'webrat'
   gem 'factory_girl_rails'
-  gem 'jasmine', git: 'git://github.com/pivotal/jasmine-gem.git'
+  gem 'jasmine' # , git: 'git://github.com/pivotal/jasmine-gem.git'
 end
