@@ -2,7 +2,7 @@
 
 source 'http://rubygems.org'
 
-gem 'rails', '5.1.0.rc2'
+gem 'rails', '5.1.0'
 gem 'rails-controller-testing'
 
 gem 'will_paginate'
@@ -43,7 +43,9 @@ gem 'launchy'
 group :test do
   gem 'faker'
   gem 'simplecov'
-  gem 'cucumber-rails', require: false # for "WARNING: Cucumber-rails required outside of env.rb"
+  # cucumber-rails commented out for now, will be used in the
+  # future to generate updated cucumber configuration files.
+  # gem 'cucumber-rails', require: false # for "WARNING: Cucumber-rails required outside of env.rb"
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'capybara'
