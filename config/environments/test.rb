@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 Statustar::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+  # Settings specified here will take precedence over those in config/application.rb.
 
   # Configure static asset server for tests with Cache-Control for performance
   config.public_file_server.enabled = true
@@ -15,7 +13,7 @@ Statustar::Application.configure do
   config.action_controller.perform_caching = false
   config.action_dispatch.show_exceptions = false
 
-  # Disable request forgery protection in test environment
+  # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
   # Tell Action Mailer not to deliver emails to the real world.
@@ -23,5 +21,9 @@ Statustar::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
 end

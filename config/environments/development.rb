@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Statustar::Application.configure do
   config.assets.compress = false
   config.assets.debug = true

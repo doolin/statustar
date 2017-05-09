@@ -18,5 +18,8 @@ module Statustar
     config.assets.version = '1.0'
     config.encoding = 'utf-8'
     config.filter_parameters += [:password]
+    # Settings in config/environments/* take precedence over those specified here.
+    # Application configuration should go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded.
   end
 end
