@@ -36,6 +36,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'listen'
 end
 
 gem 'launchy'
