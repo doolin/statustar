@@ -18,3 +18,4 @@ uploads/**/**/
 .rvmrc*
 *.journal
 todo.txt
+*.bak
