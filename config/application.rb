@@ -17,13 +17,6 @@ module Statustar
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    # config.assets.enabled = true
-    # config.assets.version = '1.0'
-    # config.encoding = 'utf-8'
-
-    # TODO: remove if possible
-    # config.filter_parameters += [:password]
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
