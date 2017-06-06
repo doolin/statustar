@@ -6,6 +6,11 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+AllCops:
+  Exclude:
+    - 'config/**/*.rb'
+    - 'bin/**/*'
+
 # Offense count: 9
 # Cop supports --auto-correct.
 # Configuration parameters: Include.
@@ -53,6 +58,7 @@ Metrics/BlockLength:
     - 'spec/**/*.rb'
     - 'config/routes.rb'
     - 'db/schema.rb'
+    - 'lib/tasks/cucumber.rake'
 
 # Offense count: 105
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
@@ -80,7 +86,7 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Enabled: false
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
 
