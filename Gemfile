@@ -44,9 +44,8 @@ gem 'launchy'
 group :test do
   gem 'faker'
   gem 'simplecov'
-  # cucumber-rails commented out for now, will be used in the
-  # future to generate updated cucumber configuration files.
-  # gem 'cucumber-rails', require: false # for "WARNING: Cucumber-rails required outside of env.rb"
+  # TODO: generate updated cucumber configuration files.
+  gem 'cucumber-rails', require: false # "WARNING: Cucumber-rails required outside of env.rb"
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'capybara'
