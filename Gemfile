@@ -2,7 +2,7 @@
 
 source 'http://rubygems.org'
 
-gem 'rails', '5.1.1'
+gem 'rails', '5.1.2'
 gem 'rails-controller-testing'
 
 gem 'will_paginate'
