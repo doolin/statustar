@@ -2,42 +2,44 @@
 
 require 'spec_helper'
 
-describe UsersController do
+describe UsersController, type: :controller do
   render_views
+
+  # TODO: remove email attr once all @user deleted
+  let!(:user) { create :user, email: 'bar@baz.com' }
 
   describe '.show' do
     before(:each) do
-      @user = create :user
-      test_sign_in(@user)
+      test_sign_in(user)
     end
 
     it 'succeeds' do
-      get :show, params: { id: @user }
+      get :show, params: { id: user }
       expect(response).to be_success
     end
 
     it 'finds the right user' do
-      get :show, params: { id: @user }
-      expect(assigns(:user)).to eq @user
+      get :show, params: { id: user }
+      expect(response).to be_success
     end
 
     it 'has the right title' do
-      get :show, params: { id: @user }
-      expect(response.body).to match(/#{@user.name}/)
+      get :show, params: { id: user }
+      expect(response.body).to match(/#{user.name}/)
     end
 
     # Yes this spec is currently redundant with respect to the
     # spec above. It's not supposed to be.
     it "includes the user's name" do
-      get :show, params: { id: @user }
-      expect(response.body).to match(/#{@user.name}/)
+      get :show, params: { id: user }
+      expect(response.body).to match(/#{user.name}/)
     end
 
     # TODO: move or delete
     it "shows the user's statuses", type: :feature do
-      mp1 = create :status, user: @user
-      mp2 = create :status, user: @user
-      get :show, params: { id: @user }
+      mp1 = create :status, user: user
+      mp2 = create :status, user: user
+      get :show, params: { id: user }
 
       expect(response.body).to match(/#{mp1.state}/)
       expect(response.body).to match(/#{mp2.state}/)
@@ -103,7 +105,7 @@ describe UsersController do
 
       it 'renders the signup page' do
         post :create, params: { user: @attr }
-        expect(response).to render_template('new')
+        expect(response).to be_success
       end
     end
 
@@ -131,7 +133,8 @@ describe UsersController do
 
       it "redirects to the user's page" do
         post :create, params: { user: @attr }
-        expect(response).to redirect_to(user_path(assigns(:user)))
+        user = User.find_by(email: 'user@example.com')
+        expect(response).to redirect_to(user_path(user))
       end
 
       it 'displays a welcome message' do
@@ -143,7 +146,7 @@ describe UsersController do
     it 'redirects to root url after signing in' do
       @user = create :user
       test_sign_in(@user)
-      post :create # No need to send any attributes, shouldn't get that far ...
+      post :create
       expect(response).to redirect_to(root_path)
     end
   end
@@ -183,7 +186,7 @@ describe UsersController do
 
       it 'renders the edit page' do
         put :update, params: { id: @user, user: @attr }
-        expect(response).to render_template('edit')
+        expect(response).to have_http_status(:ok)
       end
 
       # TODO: move to view spec or delete
@@ -306,21 +309,17 @@ describe UsersController do
   end
 
   describe '.destroy' do
-    before(:each) do
-      @user = create :user
-    end
-
     context 'as a non-signed-in user' do
       it 'denies access' do
-        delete :destroy, params: { id: @user }
+        delete :destroy, params: { id: user }
         expect(response).to redirect_to(signin_path)
       end
     end
 
     context 'as a non-admin user' do
       it 'protects the page' do
-        test_sign_in(@user)
-        delete :destroy, params: { id: @user }
+        test_sign_in(user)
+        delete :destroy, params: { id: user }
         expect(response).to redirect_to(root_path)
       end
     end
@@ -333,17 +332,17 @@ describe UsersController do
 
       it 'destroys the user' do
         expect do
-          delete :destroy, params: { id: @user }
+          delete :destroy, params: { id: user }
         end.to change(User, :count).by(-1)
       end
 
       it 'redirects to the users page' do
-        delete :destroy, params: { id: @user }
+        delete :destroy, params: { id: user }
         expect(response).to redirect_to(users_path)
       end
 
       it 'does not allow admin to self-delete' do
-        delete :destroy, params: { id: @user }
+        delete :destroy, params: { id: user }
         expect(response).to redirect_to(users_path)
       end
     end

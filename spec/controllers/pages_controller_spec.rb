@@ -2,63 +2,58 @@
 
 require 'spec_helper'
 
-describe PagesController do
+describe PagesController, type: :controller do
   render_views
 
-  before(:each) do
-    @base_title = 'Statustar'
-  end
+  let(:base_title) { 'StatuStar' }
 
   describe '.home' do
     describe 'when not signed in' do
-      before(:each) do
-        get :home
-      end
+      before { get :home }
 
       it 'succeeds' do
         expect(response).to be_success
       end
 
       it 'has the right title' do
-        expect(response.body).to match(/#{@base_title} | Home/)
+        expect(response.body).to match(/#{base_title} | Home/)
       end
     end
   end
 
   describe '.contact' do
+    before { get :contact }
+
     it 'succeeds' do
-      get 'contact'
       expect(response).to be_success
     end
 
-    # TODO: move or delete
     it 'has the right title' do
-      get 'contact'
-      expect(response.body).to match(/#{@base_title} | Contact/)
+      expect(response.body).to match(/#{base_title} | Contact/)
     end
   end
 
   describe '.about' do
+    before { get :about }
+
     it 'succeeds' do
-      get 'about'
       expect(response).to be_success
     end
 
     it 'has the right title' do
-      get 'about'
-      expect(response.body).to match(/#{@base_title} | About/)
+      expect(response.body).to match(/#{base_title} | About/)
     end
   end
 
   describe '.help' do
+    before { get :help }
+
     it 'succeeds' do
-      get 'help'
       expect(response).to be_success
     end
 
     it 'has the right title' do
-      get 'help'
-      expect(response.body).to match(/#{@base_title} | Help/)
+      expect(response.body).to match(/#{base_title} | Help/)
     end
   end
 end
