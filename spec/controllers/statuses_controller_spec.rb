@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe StatusesController do
+describe StatusesController, type: :controller do
   let(:user) { create :user }
 
   render_views
@@ -12,7 +12,6 @@ describe StatusesController do
       it 'renders template with :ok' do
         test_sign_in(user)
         get :index
-        expect(response).to render_template(:index)
         expect(response).to have_http_status(:ok)
       end
     end
@@ -30,7 +29,6 @@ describe StatusesController do
     it 'renders template with :ok' do
       status = create :status, user: user
       get :show, params: { id: status.id }
-      expect(response).to render_template(:show)
       expect(response).to have_http_status(:ok)
     end
   end
@@ -40,7 +38,6 @@ describe StatusesController do
       it 'renders template with ok' do
         test_sign_in(user)
         get :new
-        expect(response).to render_template(:new)
         expect(response).to have_http_status(:ok)
       end
     end
@@ -59,7 +56,7 @@ describe StatusesController do
       test_sign_in(user)
       status = create :status, user: user
       get :edit, params: { id: status.id }
-      expect(response).to render_template(:edit)
+      expect(response).to have_http_status(:ok)
     end
   end
 

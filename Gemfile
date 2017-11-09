@@ -3,7 +3,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '5.1.4'
-gem 'rails-controller-testing'
 
 gem 'will_paginate'
 gem 'gravatar_image_tag'

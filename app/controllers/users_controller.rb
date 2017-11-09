@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :registered,    only: %i[new create] # no registration for signed in users
-  before_action :authenticate,  except: %i[show new create] # ...
-  before_action :correct_user,  only: %i[edit update] # you can only update your own stuff
-  before_action :admin_user,    only: :destroy # only admins can delete
+  before_action :registered,    only: %i[new create]
+  before_action :authenticate,  except: %i[show new create]
+  before_action :correct_user,  only: %i[edit update]
+  before_action :admin_user,    only: :destroy
 
   def index
     @title = 'All users'
