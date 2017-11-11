@@ -5,8 +5,7 @@ require 'spec_helper'
 describe UsersController, type: :controller do
   render_views
 
-  # TODO: remove email attr once all @user deleted
-  let!(:user) { create :user, email: 'bar@baz.com' }
+  let!(:user) { create :user }
 
   describe '.show' do
     before(:each) do
@@ -54,8 +53,7 @@ describe UsersController, type: :controller do
     end
 
     it 'redirects to root url when signed in' do
-      @user = create :user
-      test_sign_in(@user)
+      test_sign_in(user)
       get :new
       expect(response).to redirect_to(root_path)
     end
@@ -144,8 +142,7 @@ describe UsersController, type: :controller do
     end
 
     it 'redirects to root url after signing in' do
-      @user = create :user
-      test_sign_in(@user)
+      test_sign_in(user)
       post :create
       expect(response).to redirect_to(root_path)
     end
@@ -153,30 +150,28 @@ describe UsersController, type: :controller do
 
   describe '.edit' do
     before(:each) do
-      @user = create :user
-      test_sign_in(@user)
+      test_sign_in(user)
     end
 
     it 'succeeds' do
-      get :edit, params: { id: @user }
+      get :edit, params: { id: user }
       expect(response).to be_success
     end
 
     it 'has the right title' do
-      get :edit, params: { id: @user }
+      get :edit, params: { id: user }
       expect(response.body).to have_selector('title', text: 'Statustar | Edit user', visible: false)
     end
   end
 
   describe '.update' do
     before(:each) do
-      @user = create :user
-      test_sign_in(@user)
+      test_sign_in(user)
     end
 
     context 'failure' do
-      before(:each) do
-        @attr = {
+      let(:attr) do
+        {
           email: '',
           name: '',
           password: '',
@@ -185,20 +180,20 @@ describe UsersController, type: :controller do
       end
 
       it 'renders the edit page' do
-        put :update, params: { id: @user, user: @attr }
+        put :update, params: { id: user, user: attr }
         expect(response).to have_http_status(:ok)
       end
 
       # TODO: move to view spec or delete
       it 'has the right title' do
-        put :update, params: { id: @user, user: @attr }
+        put :update, params: { id: user, user: attr }
         expect(response.body).to have_selector('title', text: 'Statustar | Edit user', visible: false)
       end
     end
 
     context 'success' do
-      before(:each) do
-        @attr = {
+      let(:attr) do
+        {
           name: 'New Name',
           email: 'user@example.org',
           password: 'barbaz',
@@ -207,37 +202,33 @@ describe UsersController, type: :controller do
       end
 
       it "changes the user's attributes" do
-        put :update, params: { id: @user, user: @attr }
-        @user.reload
-        expect(@user.name).to eq @attr[:name]
-        expect(@user.email).to eq @attr[:email]
+        put :update, params: { id: user, user: attr }
+        user.reload
+        expect(user.name).to eq attr[:name]
+        expect(user.email).to eq attr[:email]
       end
 
       it 'redirects to the user show page' do
-        put :update, params: { id: @user, user: @attr }
-        expect(response).to redirect_to(user_path(@user))
+        put :update, params: { id: user, user: attr }
+        expect(response).to redirect_to(user_path(user))
       end
 
       it 'displays a success message' do
-        put :update, params: { id: @user, user: @attr }
+        put :update, params: { id: user, user: attr }
         expect(flash[:success]).to match(/updated/)
       end
     end
   end
 
   describe 'authentication of edit/update pages' do
-    before(:each) do
-      @user = create :user
-    end
-
     context 'for non-signed-in users' do
       it "denies access to 'edit'" do
-        get :edit, params: { id: @user }
+        get :edit, params: { id: user }
         expect(response).to redirect_to(signin_path)
       end
 
       it "denies access to 'update'" do
-        put :update, params: { id: @user, user: {} }
+        put :update, params: { id: user, user: {} }
         expect(response).to redirect_to(signin_path)
       end
     end
@@ -249,12 +240,12 @@ describe UsersController, type: :controller do
       end
 
       it "requires matching users for 'edit'" do
-        get :edit, params: { id: @user }
+        get :edit, params: { id: user }
         expect(response).to redirect_to(root_path)
       end
 
       it "requires matching users for 'update'" do
-        put :update, params: { id: @user, user: {} }
+        put :update, params: { id: user, user: {} }
         expect(response).to redirect_to(root_path)
       end
     end
@@ -271,11 +262,11 @@ describe UsersController, type: :controller do
 
     describe 'for signed-in users' do
       before(:each) do
-        @user = test_sign_in create(:user)
+        test_sign_in(user)
         second = create :user, email: 'another@example.com'
         third  = create :user, email: 'another@example.net'
 
-        @users = [@user, second, third]
+        @users = [user, second, third]
         30.times do
           @users << create(:user, email: generate(:email))
         end
