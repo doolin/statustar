@@ -40,20 +40,18 @@ describe SessionsController do
     end
 
     context 'with valid email and password' do
-      before(:each) do
-        @user = FactoryGirl.create(:user)
-        @attr = { email: @user.email, password: @user.password }
-      end
+      let(:user) { create :user }
+      let(:attr) { { email: user.email, password: user.password } }
 
       it 'signs in the user' do
-        post :create, params: { session: @attr }
-        expect(controller.current_user).to eq @user
+        post :create, params: { session: attr }
+        expect(controller.current_user).to eq user
         expect(controller).to be_signed_in
       end
 
       it 'redirects to the user show page' do
-        post :create, params: { session: @attr }
-        expect(response).to redirect_to(user_path(@user))
+        post :create, params: { session: attr }
+        expect(response).to redirect_to(user_path(user))
       end
     end
   end
