@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 ruby '2.5.1'
 
-gem 'rails', '5.2.1'
+gem 'rails', github: 'rails/rails'
 
 gem 'will_paginate'
 gem 'gravatar_image_tag'
