@@ -4,7 +4,7 @@
 
 Geolocation Status Notifier Application:
 [Statustar](http://railstutorial.org/)
-by [Dave Doolin](http://tinobox.com/wordpress/) 
+by [Dave Doolin](http://tinobox.com/wordpress/)
 and [Walter Yu](http://fiveamsoftware.com/)
 
 
@@ -72,7 +72,7 @@ Other:
 * remove webrat
 
 
-#### FactoryGirl
+#### FactoryBot
 
 * (DONE) 2.0
 * (DONE) 3.0

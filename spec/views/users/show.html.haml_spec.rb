@@ -21,7 +21,7 @@ describe 'users/show' do
   it 'renders list of status updates' do
     # allow(view).to receive(:signed_in?).and_return(false)
     allow(view).to receive(:signed_in?).and_return(true)
-    u1 = FactoryGirl.create(:user, email: 'foobar@example.com')
+    u1 = create(:user, email: 'foobar@example.com')
     allow(view).to receive(:current_user).and_return(u1)
     allow(view).to receive(:current_user?).with(@user).and_return(true)
     u1.statuses.create(state: 1)

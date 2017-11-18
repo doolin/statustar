@@ -58,7 +58,7 @@ describe SessionsController do
 
   describe '.destroy' do
     it 'signs out user' do
-      test_sign_in(FactoryGirl.create(:user))
+      test_sign_in(create(:user))
       delete :destroy
       expect(controller).to_not be_signed_in
       expect(response).to redirect_to(root_path)

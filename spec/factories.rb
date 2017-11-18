@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     name                  'Michael Hartl'
     email                 'mhartl@example.com'

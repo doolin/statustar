@@ -47,7 +47,7 @@ describe 'LayoutLinks' do
 
   describe 'when signed in' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = create(:user)
       integration_sign_in @user
     end
 
@@ -84,7 +84,7 @@ describe 'LayoutLinks' do
 
   describe 'when signed in as admin' do
     before(:each) do
-      admin = FactoryGirl.create(:user, email: 'admin@example.com', admin: true)
+      admin = create(:user, email: 'admin@example.com', admin: true)
       integration_sign_in(admin)
     end
 

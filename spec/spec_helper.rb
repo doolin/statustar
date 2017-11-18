@@ -22,7 +22,7 @@ RSpec.configure do |config|
   #   c.syntax = [:expect, :should]
   # end
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   # config.raise_errors_for_deprecations!
   # config.warnings = false
