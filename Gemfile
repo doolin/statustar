@@ -31,6 +31,10 @@ group :production do
   gem 'pg'
 end
 
+group :development do
+  gem 'mry'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails'

@@ -5,7 +5,7 @@
 
 include Rake::DSL
 
-require File.expand_path('../config/application', __FILE__)
+require File.expand_path('config/application', __dir__)
 require 'rake'
 
 Statustar::Application.load_tasks
