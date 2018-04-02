@@ -12,7 +12,6 @@ gem 'sass'
 gem 'zurb-foundation', group: :assets
 
 gem 'awesome_print'
-gem 'rubocop'
 
 group :assets do
   gem 'sass-rails'
@@ -32,6 +31,7 @@ group :production do
 end
 
 group :development do
+  gem 'rubocop'
   gem 'mry'
 end
 
