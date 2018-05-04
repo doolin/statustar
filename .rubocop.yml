@@ -86,7 +86,6 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Enabled: false
 
-
 # The following cops are added between 0.52.1 and 0.54.0.
 # The configurations are default.
 # If you want to use a cop by default, remove a configuration for the cop from here.
@@ -106,7 +105,7 @@ Lint/BigDecimalNew:
 
 Lint/NumberConversion:
   Description: Checks unsafe usage of number conversion methods.
-  Enabled: false
+  Enabled: true
 
 # Supports --auto-correct
 Lint/OrderedMagicComments:
