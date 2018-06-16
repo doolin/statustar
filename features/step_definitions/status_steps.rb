@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 Given /^the user's status is "([^"]*)"$/ do |oldstate|

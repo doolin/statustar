@@ -142,3 +142,9 @@ Naming/UncommunicativeMethodParamName:
   - id
   - to
   ForbiddenNames: []
+
+
+# The following cops are added between 0.54.0 and 0.57.2.
+# The configurations are default.
+# If you want to use a cop by default, remove a configuration for the cop from here.
+# If you want to disable a cop, change `Enabled` to false.
