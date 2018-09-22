@@ -5,8 +5,8 @@ development:
   timeout: 5000
 
 test: &test
-  adapter: sqlite3
-  database: :memory: # db/test.sqlite3
+  adapter: postgresql
+  database: statustar_test
   pool: 5
   timeout: 5000
 

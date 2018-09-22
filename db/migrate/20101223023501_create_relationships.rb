@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateRelationships < ActiveRecord::Migration
+class CreateRelationships < ActiveRecord::Migration[4.2]
   def self.up
     create_table :relationships do |t|
       t.integer :follower_id

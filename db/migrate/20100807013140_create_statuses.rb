@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateStatuses < ActiveRecord::Migration
+class CreateStatuses < ActiveRecord::Migration[4.2]
   def self.up
     create_table :statuses do |t|
       t.string :name
