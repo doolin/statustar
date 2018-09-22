@@ -109,6 +109,10 @@ GEM
     gherkin (5.1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.4.11)
+      railties
+      sprockets-rails
+    graphql (1.8.10)
     gravatar_image_tag (1.2.0)
     haml (5.0.4)
       temple (>= 0.8.0)
@@ -305,6 +309,8 @@ DEPENDENCIES
   escape_utils
   factory_bot_rails
   faker
+  graphiql-rails
+  graphql
   gravatar_image_tag
   haml-rails
   jasmine

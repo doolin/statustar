@@ -11,6 +11,7 @@ gem 'gravatar_image_tag'
 gem 'thin'
 gem 'haml-rails'
 gem 'sass'
+gem 'graphql'
 gem 'zurb-foundation', group: :assets
 
 gem 'awesome_print'
@@ -58,3 +59,5 @@ group :test do
   gem 'factory_bot_rails'
   gem 'jasmine' # , git: 'git://github.com/pivotal/jasmine-gem.git'
 end
+
+gem 'graphiql-rails', group: :development
