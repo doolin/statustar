@@ -9,7 +9,7 @@ gem 'rails', github: 'rails/rails'
 gem 'will_paginate'
 gem 'gravatar_image_tag'
 gem 'thin'
-gem 'haml-rails'
+gem 'haml'
 gem 'sass'
 gem 'zurb-foundation', group: :assets
 
