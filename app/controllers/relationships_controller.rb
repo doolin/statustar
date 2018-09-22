@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RelationshipsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
 
   respond_to :html, :js
 
