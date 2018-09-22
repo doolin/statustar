@@ -51,6 +51,7 @@ group :test do
   gem 'cucumber-rails', require: false # "WARNING: Cucumber-rails required outside of env.rb"
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'rubocop-rspec'
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'jasmine' # , git: 'git://github.com/pivotal/jasmine-gem.git'
