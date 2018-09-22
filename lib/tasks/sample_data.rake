@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+=begin
 require 'faker'
 
 namespace :db do
@@ -46,3 +47,4 @@ def make_relationships
   following.each { |followed| user.follow!(followed) }
   followers.each { |follower| follower.follow!(user) }
 end
+=end
