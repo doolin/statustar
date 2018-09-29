@@ -12,6 +12,7 @@ gem 'thin'
 gem 'haml-rails'
 gem 'sass'
 gem 'zurb-foundation', group: :assets
+gem 'devise'
 
 gem 'awesome_print'
 
