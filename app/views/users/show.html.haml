@@ -1,6 +1,6 @@
 .row
   .eight.columns
-    = render 'follow_form' if signed_in?
+    = render 'follow_form' if user_signed_in?
     - unless @user.statuses.empty?
       %table.statuses{:summary => "User status updates"}
         = render :partial => 'shared/feed_item', :collection => @statuses

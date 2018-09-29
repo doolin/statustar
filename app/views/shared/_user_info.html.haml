@@ -2,6 +2,6 @@
   %a{:href => user_path(current_user)}
     = gravatar_for current_user, :size => 125
     %p.user_name
-      = current_user.name
+      = current_user.username
     %p.statuses
       = pluralize(current_user.statuses.count, "updates")

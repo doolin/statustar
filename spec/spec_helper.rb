@@ -17,6 +17,10 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 RSpec.configure do |config|
   config.mock_with :rspec
 
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
+
   # TODO: remove once updated to RSpec 3+
   # config.expect_with :rspec do |c|
   #   c.syntax = [:expect, :should]
@@ -53,14 +57,14 @@ RSpec.configure do |config|
   end
 
   def integration_sign_in(user)
-    visit signin_path
+    visit new_user_session_path
     if user
-      fill_in :session_email,    with: user.email
-      fill_in :session_password, with: user.password
+      fill_in :user_email,    with: user.email
+      fill_in :user_password, with: user.password
     else
-      fill_in :session_email,    with: ''
-      fill_in :session_password, with: ''
+      fill_in :user_email,    with: ''
+      fill_in :user_password, with: ''
     end
-    click_button 'Sign in'
+    click_button 'Log in'
   end
 end

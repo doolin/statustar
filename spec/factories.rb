@@ -2,10 +2,14 @@
 
 FactoryBot.define do
   factory :user do
-    name                  { 'Michael Hartl' }
+    username                  { 'Michael Hartl' }
     email                 { 'mhartl@example.com' }
     password              { 'foobar' }
     password_confirmation { 'foobar' }
+  end
+
+  sequence :username do
+    "Foo van Bar #{('a'..'h').to_a.shuffle.join}"
   end
 
   sequence :email do |n|

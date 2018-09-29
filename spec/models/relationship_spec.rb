@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Relationship do
   before(:each) do
     @follower = create(:user)
-    @followed = create(:user, email: generate(:email))
+    @followed = create(:user, username: 'foobar', email: generate(:email))
     @relationship = @follower.relationships.build(followed_id: @followed.id)
   end
 
@@ -54,14 +54,14 @@ describe Relationship do
   describe 'relationships' do
     before(:each) do
       @attr = {
-        name: 'Example User',
+        username: 'quux',
         email: 'user@example.com',
         password: 'foobar',
         password_confirmation: 'foobar'
       }
 
       @user = User.create!(@attr)
-      @followed = create(:user, email: generate(:email))
+      @followed = create(:user, username: 'baz', email: generate(:email))
     end
 
     it 'has a relationships method' do

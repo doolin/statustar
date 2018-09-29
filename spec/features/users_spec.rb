@@ -7,11 +7,11 @@ describe 'Users', type: :feature do
     context 'failure' do
       it 'fails to make a new user' do
         expect do
-          visit signup_path
-          fill_in 'Name',         with: 'Example user'
+          visit new_user_registration_path
+          # fill_in 'Username',         with: 'Example user'
           fill_in 'Email',        with: 'user@example.com'
           fill_in 'Password',     with: 'foobar'
-          fill_in 'Confirmation', with: ''
+          fill_in 'Password confirmation', with: ''
           click_button 'Sign up'
 
           expect(page.body).to have_selector('#error_explanation')
@@ -22,14 +22,14 @@ describe 'Users', type: :feature do
     context 'success' do
       it 'makes a new user' do
         expect do
-          visit signup_path
-          page.fill_in 'Name', with: 'Example User'
+          visit new_user_registration_path
+          # fill_in 'Username', with: 'Example User'
           fill_in 'Email',        with: 'user@example.com'
           fill_in 'Password',     with: 'foobar'
-          fill_in 'Confirmation', with: 'foobar'
+          fill_in 'Password confirmation', with: 'foobar'
           click_button 'Sign up'
 
-          expect(page.body).to have_selector('.flash.success', text: 'Welcome')
+          expect(page.body).to have_selector('.flash.notice', text: 'Welcome')
         end.to change(User, :count).by(1)
       end
     end
@@ -39,7 +39,7 @@ describe 'Users', type: :feature do
     context 'failure' do
       it 'does not sign a user in' do
         integration_sign_in nil
-        expect(page.body).to have_selector('.flash.error', text: 'Invalid')
+        expect(page.body).to have_selector('.flash.alert', text: 'Invalid')
       end
     end
 

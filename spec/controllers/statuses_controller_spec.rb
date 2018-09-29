@@ -19,7 +19,7 @@ describe StatusesController, type: :controller do
     context 'signed out' do
       it 'renders template with :found' do
         get :index
-        expect(response).to redirect_to(signin_path)
+        expect(response).to redirect_to(new_user_session_path)
         expect(response).to have_http_status(:found)
       end
     end
@@ -45,7 +45,7 @@ describe StatusesController, type: :controller do
     context 'signed out' do
       it 'renders template with ok' do
         get :new
-        expect(response).to redirect_to(signin_path)
+        expect(response).to redirect_to(new_user_session_path)
         expect(response).to have_http_status(:found)
       end
     end
@@ -84,7 +84,7 @@ describe StatusesController, type: :controller do
       it 'redirects to sign in' do
         status = create :status, user: user
         patch :update, params: { id: status.id, status: { state: 3 } }
-        expect(response).to redirect_to(signin_path)
+        expect(response).to redirect_to(new_user_session_path)
         expect(response).to have_http_status(:found)
       end
     end

@@ -3,30 +3,28 @@
 require 'spec_helper'
 
 describe 'Statuses', type: :request do
-  include SessionsHelper
-
   let(:status) { create :status }
 
   context 'signed in' do
     before do
-      post sessions_path, params: {
-        'session' => {
-          'email' => status.user.email, 'password' => status.user.password
-        }
-      }
+      # post new_user_session_path, params: {
+      #   # 'session' => { 'email' => status.user.email, 'password' => status.user.password }
+      #   'email' => status.user.email, 'password' => status.user.password
+      # }
+      sign_in(status.user)
     end
 
     describe 'new' do
       it 'renders new template' do
         get new_status_path
-        expect(response).to be_success
+        expect(response).to have_http_status(:success)
       end
     end
 
     describe 'show' do
       it 'renders show template' do
         get status_path(status)
-        expect(response).to be_success
+        expect(response).to have_http_status(:success)
       end
     end
 
@@ -35,7 +33,7 @@ describe 'Statuses', type: :request do
         get edit_status_path(status)
 
         aggregate_failures do
-          expect(response).to be_success
+          expect(response).to have_http_status(:success)
           # expect(response).to render_template('statuses/edit')
           # expect(response).to render_template('statuses/_form')
           # expect(response).to render_template('layouts/statuses')
@@ -47,7 +45,7 @@ describe 'Statuses', type: :request do
       it 'renders index template' do
         get statuses_path
         aggregate_failures do
-          expect(response).to be_success
+          expect(response).to have_http_status(:success)
           # expect(response).to render_template('statuses/index')
           # expect(response).to render_template('layouts/statuses')
         end
@@ -73,42 +71,42 @@ describe 'Statuses', type: :request do
     describe 'new' do
       it 'redirects to sign in' do
         get new_status_path
-        expect(response).to redirect_to signin_path
+        expect(response).to redirect_to new_user_session_path
       end
     end
 
     describe 'show' do
       it 'renders show template' do
         get status_path(status)
-        expect(response).to be_success
+        expect(response).to have_http_status(:success)
       end
     end
 
     describe 'edit' do
       it 'redirects to sign in' do
         get edit_status_path(status)
-        expect(response).to redirect_to signin_path
+        expect(response).to redirect_to new_user_session_path
       end
     end
 
     describe 'index' do
       it 'redirects to sign in' do
         get statuses_path
-        expect(response).to redirect_to signin_path
+        expect(response).to redirect_to new_user_session_path
       end
     end
 
     describe 'delete' do
       it 'redirects to sign in' do
         delete status_path(status)
-        expect(response).to redirect_to signin_path
+        expect(response).to redirect_to new_user_session_path
       end
     end
 
     describe 'update' do
       it 'redirects to sign in' do
         put status_path(status)
-        expect(response).to redirect_to signin_path
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end

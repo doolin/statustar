@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'users/index.html.haml' do
   let(:user1) { create :user }
-  let(:user2) { create :user, email: 'foo@example.com' }
+  let(:user2) { create :user, username: 'foo', email: 'foo@example.com' }
 
   before(:each) do
     users = [user1, user2]

@@ -3,6 +3,8 @@
 Statustar::Application.routes.draw do
   get 'static/index'
 
+  devise_for :user
+
   resources :users do
     member do
       get :following, :followers
@@ -10,12 +12,12 @@ Statustar::Application.routes.draw do
   end
 
   resources :statuses
-  resources :sessions,      only: %i[new create destroy]
+  # resources :sessions,      only: %i[new create destroy]
   resources :relationships, only: %i[create destroy]
 
-  get    '/signup',  to: 'users#new'
-  get    '/signin',  to: 'sessions#new'
-  delete '/signout', to: 'sessions#destroy'
+  # get    '/signup',  to: 'users#new'
+  # get    '/signin',  to: 'sessions#new'
+  # delete '/signout', to: 'sessions#destroy'
 
   get '/contact', to: 'pages#contact'
   get '/about',   to: 'pages#about'

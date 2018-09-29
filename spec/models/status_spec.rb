@@ -52,8 +52,8 @@ describe Status do
 
   describe 'from_users_followed_by' do
     before(:each) do
-      @other_user = create(:user, email: generate(:email))
-      @third_user = create(:user, email: generate(:email))
+      @other_user = create(:user, username: generate(:username), email: generate(:email))
+      @third_user = create(:user, username: generate(:username), email: generate(:email))
 
       @user_post = @user.statuses.create!(state: 1)
       @other_post = @other_user.statuses.create!(state: 3)

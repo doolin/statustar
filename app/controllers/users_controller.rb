@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :registered,    only: %i[new create]
-  before_action :authenticate,  except: %i[show new create]
-  before_action :correct_user,  only: %i[edit update]
-  before_action :admin_user,    only: :destroy
+  # before_action :registered,    only: %i[new create]
+  before_action :authenticate_user!,  except: %i[show new create]
+  # before_action :correct_user,  only: %i[edit update]
+  # before_action :admin_user,    only: :destroy
 
   def index
     @title = 'All users'
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @statuses = @user.statuses.paginate(page: params[:page])
-    @title = @user.name
+    @title = @user.username
   end
 
   def new
@@ -37,25 +37,28 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user # User.find(params[:id])
     @title = 'Edit user'
   end
 
   def update
-    if @user.update_attributes(permitted_parameters_with_user)
+    if current_user.update_attributes(permitted_parameters_with_user)
       flash[:success] = 'Profile updated.'
-      redirect_to @user
+      redirect_to current_user
     else
+      @user = current_user
       @title = 'Edit user'
       render 'edit'
     end
   end
 
   def destroy
-    user = User.find(params[:id])
-    unless current_user?(user) # Can't delete yourself Mr. Admin!
-      user.destroy
+    # user = User.find(params[:id])
+    # binding.pry
+    # unless user_signed_in? # Can't delete yourself Mr. Admin!
+      current_user.destroy
       flash[:success] = 'User destroyed.'
-    end
+    # end
     redirect_to users_path
   end
 
@@ -90,10 +93,10 @@ class UsersController < ApplicationController
   end
 
   def permitted_parameters_with_user
-    params.require(:user).permit(:email, :name, :password, :password_confirmation)
+    params.require(:user).permit(:email, :username, :password, :password_confirmation)
   end
 
   def permitted_parameters
-    params.permit(:email, :name, :password, :password_confirmation)
+    params.permit(:email, :username, :password, :password_confirmation)
   end
 end

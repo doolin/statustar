@@ -2,5 +2,6 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  include SessionsHelper
+  # before_action :authenticate_user!
+  # include SessionsHelper
 end

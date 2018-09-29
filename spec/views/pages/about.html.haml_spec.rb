@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'pages/about' do
   before do
     allow(view).to receive(:title).and_return('Blah')
-    allow(view).to receive(:signed_in?).and_return(true)
+    allow(view).to receive(:user_signed_in?).and_return(true)
     allow(view).to receive(:current_user).and_return(create(:user))
     allow(view).to receive(:logo).and_return('logo')
   end

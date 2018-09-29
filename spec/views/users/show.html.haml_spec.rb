@@ -10,18 +10,18 @@ describe 'users/show' do
   it 'renders attributes in <p>' do
     user = build :user, id: 1
     allow(view).to receive(:current_user).and_return(user)
-    allow(view).to receive(:signed_in?).and_return(false)
+    allow(view).to receive(:user_signed_in?).and_return(false)
     allow(view).to receive(:gravatar_for).with(user, size: 125)
     render
-    expect(rendered).to match(/#{user.name}/)
+    expect(rendered).to match(/#{user.username}/)
   end
 
   # TODO: there are no actual status updates here, after
   # it's working, add the status updates.
   it 'renders list of status updates' do
     # allow(view).to receive(:signed_in?).and_return(false)
-    allow(view).to receive(:signed_in?).and_return(true)
-    u1 = create(:user, email: 'foobar@example.com')
+    allow(view).to receive(:user_signed_in?).and_return(true)
+    u1 = create(:user, username: 'foo', email: 'foobar@example.com')
     allow(view).to receive(:current_user).and_return(u1)
     allow(view).to receive(:current_user?).with(@user).and_return(true)
     u1.statuses.create(state: 1)
@@ -45,7 +45,8 @@ describe 'users/show' do
         # @users = [@user]
         @users = @user.send(:followers).paginate(page: params[:page])
         allow(view).to receive(:title)
-        allow(view).to receive(:signed_in?).and_return(true)
+        # allow(view).to receive(:signed_in?).and_return(true)
+        allow(view).to receive(:user_signed_in?).and_return(true)
         allow(view).to receive(:current_user).and_return(@user)
         allow(view).to receive(:logo)
 
@@ -63,7 +64,7 @@ describe 'users/show' do
           @users = []
           # @users = @user.send(:followers).paginate(page: params[:page])
           allow(view).to receive(:title)
-          allow(view).to receive(:signed_in?).and_return(true)
+          allow(view).to receive(:user_signed_in?).and_return(true)
           allow(view).to receive(:current_user).and_return(@user)
           allow(view).to receive(:logo)
 
@@ -87,7 +88,7 @@ describe 'users/show' do
   # Need to get signed in correctly to get the correct view
   it 'displays show users' do
     allow(view).to receive(:title)
-    allow(view).to receive(:signed_in?).and_return(true)
+    allow(view).to receive(:user_signed_in?).and_return(true)
     allow(view).to receive(:current_user).and_return(@user)
     allow(view).to receive(:logo)
     render template: 'layouts/application'
@@ -101,7 +102,7 @@ describe 'users/show' do
   # the associated specs.
   it 'has correct <title> element ' do
     allow(view).to receive(:title).and_return('foo')
-    allow(view).to receive(:signed_in?).and_return(true)
+    allow(view).to receive(:user_signed_in?).and_return(true)
     allow(view).to receive(:current_user).and_return(@user)
     allow(view).to receive(:logo)
     render template: 'layouts/application'
