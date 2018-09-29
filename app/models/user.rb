@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
+  include DeviseTokenAuth::Concerns::User
+
   attr_accessor :password
 
   has_many :statuses,      dependent: :destroy
@@ -25,6 +27,8 @@ class User < ActiveRecord::Base
   validates :password,  presence: true,
                         confirmation: true,
                         length: { within: 6..40 }
+
+  # validates :uid, presence: true
 
   before_save :encrypt_password
 

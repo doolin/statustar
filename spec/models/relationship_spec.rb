@@ -4,6 +4,7 @@ require 'spec_helper'
 
 describe Relationship do
   before(:each) do
+    User.destroy_all
     @follower = create(:user)
     @followed = create(:user, email: generate(:email))
     @relationship = @follower.relationships.build(followed_id: @followed.id)
@@ -56,6 +57,7 @@ describe Relationship do
       @attr = {
         name: 'Example User',
         email: 'user@example.com',
+        uid: 'user@example.com',
         password: 'foobar',
         password_confirmation: 'foobar'
       }

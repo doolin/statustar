@@ -22,16 +22,53 @@ RSpec.configure do |config|
   #   c.syntax = [:expect, :should]
   # end
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+  # If you're not using ActiveRecord, or you'd prefer not to run each of your
+  # examples within a transaction, remove the following line or assign false
+  # instead of true.
+  config.use_transactional_fixtures = false
+
+  # config.before(:suite) do
+  config.before(:suite) { DatabaseCleaner.clean_with(:truncation) }
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:deletion)
   end
 
   config.around(:each) do |example|
     DatabaseCleaner.cleaning do
+      DatabaseCleaner.start
       example.run
+      DatabaseCleaner.clean
     end
   end
+
+  config.append_after(:each) { DatabaseCleaner.clean }
+
+
+=begin
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    # DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.strategy = :deletion
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  config.after(:all) do
+    # DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:deletion)
+  end
+=end
 
   config.include FactoryBot::Syntax::Methods
 
@@ -42,11 +79,6 @@ RSpec.configure do |config|
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
 
   def test_sign_in(user)
     controller.sign_in(user)
