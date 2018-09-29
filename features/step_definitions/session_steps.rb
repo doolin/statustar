@@ -6,7 +6,7 @@ Given /^user is not logged in$/ do
 end
 
 Given /^user name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  User.new(name: name,
+  User.new(username: name,
            email: email,
            password: password,
            password_confirmation: password).save!
@@ -15,7 +15,7 @@ end
 When %r{^I sign in as "(.*)/(.*)"$} do |email, password|
   step %(I fill in "Email" with "#{email}")
   step %(I fill in "Password" with "#{password}")
-  step %(I press "Sign in")
+  step %(I press "Log in")
 end
 
 # TODO: change this to check for a unique page id or something.
@@ -25,13 +25,13 @@ end
 
 # Signing out steps
 Given /^user is logged in with "([^"]*)"$/ do |userpass|
-  visit('/signin')
-  step %(user name is "foo" with email "user@test.com" and password "please")
+  visit('/user/sign_in')
+  step %(user name is "foo" with email "user@test.com" and password "password")
   step %(I sign in as "#{userpass}")
 end
 
-When /^user clicks "([^"]*)" link$/ do |_arg1|
-  step %(I follow "Sign out")
+When /^user clicks "([^"]*)" link$/ do |arg1|
+  step %(I follow "#{arg1}")
 end
 
 # Any sign out step should result in a way to

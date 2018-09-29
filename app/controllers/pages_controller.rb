@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   # before_action :authenticate_user!, except: [:home]
 
   def home
+    binding.pry
     @title = 'Home'
     if signed_in?
       @status = Status.new

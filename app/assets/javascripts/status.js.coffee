@@ -7,4 +7,3 @@ $(document).ready ->
     $("#new_status")
       .bind "ajax:success", (event, data) ->
         alert("Ajax SUCCESS!!!")
-        

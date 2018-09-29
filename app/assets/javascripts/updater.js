@@ -1,10 +1,10 @@
 /**
- * 
+ *
  */
 
 $(document).ready(function(){
   $('table.statuses tbody').prepend('').fadeIn();
-  
+
   $('input.maybe').click(function(event) {
      alert("Thanks for visiting!");
    });

@@ -13,6 +13,7 @@ Feature: Users log in to sessions.
     And I should be signed in
     Then I should see "updates"
 
+  @wip
   Scenario: Users signs out successfully
     Given user is logged in with "user@test.com/please"
     When user clicks "sign out" link
