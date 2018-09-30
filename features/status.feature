@@ -22,6 +22,7 @@ Feature: Users manipulate their status updates
       #| Open      | Busy      |
       #| Open      | Maybe     |
 
+  @wip
   Scenario: Updating statuses
     Given user is logged in with "user@test.com/please"
     And the user is on the home page
@@ -29,6 +30,7 @@ Feature: Users manipulate their status updates
     Then the updated status should be displayed
 
   # Delete but not modify
+  @wip
   Scenario: Displaying status
     Given user is logged in with "user@test.com/please"
     Then the user must not be able to delete existing statuses
