@@ -14,12 +14,12 @@ describe UsersController, type: :controller do
 
     it 'succeeds' do
       get :show, params: { id: user }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'finds the right user' do
       get :show, params: { id: user }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'has the right title' do
@@ -49,7 +49,7 @@ describe UsersController, type: :controller do
   describe '.new', type: :feature do
     it 'succeeds' do
       get :new
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'redirects to root url when signed in' do
@@ -103,7 +103,7 @@ describe UsersController, type: :controller do
 
       it 'renders the signup page' do
         post :create, params: { user: @attr }
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -155,7 +155,7 @@ describe UsersController, type: :controller do
 
     it 'succeeds' do
       get :edit, params: { id: user }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'has the right title' do
@@ -274,7 +274,7 @@ describe UsersController, type: :controller do
 
       it 'succeeds' do
         get :index
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'has the right title' do
