@@ -12,7 +12,7 @@ describe PagesController, type: :controller do
       before { get :home }
 
       it 'succeeds' do
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'has the right title' do
@@ -25,7 +25,7 @@ describe PagesController, type: :controller do
     before { get :contact }
 
     it 'succeeds' do
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'has the right title' do
@@ -37,7 +37,7 @@ describe PagesController, type: :controller do
     before { get :about }
 
     it 'succeeds' do
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'has the right title' do
@@ -49,7 +49,7 @@ describe PagesController, type: :controller do
     before { get :help }
 
     it 'succeeds' do
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'has the right title' do
